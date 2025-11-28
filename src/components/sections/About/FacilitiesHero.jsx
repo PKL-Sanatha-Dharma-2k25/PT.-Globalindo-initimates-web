@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
+const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilities.mp4", onBack }) => {
   const scrollToSection = () => {
     const facilitiesSection = document.getElementById('facilities');
     if (facilitiesSection) {
@@ -35,7 +33,6 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) =
           muted
           loop
           playsInline
-          onLoadedData={() => setIsVideoLoaded(true)}
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
@@ -113,16 +110,6 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) =
           <ChevronDown className="w-4 h-4 group-hover:animate-bounce" />
         </button>
       </div>
-
-      {/* Video Loading Indicator */}
-      {!isVideoLoaded && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70">
-          <div className="text-center">
-            <div className="w-12 h-12 rounded-full border-4 border-white/30 border-t-white animate-spin mx-auto mb-4"></div>
-            <p className="text-white text-sm font-light">Memuat...</p>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
