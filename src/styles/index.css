@@ -1,0 +1,660 @@
+/* ========================================
+   GOOGLE FONTS IMPORT
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lato:wght@300;400;500;700&display=swap');
+
+/* ========================================
+   TAILWIND DIRECTIVES - WAJIB
+   ======================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --font-playfair: 'Playfair Display', serif;
+        --font-lato: 'Lato', sans-serif;
+    }
+
+    body {
+        font-family: var(--font-lato);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.5;
+        color: #1f2937;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+
+    /* Better heading line height */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-playfair);
+        line-height: 1.2;
+        font-weight: 700;
+    }
+}
+
+/* ========================================
+   FONT FAMILY UTILITY CLASSES
+   ======================================== */
+@layer components {
+    .font-playfair {
+        font-family: var(--font-playfair);
+    }
+
+    .font-lato {
+        font-family: var(--font-lato);
+    }
+
+    .hero-heading {
+        font-family: var(--font-playfair);
+    }
+
+    .hero-text {
+        font-family: var(--font-lato);
+    }
+}
+
+/* ========================================
+   REUSABLE COMPONENTS
+   ======================================== */
+@layer components {
+
+    /* Gradient Text */
+    .gradient-text-blue {
+        @apply bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent;
+    }
+
+    .gradient-text-orange {
+        @apply bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent;
+    }
+
+    /* Cards */
+    .card-base {
+        @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1;
+    }
+
+    .card-feature {
+        @apply card-base p-4 md:p-5 lg:p-6;
+    }
+
+    .card-info {
+        @apply card-base p-3 md:p-4 lg:p-5;
+    }
+
+    /* Buttons */
+    .btn-base {
+        @apply font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
+    }
+
+    .btn-primary-blue {
+        @apply btn-base bg-blue-900 hover:bg-blue-800 text-white;
+    }
+
+    .btn-primary-orange {
+        @apply btn-base bg-orange-500 hover:bg-orange-600 text-white;
+    }
+
+    .btn-outline {
+        @apply btn-base border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white;
+    }
+
+    /* Section */
+    .section-padding {
+        @apply py-12 md:py-16 lg:py-20;
+    }
+
+    .section-container {
+        @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+    }
+
+    /* ========================================
+       FORM STYLING
+       ======================================== */
+    .form-input {
+        @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+    }
+
+    .form-textarea {
+        @apply form-input resize-none min-h-[120px];
+    }
+
+    .form-select {
+        @apply form-input appearance-none cursor-pointer bg-white;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+
+    .form-label {
+        @apply block text-sm font-medium text-gray-700 mb-2;
+    }
+
+    .form-error {
+        @apply text-xs text-red-600 mt-1;
+    }
+
+    .form-helper {
+        @apply text-xs text-gray-500 mt-1;
+    }
+
+    .form-group {
+        @apply space-y-2;
+    }
+
+    /* ========================================
+       TABLE STYLING
+       ======================================== */
+    .table-base {
+        @apply w-full border-collapse;
+    }
+
+    .table-header {
+        @apply bg-gray-50 border-b border-gray-200;
+    }
+
+    .table-header th {
+        @apply px-4 py-3 text-left text-sm font-semibold text-gray-700;
+    }
+
+    .table-body td {
+        @apply px-4 py-3 border-b border-gray-200 text-sm text-gray-600;
+    }
+
+    .table-row {
+        @apply hover:bg-gray-50 transition-colors;
+    }
+
+    .table-row:last-child td {
+        @apply border-b-0;
+    }
+
+    /* ========================================
+       ALERTS / NOTIFICATIONS
+       ======================================== */
+    .alert {
+        @apply p-4 rounded-lg flex items-start gap-3 border transition-all duration-300;
+    }
+
+    .alert-success {
+        @apply bg-green-50 border-green-200 text-green-800;
+    }
+
+    .alert-error {
+        @apply bg-red-50 border-red-200 text-red-800;
+    }
+
+    .alert-warning {
+        @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+    }
+
+    .alert-info {
+        @apply bg-blue-50 border-blue-200 text-blue-800;
+    }
+
+    .alert-icon {
+        @apply w-5 h-5 flex-shrink-0 mt-0.5;
+    }
+
+    .alert-title {
+        @apply font-semibold text-sm;
+    }
+
+    .alert-description {
+        @apply text-sm opacity-90;
+    }
+
+    /* ========================================
+       MODAL & OVERLAY
+       ======================================== */
+    .modal-overlay {
+        @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
+    }
+
+    .modal-content {
+        @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-50 max-h-[90vh] overflow-y-auto;
+    }
+
+    .modal-header {
+        @apply flex items-center justify-between p-6 border-b border-gray-200;
+    }
+
+    .modal-body {
+        @apply p-6;
+    }
+
+    .modal-footer {
+        @apply flex items-center justify-end gap-3 p-6 border-t border-gray-200;
+    }
+
+    /* ========================================
+       TOOLTIP & POPOVER
+       ======================================== */
+    .tooltip {
+        @apply absolute bg-gray-900 text-white px-3 py-2 rounded-lg text-xs whitespace-nowrap z-50 shadow-lg;
+    }
+
+    .popover {
+        @apply absolute bg-white rounded-lg shadow-xl border border-gray-200 z-50 p-4;
+    }
+
+    /* ========================================
+       BREADCRUMB
+       ======================================== */
+    .breadcrumb {
+        @apply flex items-center gap-2 text-sm;
+    }
+
+    .breadcrumb-item {
+        @apply text-gray-600 hover:text-blue-900 transition-colors;
+    }
+
+    .breadcrumb-separator {
+        @apply text-gray-400;
+    }
+
+    .breadcrumb-item.active {
+        @apply text-gray-900 font-medium;
+    }
+}
+
+/* ========================================
+   LOADING & SKELETON STATES
+   ======================================== */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@layer components {
+    .skeleton {
+        @apply bg-gray-200 animate-pulse rounded;
+    }
+
+    .skeleton-text {
+        @apply skeleton h-4 w-full;
+    }
+
+    .skeleton-card {
+        @apply skeleton h-48 w-full rounded-xl;
+    }
+
+    .loading-spinner {
+        @apply inline-block w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full;
+        animation: spin 1s linear infinite;
+    }
+}
+
+/* ========================================
+   UTILITY HELPERS
+   ======================================== */
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .backdrop-blur-custom {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Hover & Interactive States */
+    .hover-lift {
+        @apply hover:-translate-y-1 transition-transform duration-200;
+    }
+
+    .hover-scale {
+        @apply hover:scale-105 transition-transform duration-200;
+    }
+
+    .hover-glow {
+        @apply hover:shadow-lg hover:shadow-blue-500/20 transition-shadow duration-200;
+    }
+
+    .disabled-state {
+        @apply opacity-50 cursor-not-allowed pointer-events-none;
+    }
+
+    .group-hover-visible {
+        @apply opacity-0 group-hover:opacity-100 transition-opacity;
+    }
+
+    /* Transition Helpers */
+    .transition-fast {
+        @apply transition-all duration-150 ease-in-out;
+    }
+
+    .transition-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
+    .transition-slow {
+        @apply transition-all duration-500 ease-in-out;
+    }
+
+    /* Responsive Typography */
+    .text-fluid-sm {
+        @apply text-xs md:text-sm lg:text-base;
+    }
+
+    .text-fluid-base {
+        @apply text-sm md:text-base lg:text-lg;
+    }
+
+    .text-fluid-lg {
+        @apply text-base md:text-lg lg:text-xl;
+    }
+
+    .truncate-2 {
+        @apply line-clamp-2 overflow-hidden;
+    }
+
+    .truncate-3 {
+        @apply line-clamp-3 overflow-hidden;
+    }
+
+    /* Flex Utilities */
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .flex-col-custom {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ========================================
+   ANIMATIONS - BASIC
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slideUp {
+    animation: slideUp 1s ease-out;
+    animation-fill-mode: both;
+}
+
+/* ========================================
+   HERO ANIMATIONS - ADVANCED
+   ======================================== */
+
+/* Floating Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float-delayed {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Scroll Indicator Animation */
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Particle Animations */
+@keyframes float-particle {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(10px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes float-particle-delayed {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-40px) translateX(-15px);
+        opacity: 0.7;
+    }
+}
+
+@keyframes float-particle-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-25px) translateX(20px);
+        opacity: 0.9;
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce-slow {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Animation Classes */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.animate-float-slow {
+    animation: float-slow 10s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+.animate-scroll {
+    animation: scroll 2s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 3s infinite;
+}
+
+.animate-float-particle {
+    animation: float-particle 8s ease-in-out infinite;
+}
+
+.animate-float-particle-delayed {
+    animation: float-particle-delayed 10s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.animate-float-particle-slow {
+    animation: float-particle-slow 12s ease-in-out infinite;
+    animation-delay: 4s;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+*:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
