@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { X, Package, Shield, Zap } from "lucide-react";
 
 // ========================================
-// PRODUCT DATA - SESUAI DOKUMEN SPESIFIKASI
+// PRODUCT DATA
 // ========================================
 const products = [
   {
@@ -204,9 +204,9 @@ const products = [
   {
     id: 10,
     name: "Kids Wear",
-    image: "/images/Product/kl.png",
+    image: "/images/Product/ll.png",
     category: "Kids Wear",
-    mainImage: "/images/Product/kl.png",
+    mainImage: "/images/Product/ll.png",
     descriptionShort: "We can produce various kinds of children's clothing with various types of shapes and sizes.",
     descriptionLong: "Kami dapat memproduksi berbagai jenis pakaian anak-anak dengan berbagai jenis bentuk dan ukuran. Children's clothing with child-friendly materials yang aman, nyaman, dan tahan lama untuk anak-anak.",
     variantImages: [
@@ -225,7 +225,7 @@ const products = [
 ];
 
 // ========================================
-// PRODUCT DETAIL MODAL
+// PRODUCT DETAIL MODAL - RESPONSIVE
 // ========================================
 const ProductDetailModal = ({ product, onClose }) => {
   const [mainImage, setMainImage] = useState(product.mainImage);
@@ -238,20 +238,20 @@ const ProductDetailModal = ({ product, onClose }) => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-6xl my-8">
+    <div className="fixed inset-0 z-50 flex items-end lg:items-center justify-center p-0 lg:p-4 bg-black/50 backdrop-blur-sm overflow-y-auto lg:overflow-visible">
+      <div className="relative bg-white rounded-t-3xl lg:rounded-2xl shadow-2xl w-full lg:max-w-6xl max-h-[95vh] lg:max-h-none overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all"
+          className="sticky lg:absolute top-4 right-4 z-20 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all float-right"
         >
-          <X className="w-6 h-6 text-gray-700" />
+          <X className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 p-4 lg:p-8">
           {/* Left Side - Images */}
-          <div className="lg:col-span-1 space-y-4">
+          <div className="lg:col-span-1 space-y-3 lg:space-y-4">
             {/* Main Image */}
-            <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4]">
+            <div className="relative rounded-lg lg:rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4]">
               <img
                 src={mainImage}
                 alt={product.name}
@@ -286,10 +286,10 @@ const ProductDetailModal = ({ product, onClose }) => {
           </div>
 
           {/* Middle - Description & Features */}
-          <div className="lg:col-span-1 space-y-6 py-2">
+          <div className="lg:col-span-1 space-y-3 lg:space-y-6 py-0 lg:py-2">
             {/* Title */}
             <div>
-              <h1 className="text-3xl md:text-4xl font-black text-[#FF6600] mb-1">{product.name}</h1>
+              <h1 className="text-xl lg:text-4xl font-black text-[#FF6600] mb-1">{product.name}</h1>
               <div className="h-1 w-24 bg-gradient-to-r from-[#FF6600] to-[#0D1B66] rounded-full mt-3"></div>
             </div>
 
@@ -301,25 +301,25 @@ const ProductDetailModal = ({ product, onClose }) => {
             </div>
 
             {/* Description Short */}
-            <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-[#FF6600]">
-              <p className="text-sm text-gray-700 leading-relaxed font-semibold">
+            <div className="bg-orange-50 p-3 lg:p-4 rounded-lg border-l-4 border-[#FF6600]">
+              <p className="text-xs lg:text-sm text-gray-700 leading-relaxed font-semibold">
                 {product.descriptionShort}
               </p>
             </div>
 
             {/* Description Long */}
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">
               {product.descriptionLong}
             </p>
 
             {/* Features List */}
             <div>
-              <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Features & Specifications</h3>
-              <div className="grid grid-cols-2 gap-3">
+              <h3 className="text-xs lg:text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Features & Specifications</h3>
+              <div className="grid grid-cols-2 gap-2 lg:gap-3">
                 {product.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded">
-                    <Zap className="w-4 h-4 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
-                    <span className="text-xs text-gray-700 font-medium">{feature}</span>
+                    <Zap className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
+                    <span className="text-xs lg:text-xs text-gray-700 font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -327,19 +327,19 @@ const ProductDetailModal = ({ product, onClose }) => {
           </div>
 
           {/* Right Side - Additional Info */}
-          <div className="lg:col-span-1 space-y-6 flex flex-col justify-between py-2">
+          <div className="lg:col-span-1 space-y-3 lg:space-y-6 flex flex-col justify-between py-0 lg:py-2">
             {/* 4 Layers Protection - Period Panty */}
             {product.layersProtection && (
-              <div className="p-4 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
-                <h4 className="text-sm font-bold mb-4 flex items-center gap-2" style={{color: '#FF6600'}}>
-                  <Shield className="w-5 h-5" />
-                  4 LAYERS PROTECTION
+              <div className="p-3 lg:p-4 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
+                <h4 className="text-xs lg:text-sm font-bold mb-2 lg:mb-4 flex items-center gap-2" style={{color: '#FF6600'}}>
+                  <Shield className="w-4 h-4 lg:w-5 lg:h-5" />
+                  4 LAYERS
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 lg:space-y-3">
                   {product.layersProtection.map((layer, idx) => (
                     <li key={idx} className="text-xs text-gray-700">
                       <div className="flex gap-2">
-                        <span className="text-[#FF6600] font-bold min-w-fit">Layer {idx + 1}:</span>
+                        <span className="text-[#FF6600] font-bold min-w-fit">L{idx + 1}:</span>
                         <span className="font-medium">{layer}</span>
                       </div>
                     </li>
@@ -349,13 +349,13 @@ const ProductDetailModal = ({ product, onClose }) => {
             )}
 
             {/* Quality Info */}
-            <div className="p-4 rounded-lg border-l-4" style={{backgroundColor: '#0D1B6615', borderColor: '#0D1B66'}}>
-              <h4 className="text-sm font-bold mb-2 flex items-center gap-2" style={{color: '#0D1B66'}}>
-                <Shield className="w-5 h-5" />
+            <div className="p-3 lg:p-4 rounded-lg border-l-4" style={{backgroundColor: '#0D1B6615', borderColor: '#0D1B66'}}>
+              <h4 className="text-xs lg:text-sm font-bold mb-2 flex items-center gap-2" style={{color: '#0D1B66'}}>
+                <Shield className="w-4 h-4 lg:w-5 lg:h-5" />
                 PREMIUM QUALITY
               </h4>
               <p className="text-xs text-gray-700 leading-relaxed">
-                International standards with high-quality materials designed for maximum comfort and durability.
+                International standards with high-quality materials.
               </p>
             </div>
 
@@ -521,7 +521,7 @@ export default function ProductSection() {
       <section id="products" className="relative py-12 md:py-20 bg-white overflow-hidden">
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Header */}
-          <div className="text-left mb-16">
+          <div className="text-left mb-8 md:mb-16">
             <div className="flex items-center gap-3 mb-2">
               <p className="text-xs font-bold uppercase tracking-widest" style={{color: '#FF6600'}}>
                 Discover Our
@@ -529,26 +529,27 @@ export default function ProductSection() {
               <div className="h-1 w-12 bg-gradient-to-r from-[#FF6600] to-transparent rounded-full"></div>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Comfort Meets <span style={{color: '#FF6600'}}>Style</span>
             </h2>
 
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-4 md:mb-6">
               <div className="h-1 w-20 bg-gradient-to-r from-[#FF6600] via-[#0D1B66] to-transparent rounded-full"></div>
               <div className="h-1 w-20 bg-gradient-to-r from-[#0D1B66] to-transparent rounded-full"></div>
             </div>
             
             <p className="text-sm md:text-base text-gray-600 max-w-2xl">
-              Engineered for real life. Our collections combine superior comfort with contemporary design, backed by rigorous quality testing.</p>
+              Engineered for real life. Our collections combine superior comfort with contemporary design, backed by rigorous quality testing.
+            </p>
           </div>
 
           {/* CATEGORY FILTER */}
-          <div className="mb-12 flex flex-wrap gap-3">
+          <div className="mb-8 md:mb-12 flex flex-wrap gap-2 md:gap-3">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 md:px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                className={`px-3 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                   activeCategory === cat
                     ? 'text-white shadow-lg'
                     : 'text-gray-700 border-2 border-gray-300 hover:border-[#FF6600] hover:text-[#FF6600]'
@@ -562,8 +563,8 @@ export default function ProductSection() {
 
           {/* MAIN ROW - 5 PRODUCTS */}
           {filteredProducts.length > 0 && (
-            <div className="mb-16">
-              <div className="flex items-start justify-center gap-3 md:gap-4">
+            <div className="mb-8 md:mb-16">
+              <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
                 {filteredProducts.slice(0, 5).map((product, idx) => {
                   const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
                   return (
@@ -576,13 +577,25 @@ export default function ProductSection() {
                   );
                 })}
               </div>
+
+              {/* Mobile Grid - 2x3 for first 5 products */}
+              <div className="md:hidden grid grid-cols-2 gap-2">
+                {filteredProducts.slice(0, 5).map((product) => (
+                  <div key={product.id} className="h-56">
+                    <ProductCard 
+                      product={product}
+                      onViewDetails={setSelectedProduct}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {/* SECONDARY ROW - 5 PRODUCTS */}
           {filteredProducts.length > 5 && (
-            <div className="mb-16">
-              <div className="flex items-start justify-center gap-3 md:gap-4">
+            <div className="mb-8 md:mb-16">
+              <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
                 {filteredProducts.slice(5, 10).map((product, idx) => {
                   const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
                   return (
@@ -594,6 +607,18 @@ export default function ProductSection() {
                     </div>
                   );
                 })}
+              </div>
+
+              {/* Mobile Grid - 2x3 for products 6-10 */}
+              <div className="md:hidden grid grid-cols-2 gap-2">
+                {filteredProducts.slice(5, 10).map((product) => (
+                  <div key={product.id} className="h-56">
+                    <ProductCard 
+                      product={product}
+                      onViewDetails={setSelectedProduct}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           )}

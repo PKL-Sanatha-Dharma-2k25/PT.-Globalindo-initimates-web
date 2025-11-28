@@ -77,7 +77,8 @@ const App = () => {
           <NewsPage onBack={() => handleNavigateTo("landing")} />
         )}
 
-        <Footer />
+        {/* Footer dengan navigation */}
+        <Footer onNavigateTo={handleNavigateTo} />
       </div>
     </LanguageProvider>
   );

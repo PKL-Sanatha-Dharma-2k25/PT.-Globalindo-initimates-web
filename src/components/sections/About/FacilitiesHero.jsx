@@ -11,7 +11,7 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilities.mp4", onBack }) 
   };
 
   return (
-    <section className="relative w-full min-h-[480px] md:min-h-[560px] lg:h-[640px] overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen overflow-hidden bg-black flex items-center">
       
       {/* Back Button - Top Left */}
       {onBack && (
@@ -42,7 +42,7 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilities.mp4", onBack }) 
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
           {/* Subtitle */}

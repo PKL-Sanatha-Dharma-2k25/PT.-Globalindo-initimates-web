@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Youtube } from "lucide-react";
 
 const designTokens = {
   colors: {
@@ -33,30 +33,24 @@ const Footer = ({ onNavigateTo }) => {
       name: 'Instagram',
       icon: <Instagram className="w-5 h-5" />,
       hoverColor: 'from-orange-500 to-orange-600',
-      url: 'https://instagram.com/globalindo-intimates',
+      url: 'https://www.instagram.com/explore/locations/59657656/ptglobalindo-intimates/',
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
       hoverColor: 'from-blue-500 to-blue-600',
-      url: 'https://linkedin.com/company/globalindo-intimates',
-    },
-    {
-      name: 'Twitter',
-      icon: <Twitter className="w-5 h-5" />,
-      hoverColor: 'from-blue-400 to-blue-500',
-      url: 'https://twitter.com/globalindo-intimates',
+      url: 'https://id.linkedin.com/company/globalindo-intimates',
     },
     {
       name: 'YouTube',
       icon: <Youtube className="w-5 h-5" />,
       hoverColor: 'from-red-500 to-red-600',
-      url: 'https://youtube.com/@globalindo-intimates',
+      url: 'https://www.youtube.com/watch?v=jEWGb2kieic',
     },
   ];
 
   const quickLinks = [
-    { label: 'About Us', page: 'about' },
+    { label: 'About Us', page: 'company-profile' },
     { label: 'Our Products', page: 'products' },
     { label: 'Our Team', page: 'team' },
     { label: 'Facilities', page: 'facilities' },
@@ -79,12 +73,12 @@ const Footer = ({ onNavigateTo }) => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16 lg:py-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 md:py-12 lg:py-20 relative z-10">
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12 mb-6 md:mb-8">
           
           {/* Company Info */}
-          <div className="md:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
                 src="/images/icon.PNG" 
@@ -92,14 +86,14 @@ const Footer = ({ onNavigateTo }) => {
                 className="w-10 h-10 object-cover rounded-lg"
               />
               <div>
-                <h3 className="text-lg font-medium bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                <h3 className="text-base md:text-lg font-medium bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   PT. Globalindo Intimates
                 </h3>
                 <p className="text-xs" style={{ color: colors.neutral.gray[400] }}>Excellence in Every Stitch</p>
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed max-w-md" style={{ color: colors.neutral.gray[400] }}>
+            <p className="text-xs md:text-sm leading-relaxed max-w-md" style={{ color: colors.neutral.gray[400] }}>
               Leading manufacturer of premium intimate apparel, committed to quality, innovation, and sustainable practices.
             </p>
 
@@ -126,7 +120,7 @@ const Footer = ({ onNavigateTo }) => {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-medium relative inline-block" style={{ color: colors.neutral.white }}>
+            <h4 className="text-xs md:text-sm font-medium relative inline-block" style={{ color: colors.neutral.white }}>
               Quick Links
               <div className="absolute bottom-0 left-0 w-10 h-0.5 bg-gradient-to-r from-orange-500 to-transparent"></div>
             </h4>
@@ -135,7 +129,7 @@ const Footer = ({ onNavigateTo }) => {
                 <li key={index}>
                   <button 
                     onClick={() => onNavigateTo && onNavigateTo(link.page)}
-                    className={`flex items-center gap-2 group text-sm ${transitions.base}`}
+                    className={`flex items-center gap-2 group text-xs md:text-sm ${transitions.base}`}
                     style={{ color: colors.neutral.gray[400], background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                     onMouseEnter={(e) => e.currentTarget.style.color = colors.primary.orange}
                     onMouseLeave={(e) => e.currentTarget.style.color = colors.neutral.gray[400]}
@@ -150,7 +144,7 @@ const Footer = ({ onNavigateTo }) => {
 
           {/* Contact Info */}
           <div className="space-y-3">
-            <h4 className="text-sm font-medium relative inline-block" style={{ color: colors.neutral.white }}>
+            <h4 className="text-xs md:text-sm font-medium relative inline-block" style={{ color: colors.neutral.white }}>
               Get in Touch
               <div className="absolute bottom-0 left-0 w-10 h-0.5 bg-gradient-to-r from-orange-500 to-transparent"></div>
             </h4>
@@ -210,7 +204,7 @@ const Footer = ({ onNavigateTo }) => {
         </div>
 
         {/* Divider */}
-        <div className="relative my-6">
+        <div className="relative my-4 md:my-6">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t" style={{ borderColor: colors.neutral.gray[700] }}></div>
           </div>
@@ -226,13 +220,13 @@ const Footer = ({ onNavigateTo }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs mb-6" style={{ color: colors.neutral.gray[400] }}>
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-3 text-xs mb-4 md:mb-6" style={{ color: colors.neutral.gray[400] }}>
+          <div className="flex flex-col md:flex-row items-center gap-2">
             <span>&copy; {currentYear} PT. Globalindo Intimates.</span>
             <span className="hidden md:inline">|</span>
             <span>All rights reserved.</span>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
             <a 
               href="#privacy" 
               className={transitions.base}
@@ -242,7 +236,7 @@ const Footer = ({ onNavigateTo }) => {
             >
               Privacy Policy
             </a>
-            <span>|</span>
+            <span className="hidden md:inline">|</span>
             <a 
               href="#terms" 
               className={transitions.base}
@@ -252,7 +246,7 @@ const Footer = ({ onNavigateTo }) => {
             >
               Terms of Service
             </a>
-            <span>|</span>
+            <span className="hidden md:inline">|</span>
             <a 
               href="#sitemap" 
               className={transitions.base}
