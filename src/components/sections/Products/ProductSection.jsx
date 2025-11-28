@@ -77,13 +77,13 @@ const products = [
   {
     id: 4,
     name: "Ladies Shapewear",
-    image: "/images/Product/Picture5.png",
+    image: "/images/Product/Picture2.png",
     category: "Ladies Shapewear",
-    mainImage: "/images/Product/Picture5.png",
+    mainImage: "/images/Product/Picture2.png",
     descriptionShort: "We can provide shapewear in any shape and size and specifically designed to achieve the ideal body shape.",
     descriptionLong: "Kami dapat menyediakan shapewear dalam bentuk apa pun dan ukuran apa pun dan dirancang khusus untuk mencapai bentuk tubuh ideal. Tersedia dalam berbagai pilihan desain dan warna untuk kenyamanan maksimal.",
     variantImages: [
-      "/images/Product/Picture5.png",
+      "/images/Product/Picture2.png",
       "/images/Product/Picture2.png",
     ],
     features: [
@@ -141,9 +141,9 @@ const products = [
   {
     id: 7,
     name: "Swimwear",
-    image: "/images/Product/Picture7.png",
+    image: "/images/Product/Picture5.png",
     category: "Swimwear",
-    mainImage: "/images/Product/Picture7.png",
+    mainImage: "/images/Product/Picture5.png",
     descriptionShort: "We can produce various kinds of swimwear of various sizes, shapes, colors, and ages, even with special functions.",
     descriptionLong: "Kami dapat memproduksi berbagai jenis swimwear dengan berbagai ukuran, bentuk, warna, dan usia, bahkan dengan fungsi khusus. Period swimsuit dengan teknologi perlindungan untuk kenyamanan berenang dan aktivitas air.",
     variantImages: [
