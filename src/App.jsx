@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { LanguageProvider } from "./context/LanguageContext";
-import Navigation from "./components/layout/Navigation/navigation";
+import Navigation from "./components/layout/Navigation/Navigation";
 import Footer from "./components/layout/Footer/Footer";
 import HeroSection from "./components/sections/Hero/HeroSection";
 import PreviewCards from "./components/sections/Landing/PreviewCards";
