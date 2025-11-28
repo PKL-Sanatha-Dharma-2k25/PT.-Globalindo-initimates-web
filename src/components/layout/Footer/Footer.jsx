@@ -25,7 +25,7 @@ const designTokens = {
 
 const { colors, transitions } = designTokens;
 
-const Footer = () => {
+const Footer = ({ onNavigateTo }) => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -33,25 +33,39 @@ const Footer = () => {
       name: 'Instagram',
       icon: <Instagram className="w-5 h-5" />,
       hoverColor: 'from-orange-500 to-orange-600',
+      url: 'https://instagram.com/globalindo-intimates',
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
       hoverColor: 'from-blue-500 to-blue-600',
+      url: 'https://linkedin.com/company/globalindo-intimates',
     },
     {
       name: 'Twitter',
       icon: <Twitter className="w-5 h-5" />,
       hoverColor: 'from-blue-400 to-blue-500',
+      url: 'https://twitter.com/globalindo-intimates',
     },
     {
       name: 'YouTube',
       icon: <Youtube className="w-5 h-5" />,
       hoverColor: 'from-red-500 to-red-600',
+      url: 'https://youtube.com/@globalindo-intimates',
     },
   ];
 
-  const quickLinks = ['About Us', 'Our Products', 'Our Team', 'Careers', 'Contact'];
+  const quickLinks = [
+    { label: 'About Us', page: 'about' },
+    { label: 'Our Products', page: 'products' },
+    { label: 'Our Team', page: 'team' },
+    { label: 'Facilities', page: 'facilities' },
+    { label: 'Contact', page: 'contact' },
+  ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="relative overflow-hidden" style={{ backgroundColor: colors.neutral.gray[900] }}>
@@ -94,7 +108,9 @@ const Footer = () => {
               {socialLinks.map((social, idx) => (
                 <a 
                   key={idx}
-                  href="#" 
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`group w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center ${transitions.base} transform hover:-translate-y-1`}
                   title={social.name}
                   style={{ backgroundColor: colors.neutral.gray[800] }}
@@ -117,16 +133,16 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} 
+                  <button 
+                    onClick={() => onNavigateTo && onNavigateTo(link.page)}
                     className={`flex items-center gap-2 group text-sm ${transitions.base}`}
-                    style={{ color: colors.neutral.gray[400] }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = colors.colors.primary.orange}
+                    style={{ color: colors.neutral.gray[400], background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = colors.primary.orange}
                     onMouseLeave={(e) => e.currentTarget.style.color = colors.neutral.gray[400]}
                   >
                     <span className="w-0 group-hover:w-1.5 h-0.5 transition-all duration-300" style={{ backgroundColor: colors.primary.orange }}></span>
-                    {link}
-                  </a>
+                    {link.label}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -180,13 +196,13 @@ const Footer = () => {
                   </svg>
                 </div>
                 <a 
-                  href="tel:0212301120" 
+                  href="tel:+62212301120" 
                   className={`text-xs ${transitions.base}`}
                   style={{ color: colors.neutral.gray[400] }}
                   onMouseEnter={(e) => e.currentTarget.style.color = colors.primary.orange}
                   onMouseLeave={(e) => e.currentTarget.style.color = colors.neutral.gray[400]}
                 >
-                  0212 - 301120
+                  +62 212 301120
                 </a>
               </li>
             </ul>
@@ -251,15 +267,16 @@ const Footer = () => {
 
         {/* Back to Top Button */}
         <div className="flex justify-center">
-          <a 
-            href="#top" 
-            className={`group w-10 h-10 bg-orange-600 hover:bg-orange-700 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1`}
+          <button 
+            onClick={scrollToTop}
+            className={`group w-10 h-10 bg-orange-600 hover:bg-orange-700 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 border-none cursor-pointer`}
             style={{ backgroundColor: colors.primary.orange }}
+            title="Back to Top"
           >
             <svg className="w-5 h-5 text-white group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: colors.neutral.white }}>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </footer>

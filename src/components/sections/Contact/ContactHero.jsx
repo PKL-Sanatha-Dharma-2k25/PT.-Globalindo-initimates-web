@@ -11,7 +11,7 @@ const ContactHero = ({ onBack, bgImage = "/images/BgHero/bgC.jpg" }) => {
   };
 
   return (
-    <section className="relative w-full min-h-[480px] md:min-h-[560px] lg:h-[640px] overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
       
       {/* Back Button - Top Left */}
       {onBack && (
@@ -35,7 +35,7 @@ const ContactHero = ({ onBack, bgImage = "/images/BgHero/bgC.jpg" }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
           {/* Subtitle */}

@@ -1,17 +1,29 @@
 import React from 'react';
-import { Leaf, ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
+const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilities.mp4", onBack }) => {
   const scrollToSection = () => {
-    const csrSection = document.getElementById('csr');
-    if (csrSection) {
-      csrSection.scrollIntoView({ behavior: 'smooth' });
+    const facilitiesSection = document.getElementById('facilities');
+    if (facilitiesSection) {
+      facilitiesSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="relative w-full min-h-[480px] md:min-h-[560px] lg:h-[640px] overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
+      
+      {/* Back Button - Top Left */}
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="absolute top-8 left-6 md:left-12 lg:left-20 z-20 flex items-center gap-2 px-4 py-2.5 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-white font-light text-sm transition-all duration-300 group hover:bg-orange-600/90 hover:border-orange-600"
+          title="Kembali ke halaman utama"
+        >
+          <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span>Kembali</span>
+        </button>
+      )}
       
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -29,18 +41,17 @@ const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-20 w-full">
+      {/* Content Container */}
+      <div className="relative z-10 w-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
           {/* Subtitle */}
           <div className="mb-8">
             <span 
-              className="text-xs md:text-sm font-medium uppercase tracking-[0.15em] drop-shadow-lg inline-flex items-center gap-2 transition-all duration-300"
+              className="text-xs md:text-sm font-medium uppercase tracking-[0.15em] drop-shadow-lg inline-block transition-all duration-300"
               style={{ color: designTokens.colors.primary.orange }}
             >
-              <Leaf className="w-3.5 h-3.5" />
-              CSR & Keberlanjutan
+              Our Facilities
             </span>
           </div>
 
@@ -49,15 +60,15 @@ const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
             className="w-16 h-0.5 mb-8 rounded-full transition-all duration-300"
             style={{ backgroundColor: designTokens.colors.primary.orange }}
           ></div>
-
-          {/* Title */}
+          
+          {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed drop-shadow-lg tracking-tight">
-            Sustainability <br />
+            State-of-the-Art <br />
             <span 
               style={{ color: designTokens.colors.primary.orange }}
               className="font-light"
             >
-              In Action
+              Production
             </span>
           </h1>
 
@@ -65,14 +76,14 @@ const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
           <p 
             className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
           >
-            Our commitment to environmental sustainability and community empowerment through responsible business practices
+            State-of-the-art equipment and modern facilities designed for excellence in every production stage
           </p>
 
           {/* CTA Button */}
           <button 
+            onClick={scrollToSection}
             className="group relative px-8 md:px-10 py-3 md:py-3.5 bg-transparent border-2 text-white font-light rounded-md transition-all duration-300 overflow-hidden"
             style={{ borderColor: designTokens.colors.primary.orange }}
-            onClick={scrollToSection}
           >
             {/* Animated Background */}
             <div 
@@ -82,7 +93,7 @@ const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
             
             {/* Button Content */}
             <span className="flex items-center gap-2 relative z-10">
-              <span className="text-sm md:text-base">Our Initiatives</span>
+              <span className="text-sm md:text-base">Explore Facilities</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </button>
@@ -103,4 +114,4 @@ const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
   );
 };
 
-export default CSRHero;
+export default FacilitiesHero;

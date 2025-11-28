@@ -25,7 +25,7 @@ const AboutHero = () => {
         `}
       </style>
       <section 
-        className="relative min-h-[480px] md:min-h-[560px] lg:h-[640px] overflow-hidden flex items-center bg-cover bg-center bg-no-repeat"
+        className="relative min-h-screen flex items-center overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/BgHero/about.png')"
         }}

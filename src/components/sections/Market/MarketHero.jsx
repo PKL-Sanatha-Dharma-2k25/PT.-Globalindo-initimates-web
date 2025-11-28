@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TrendingUp, Globe, ChevronDown, ArrowRight } from 'lucide-react';
 
 // Simulasi designTokens
@@ -11,8 +11,6 @@ const designTokens = {
 };
 
 const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   const scrollToSection = () => {
     const marketSection = document.getElementById('market');
     if (marketSection) {
@@ -21,7 +19,7 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
   };
 
   return (
-    <section className="relative w-full min-h-[480px] md:min-h-[560px] lg:h-[640px] overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
       
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -31,7 +29,6 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
           muted
           loop
           playsInline
-          onLoadedData={() => setIsVideoLoaded(true)}
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
@@ -41,7 +38,7 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
           {/* Subtitle */}
@@ -112,16 +109,6 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
           <ChevronDown className="w-4 h-4 group-hover:animate-bounce" />
         </button>
       </div>
-
-      {/* Video Loading Indicator */}
-      {!isVideoLoaded && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70">
-          <div className="text-center">
-            <div className="w-12 h-12 rounded-full border-4 border-white/30 border-t-white animate-spin mx-auto mb-4"></div>
-            <p className="text-white text-sm font-light">Loading...</p>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

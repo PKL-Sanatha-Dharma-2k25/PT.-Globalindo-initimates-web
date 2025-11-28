@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Package, ChevronDown, ArrowRight } from 'lucide-react';
 
 // Simulasi designTokens
@@ -11,8 +11,6 @@ const designTokens = {
 };
 
 const ProductHero = ({ videoUrl = "/images/BgHero/produk.mp4" }) => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   const scrollToSection = () => {
     const productSection = document.getElementById('products');
     if (productSection) {
@@ -36,7 +34,7 @@ const ProductHero = ({ videoUrl = "/images/BgHero/produk.mp4" }) => {
         `}
       </style>
 
-      <section className="relative w-full min-h-[480px] md:min-h-[560px] lg:h-[640px] overflow-hidden bg-black">
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
         
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -46,7 +44,6 @@ const ProductHero = ({ videoUrl = "/images/BgHero/produk.mp4" }) => {
             muted
             loop
             playsInline
-            onLoadedData={() => setIsVideoLoaded(true)}
           >
             <source src={videoUrl} type="video/mp4" />
           </video>
@@ -56,7 +53,7 @@ const ProductHero = ({ videoUrl = "/images/BgHero/produk.mp4" }) => {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
+        <div className="relative z-10 w-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
           <div className="max-w-3xl">
             
             {/* Subtitle */}
@@ -125,16 +122,6 @@ const ProductHero = ({ videoUrl = "/images/BgHero/produk.mp4" }) => {
             <ChevronDown className="w-4 h-4 group-hover:animate-bounce" />
           </button>
         </div>
-
-        {/* Video Loading Indicator */}
-        {!isVideoLoaded && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70">
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full border-4 border-white/30 border-t-white animate-spin mx-auto mb-4"></div>
-              <p className="hero-text text-white text-sm font-light">Memuat...</p>
-            </div>
-          </div>
-        )}
       </section>
     </>
   );
