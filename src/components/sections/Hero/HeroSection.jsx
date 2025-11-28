@@ -204,16 +204,6 @@ const HeroSection = () => {
 
               {/* CTA BUTTONS - HIDDEN BUTTON REMOVED */}
               {/* Products button has been hidden/removed */}
-
-              {/* Trust Badges / Social Proof */}
-              <div className={`hero-body mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-6 text-white/70 text-sm ${designTokens.animations.basic.slideUp}`} style={{animationDelay: '0.6s', animationFillMode: 'both'}}>
-                <span className="text-white/60">{t('hero.trusted')}</span>
-                <div className="flex gap-4 items-center">
-                  <div className="text-xs bg-white/10 px-3 py-1 rounded-full">{t('hero.iso')}</div>
-                  <div className="text-xs bg-white/10 px-3 py-1 rounded-full">{t('hero.sgs')}</div>
-                  <div className="text-xs bg-white/10 px-3 py-1 rounded-full">{t('hero.global')}</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
