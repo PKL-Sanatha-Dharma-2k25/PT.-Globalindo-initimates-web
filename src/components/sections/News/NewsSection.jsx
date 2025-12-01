@@ -24,7 +24,7 @@ const NewsSection = () => {
       category: 'Collaboration',
       date: '2022',
       excerpt: 'Faculty of Industrial Technology UAJY establishes strategic collaboration with PT. Globalindo Intimates for industrial development and research.',
-      image: 'https://lldikti5.kemdikbud.go.id/assets/images/posts/medium/tn_lldikti5_20220627105502.jpg',
+      image: 'https://lldikti5.kemdikbud.go.id/assets./images/posts/medium/tn_lldikti5_20220627105502.jpg',
       url: 'https://lldikti5.kemdikbud.go.id/home/detailpost/fti-uajy-jalin-kerja-sama-dengan-pt-globalindo-intimates'
     },
     {

@@ -10,7 +10,7 @@ const designTokens = {
 };
 
 const CertificationHero = ({ 
-  backgroundImage = "/images/BgHero/certificate.jpg" 
+  backgroundImage = "./images/BgHero/certificate.jpg" 
 }) => {
   const scrollToSection = () => {
     const certificationSection = document.getElementById('certifications');
