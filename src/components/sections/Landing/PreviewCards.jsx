@@ -28,7 +28,7 @@ const CompanyOverview = ({ onNavigateTo }) => {
     { name: "Fila", logo: "https://i.pinimg.com/1200x/24/d0/d1/24d0d14bca8f0ed3b80106affa350948.jpg" },
     { name: "Hanes Brand", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hanes-logo.svg" },
     { name: "AAI", logo: "https://images.seeklogo.com/logo-png/37/1/aai-logo-png_seeklogo-374345.png" },
-    { name: "WOLF", logo: "https://logo.clearbit.com/wolfsimonson.com" },
+    { name: "WOLF", logo: "https://www.wolf-garten.eu/sites/g/files/xnuzat2486/files/WOLF-Garten.png" },
   ];
 
   const technologies = [

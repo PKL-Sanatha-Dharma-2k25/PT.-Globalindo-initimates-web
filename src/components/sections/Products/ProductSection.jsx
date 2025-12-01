@@ -530,7 +530,7 @@ export default function ProductSection() {
             </div>
             
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-              Comfort Meets <span style={{color: '#FF6600'}}>Style</span>
+             Style Meets <span style={{color: '#FF6600'}}>Comfort</span>
             </h2>
 
             <div className="flex items-center gap-4 mb-4 md:mb-6">
