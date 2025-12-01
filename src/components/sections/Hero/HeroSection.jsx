@@ -9,9 +9,9 @@ const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
   const backgrounds = [
-    './images/BgHero/bg.jpg',
-    './images/BgHero/Picture1.png',
-    './images/BgHero/Picture2.png',
+    '/images/BgHero/bg.jpg',
+    '/images/BgHero/Picture1.png',
+    '/images/BgHero/Picture2.png',
   ];
 
   // Background slideshow

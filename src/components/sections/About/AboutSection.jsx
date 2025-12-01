@@ -1,5 +1,5 @@
 import React from "react";
-import bgImage from "./images/BgHero/bg1.png";
+import bgImage from "/images/BgHero/bg1.png";
 
 // ========================================
 // ✅ FIXED: Import dari @/constants bukan @/styles

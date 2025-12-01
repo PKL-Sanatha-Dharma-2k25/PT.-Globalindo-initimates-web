@@ -104,7 +104,7 @@ const Navigation = () => {
                 
                 {/* Icon - Using iconBox.md */}
                 <img 
-                  src="./images/icon.PNG"
+                  src="/images/icon.PNG"
                   alt="GI Icon" 
                   className={`${tokens.iconBox.md} w-auto relative z-10 transition-all duration-500 group-hover:scale-105 drop-shadow-lg`}
                 />
