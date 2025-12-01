@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) => {
+const FacilitiesHero = ({ videoUrl = "./images/BgHero/facilites.mp4", onBack }) => {
   const scrollToSection = () => {
     const facilitiesSection = document.getElementById('facilities');
     if (facilitiesSection) {

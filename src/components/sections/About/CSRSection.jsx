@@ -9,25 +9,25 @@ const CSRSection = () => {
       id: 1,
       title: "Reforestation Program",
       description: "PT. Globalindo Intimates supports reforestation in the Caper area through plant seed donations, reflecting the commitment to environmental sustainability and a greener future for the community.",
-      image: "/images/csr/pohon.JPG"
+      image: "./images/csr/pohon.JPG"
     },
     {
       id: 2,
       title: "Different Ability Empowerment",
       description: "PT. Globalindo Intimates has successfully carried out the recruitment of disabled employees through special training programs. This initiative reflects the company's commitment to inclusivity, with disabled employees now representing 3% of the total workforce.",
-      image: "/images/csr/ability.jpg"
+      image: "./images/csr/ability.jpg"
     },
     {
       id: 3,
       title: "School & University Partner",
       description: "PT. Globalindo Intimates provide opportunities for students and interns to gain valuable industry experience while developing a motivated and focused workforce, aligned with the company's commitment to quality and sustainability.",
-      image: "/images/csr/school.jpg"
+      image: "./images/csr/school.jpg"
     },
     {
       id: 4,
       title: "Zero Waste, Caring Environment & Community Empowerment",
       description: "PT. Globalindo Intimates is committed to Zero Waste Management by recycling fabric scraps into useful crafts, transforming used cartons into egg trays, and turning domestic wastewater into useful products through innovative initiatives.",
-      image: "/images/csr/waste.jpg"
+      image: "./images/csr/waste.jpg"
     }
   ];
 

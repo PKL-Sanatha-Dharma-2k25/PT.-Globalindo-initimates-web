@@ -27,7 +27,7 @@ const AboutHero = () => {
       <section 
         className="relative min-h-screen flex items-center overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/images/BgHero/about.png')"
+          backgroundImage: "url('./images/BgHero/about.png')"
         }}
       >
         {/* Overlay untuk kontras teks */}

@@ -8,14 +8,14 @@ const products = [
   {
     id: 1,
     name: "Period Panty",
-    image: "/images/Product/Picture1.png",
+    image: "./images/Product/Picture1.png",
     category: "Period Panty",
-    mainImage: "/images/Product/Picture1.png",
+    mainImage: "./images/Product/Picture1.png",
     descriptionShort: "4 layers protection dengan Soft cotton lining, Super absorbent & breathable padding layer, Leak-proof barrier, Cotton outer layer.",
     descriptionLong: "We produce various kinds of women's panties, one of which is period panty, where various functions, designs, colors and sizes are available. Dirancang dengan teknologi perlindungan 4 lapis untuk kenyamanan maksimal selama periode menstruasi.",
     variantImages: [
-      "/images/Product/panty/Picture1.png",
-      "/images/Product/panty/Picture2.png",
+      "./images/Product/panty/Picture1.png",
+      "./images/Product/panty/Picture2.png",
     ],
     features: [
       "Soft cotton lining",
@@ -35,14 +35,14 @@ const products = [
   {
     id: 2,
     name: "Ladies Underwear",
-    image: "/images/Product/under.png",
+    image: "./images/Product/under.png",
     category: "Ladies Underwear",
-    mainImage: "/images/Product/under.png",
+    mainImage: "./images/Product/under.png",
     descriptionShort: "We can make women's panties in all shapes and sizes, with the best quality.",
     descriptionLong: "Kami dapat membuat celana dalam wanita dalam berbagai bentuk dan ukuran dengan kualitas terbaik. Tersedia dalam berbagai desain, fungsi, dan warna untuk memenuhi kebutuhan Anda.",
     variantImages: [
-      "/images/Product/underweare/Picture1.png",
-      "/images/Product/underweare/Picture2.png",
+      "./images/Product/underweare/Picture1.png",
+      "./images/Product/underweare/Picture2.png",
     ],
     features: [
       "Semua bentuk tersedia",
@@ -56,14 +56,14 @@ const products = [
   {
     id: 3,
     name: "Ladies Bra",
-    image: "/images/Product/Picture4.png",
+    image: "./images/Product/Picture4.png",
     category: "Ladies Bra",
-    mainImage: "/images/Product/Picture4.png",
+    mainImage: "./images/Product/Picture4.png",
     descriptionShort: "We provide a wide range of bras in various sizes and shapes, ranging from wire-free to seamless.",
     descriptionLong: "Kami menyediakan berbagai macam bra dalam berbagai ukuran dan bentuk, mulai dari wire-free hingga seamless. Dirancang untuk kenyamanan dan dukungan optimal sepanjang hari.",
     variantImages: [
-      "/images/Product/bra/Picture3.png",
-      "/images/Product/bra/Picture4.png",
+      "./images/Product/bra/Picture3.png",
+      "./images/Product/bra/Picture4.png",
     ],
     features: [
       "Wire-free option",
@@ -77,14 +77,14 @@ const products = [
   {
     id: 4,
     name: "Ladies Shapewear",
-    image: "/images/Product/Picture2.png",
+    image: "./images/Product/Picture2.png",
     category: "Ladies Shapewear",
-    mainImage: "/images/Product/Picture2.png",
+    mainImage: "./images/Product/Picture2.png",
     descriptionShort: "We can provide shapewear in any shape and size and specifically designed to achieve the ideal body shape.",
     descriptionLong: "Kami dapat menyediakan shapewear dalam bentuk apa pun dan ukuran apa pun dan dirancang khusus untuk mencapai bentuk tubuh ideal. Tersedia dalam berbagai pilihan desain dan warna untuk kenyamanan maksimal.",
     variantImages: [
-      "/images/Product/Picture2.png",
-      "/images/Product/Picture2.png",
+      "./images/Product/Picture2.png",
+      "./images/Product/Picture2.png",
     ],
     features: [
       "Bentuk tubuh ideal",
@@ -99,14 +99,14 @@ const products = [
   {
     id: 5,
     name: "Sport Wear",
-    image: "/images/Product/Picture3.png",
+    image: "./images/Product/Picture3.png",
     category: "Sport Wear",
-    mainImage: "/images/Product/Picture3.png",
+    mainImage: "./images/Product/Picture3.png",
     descriptionShort: "We are capable to produce the complicated technique of the sport bra & Leggings. We are also capable of making various kinds of sportwear such as outerwear for sportwear jackets and pants.",
     descriptionLong: "Kami mampu memproduksi dengan teknik rumit untuk sport bra & leggings. Kami juga mampu membuat berbagai jenis sportwear seperti jaket dan celana olahraga. Tersedia dalam berbagai desain dan fungsi untuk performa maksimal.",
     variantImages: [
-      "/images/Product/spoorrt/Picture7.png",
-      "/images/Product/spoorrt/Picture8.png",
+      "./images/Product/spoorrt/Picture7.png",
+      "./images/Product/spoorrt/Picture8.png",
     ],
     features: [
       "Sport bra advanced technique",
@@ -120,14 +120,14 @@ const products = [
   {
     id: 6,
     name: "Man's Underwear",
-    image: "/images/Product/mu.png",
+    image: "./images/Product/mu.png",
     category: "Man's Underwear",
-    mainImage: "/images/Product/mu.png",
+    mainImage: "./images/Product/mu.png",
     descriptionShort: "We can work on men's underwear of any size and shape, as well as high quality for the convenience of users.",
     descriptionLong: "Kami dapat bekerja pada celana dalam pria dengan ukuran dan bentuk apa pun, serta kualitas tinggi untuk kenyamanan pengguna. Comfortable Men's Underwear yang dirancang untuk kenyamanan maksimal dan gaya modern.",
     variantImages: [
-      "/images/Product/mu/Picture9.png",
-      "/images/Product/mu/Picture10.png",
+      "./images/Product/mu/Picture9.png",
+      "./images/Product/mu/Picture10.png",
     ],
     features: [
       "Semua ukuran tersedia",
@@ -141,14 +141,14 @@ const products = [
   {
     id: 7,
     name: "Swimwear",
-    image: "/images/Product/Picture5.png",
+    image: "./images/Product/Picture5.png",
     category: "Swimwear",
-    mainImage: "/images/Product/Picture5.png",
+    mainImage: "./images/Product/Picture5.png",
     descriptionShort: "We can produce various kinds of swimwear of various sizes, shapes, colors, and ages, even with special functions.",
     descriptionLong: "Kami dapat memproduksi berbagai jenis swimwear dengan berbagai ukuran, bentuk, warna, dan usia, bahkan dengan fungsi khusus. Period swimsuit dengan teknologi perlindungan untuk kenyamanan berenang dan aktivitas air.",
     variantImages: [
-      "/images/Product/swim/Picture11.png",
-      "/images/Product/swim/Picture12.png",
+      "./images/Product/swim/Picture11.png",
+      "./images/Product/swim/Picture12.png",
     ],
     features: [
       "Berbagai ukuran tersedia",
@@ -162,14 +162,14 @@ const products = [
   {
     id: 8,
     name: "Innerware (T-Shirt)",
-    image: "/images/Product/kaos.png",
+    image: "./images/Product/kaos.png",
     category: "Innerware",
-    mainImage: "/images/Product/kaos.png",
+    mainImage: "./images/Product/kaos.png",
     descriptionShort: "We can provide t-shirts with various sizes and shapes as well as various functions that are used for various benefits.",
     descriptionLong: "Kami dapat menyediakan t-shirt dengan berbagai ukuran dan bentuk serta berbagai fungsi yang digunakan untuk berbagai keuntungan. Tersedia dalam berbagai desain dan material berkualitas tinggi untuk kenyamanan sehari-hari.",
     variantImages: [
-      "/images/Product/Innerware/Picture13.png",
-      "/images/Product/Innerware/Picture14.png",
+      "./images/Product/Innerware/Picture13.png",
+      "./images/Product/Innerware/Picture14.png",
     ],
     features: [
       "Berbagai ukuran tersedia",
@@ -183,14 +183,14 @@ const products = [
   {
     id: 9,
     name: "Hoodie",
-    image: "/images/Product/hodie.png",
+    image: "./images/Product/hodie.png",
     category: "Hoodie",
-    mainImage: "/images/Product/hodie.png",
+    mainImage: "./images/Product/hodie.png",
     descriptionShort: "We can produce a wide range of hoodies of various sizes, shapes.",
     descriptionLong: "Kami dapat memproduksi berbagai hoodie dengan berbagai ukuran dan bentuk. Comfortable & Soft Hoodie yang dirancang untuk kenyamanan maksimal dalam penggunaan sehari-hari dan aktivitas santai.",
     variantImages: [
-      "/images/Product/Hoodie/Picture16.png",
-      "/images/Product/Hoodie/Picture17.png",
+      "./images/Product/Hoodie/Picture16.png",
+      "./images/Product/Hoodie/Picture17.png",
     ],
     features: [
       "Berbagai ukuran tersedia",
@@ -204,14 +204,14 @@ const products = [
   {
     id: 10,
     name: "Kids Wear",
-    image: "/images/Product/ll.png",
+    image: "./images/Product/ll.png",
     category: "Kids Wear",
-    mainImage: "/images/Product/ll.png",
+    mainImage: "./images/Product/ll.png",
     descriptionShort: "We can produce various kinds of children's clothing with various types of shapes and sizes.",
     descriptionLong: "Kami dapat memproduksi berbagai jenis pakaian anak-anak dengan berbagai jenis bentuk dan ukuran. Children's clothing with child-friendly materials yang aman, nyaman, dan tahan lama untuk anak-anak.",
     variantImages: [
-      "/images/Product/kids/Picture18.png",
-      "/images/Product/kids/Picture19.png",
+      "./images/Product/kids/Picture18.png",
+      "./images/Product/kids/Picture19.png",
     ],
     features: [
       "Berbagai jenis pakaian",

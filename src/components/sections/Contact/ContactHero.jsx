@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Phone, ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const ContactHero = ({ onBack, bgImage = "/images/BgHero/bgC.jpg" }) => {
+const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
   const scrollToSection = () => {
     const contactSection = document.getElementById('contact-form');
     if (contactSection) {
