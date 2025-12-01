@@ -75,7 +75,7 @@ const TeamSection = () => {
       name: "Dedy Mirady",
       role: "Production Manager",
       department: "Production",
-      img: "./images/team/andy.jpg",
+      img: "./images/team/dedi.jpg",
       bio: "Production excellence and quality assurance leader ensuring highest standards",
       detailBio: "Dedy oversees all production operations with a strong commitment to quality and efficiency. His expertise in Six Sigma and continuous improvement has elevated the company's production standards and customer satisfaction metrics.",
       email: "dedy@globalindo.com",
