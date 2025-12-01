@@ -125,11 +125,3 @@ Penggunaan, reproduksi, atau distribusi tanpa izin resmi dilarang.
 ---
 
 <div align="center">
-
-**Dibuat dengan oleh Sonny Rilman**
-
-Jika project ini bermanfaat, berikan bintang!
-
-**Last Updated**: November 2025
-
-</div>
