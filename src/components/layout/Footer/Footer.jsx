@@ -81,7 +81,7 @@ const Footer = ({ onNavigateTo }) => {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="./images/icon.PNG" 
+                src="./images/logo/icon.PNG" 
                 alt="Globalindo Intimates Logo"
                 className="w-10 h-10 object-cover rounded-lg"
               />
