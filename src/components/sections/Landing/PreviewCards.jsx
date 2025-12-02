@@ -496,9 +496,6 @@ const CompanyOverview = ({ onNavigateTo }) => {
               Contact Us
               <ArrowRight className="w-4 h-4" />
             </button>
-            <button onClick={() => onNavigateTo('catalog')} className="btn-secondary px-6 py-2.5 font-medium text-sm rounded-lg transition-all">
-              Download Catalog
-            </button>
           </div>
         </div>
       </section>
