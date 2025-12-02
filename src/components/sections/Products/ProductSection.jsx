@@ -1,234 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { X, Package, Shield, Zap } from "lucide-react";
+import { X, Package, Shield, Zap, Loader } from "lucide-react";
 
-// ========================================
-// PRODUCT DATA
-// ========================================
-const products = [
-  {
-    id: 1,
-    name: "Period Panty",
-    image: "./images/Product/Picture1.png",
-    category: "Period Panty",
-    mainImage: "./images/Product/Picture1.png",
-    descriptionShort: "4 layers protection dengan Soft cotton lining, Super absorbent & breathable padding layer, Leak-proof barrier, Cotton outer layer.",
-    descriptionLong: "We produce various kinds of women's panties, one of which is period panty, where various functions, designs, colors and sizes are available. Dirancang dengan teknologi perlindungan 4 lapis untuk kenyamanan maksimal selama periode menstruasi.",
-    variantImages: [
-      "./images/Product/panty/Picture1.png",
-      "./images/Product/panty/Picture2.png",
-    ],
-    features: [
-      "Soft cotton lining",
-      "Super absorbent padding",
-      "Leak-proof barrier",
-      "Cotton outer layer",
-      "Berbagai warna",
-      "Berbagai ukuran"
-    ],
-    layersProtection: [
-      "Soft cotton lining",
-      "Super absorbent & breathable padding layer",
-      "Leak-proof barrier",
-      "Cotton outer layer"
-    ]
-  },
-  {
-    id: 2,
-    name: "Ladies Underwear",
-    image: "./images/Product/under.png",
-    category: "Ladies Underwear",
-    mainImage: "./images/Product/under.png",
-    descriptionShort: "We can make women's panties in all shapes and sizes, with the best quality.",
-    descriptionLong: "Kami dapat membuat celana dalam wanita dalam berbagai bentuk dan ukuran dengan kualitas terbaik. Tersedia dalam berbagai desain, fungsi, dan warna untuk memenuhi kebutuhan Anda.",
-    variantImages: [
-      "./images/Product/underweare/Picture1.png",
-      "./images/Product/underweare/Picture2.png",
-    ],
-    features: [
-      "Semua bentuk tersedia",
-      "Semua ukuran tersedia",
-      "Kualitas terbaik",
-      "Berbagai desain",
-      "Berbagai fungsi",
-      "Berbagai warna"
-    ]
-  },
-  {
-    id: 3,
-    name: "Ladies Bra",
-    image: "./images/Product/Picture4.png",
-    category: "Ladies Bra",
-    mainImage: "./images/Product/Picture4.png",
-    descriptionShort: "We provide a wide range of bras in various sizes and shapes, ranging from wire-free to seamless.",
-    descriptionLong: "Kami menyediakan berbagai macam bra dalam berbagai ukuran dan bentuk, mulai dari wire-free hingga seamless. Dirancang untuk kenyamanan dan dukungan optimal sepanjang hari.",
-    variantImages: [
-      "./images/Product/bra/Picture3.png",
-      "./images/Product/bra/Picture4.png",
-    ],
-    features: [
-      "Wire-free option",
-      "Seamless design",
-      "Berbagai ukuran",
-      "Berbagai bentuk",
-      "Kualitas premium",
-      "Dukungan optimal"
-    ]
-  },
-  {
-    id: 4,
-    name: "Ladies Shapewear",
-    image: "./images/Product/Picture2.png",
-    category: "Ladies Shapewear",
-    mainImage: "./images/Product/Picture2.png",
-    descriptionShort: "We can provide shapewear in any shape and size and specifically designed to achieve the ideal body shape.",
-    descriptionLong: "Kami dapat menyediakan shapewear dalam bentuk apa pun dan ukuran apa pun dan dirancang khusus untuk mencapai bentuk tubuh ideal. Tersedia dalam berbagai pilihan desain dan warna untuk kenyamanan maksimal.",
-    variantImages: [
-      "./images/Product/Picture2.png",
-      "./images/Product/Picture2.png",
-    ],
-    features: [
-      "Bentuk tubuh ideal",
-      "Semua ukuran tersedia",
-      "Semua bentuk tersedia",
-      "Desain khusus",
-      "Kualitas premium",
-      "Berbagai warna"
-    ]
-  },
-  
-  {
-    id: 5,
-    name: "Sport Wear",
-    image: "./images/Product/Picture3.png",
-    category: "Sport Wear",
-    mainImage: "./images/Product/Picture3.png",
-    descriptionShort: "We are capable to produce the complicated technique of the sport bra & Leggings. We are also capable of making various kinds of sportwear such as outerwear for sportwear jackets and pants.",
-    descriptionLong: "Kami mampu memproduksi dengan teknik rumit untuk sport bra & leggings. Kami juga mampu membuat berbagai jenis sportwear seperti jaket dan celana olahraga. Tersedia dalam berbagai desain dan fungsi untuk performa maksimal.",
-    variantImages: [
-      "./images/Product/spoorrt/Picture7.png",
-      "./images/Product/spoorrt/Picture8.png",
-    ],
-    features: [
-      "Sport bra advanced technique",
-      "Leggings with complex design",
-      "Sport jackets available",
-      "Sport pants available",
-      "Moisture-wicking",
-      "Flexible fit"
-    ]
-  },
-  {
-    id: 6,
-    name: "Man's Underwear",
-    image: "./images/Product/mu.png",
-    category: "Man's Underwear",
-    mainImage: "./images/Product/mu.png",
-    descriptionShort: "We can work on men's underwear of any size and shape, as well as high quality for the convenience of users.",
-    descriptionLong: "Kami dapat bekerja pada celana dalam pria dengan ukuran dan bentuk apa pun, serta kualitas tinggi untuk kenyamanan pengguna. Comfortable Men's Underwear yang dirancang untuk kenyamanan maksimal dan gaya modern.",
-    variantImages: [
-      "./images/Product/mu/Picture9.png",
-      "./images/Product/mu/Picture10.png",
-    ],
-    features: [
-      "Semua ukuran tersedia",
-      "Semua bentuk tersedia",
-      "Kualitas tinggi",
-      "Kenyamanan pengguna",
-      "Material premium",
-      "Desain modern"
-    ]
-  },
-  {
-    id: 7,
-    name: "Swimwear",
-    image: "./images/Product/Picture5.png",
-    category: "Swimwear",
-    mainImage: "./images/Product/Picture5.png",
-    descriptionShort: "We can produce various kinds of swimwear of various sizes, shapes, colors, and ages, even with special functions.",
-    descriptionLong: "Kami dapat memproduksi berbagai jenis swimwear dengan berbagai ukuran, bentuk, warna, dan usia, bahkan dengan fungsi khusus. Period swimsuit dengan teknologi perlindungan untuk kenyamanan berenang dan aktivitas air.",
-    variantImages: [
-      "./images/Product/swim/Picture11.png",
-      "./images/Product/swim/Picture12.png",
-    ],
-    features: [
-      "Berbagai ukuran tersedia",
-      "Berbagai bentuk tersedia",
-      "Berbagai warna tersedia",
-      "Untuk semua usia",
-      "Fungsi khusus tersedia",
-      "Water-resistant technology"
-    ]
-  },
-  {
-    id: 8,
-    name: "Innerware (T-Shirt)",
-    image: "./images/Product/kaos.png",
-    category: "Innerware",
-    mainImage: "./images/Product/kaos.png",
-    descriptionShort: "We can provide t-shirts with various sizes and shapes as well as various functions that are used for various benefits.",
-    descriptionLong: "Kami dapat menyediakan t-shirt dengan berbagai ukuran dan bentuk serta berbagai fungsi yang digunakan untuk berbagai keuntungan. Tersedia dalam berbagai desain dan material berkualitas tinggi untuk kenyamanan sehari-hari.",
-    variantImages: [
-      "./images/Product/Innerware/Picture13.png",
-      "./images/Product/Innerware/Picture14.png",
-    ],
-    features: [
-      "Berbagai ukuran tersedia",
-      "Berbagai bentuk tersedia",
-      "Berbagai fungsi tersedia",
-      "Berbagai keuntungan",
-      "Material berkualitas",
-      "Desain modern"
-    ]
-  },
-  {
-    id: 9,
-    name: "Hoodie",
-    image: "./images/Product/hodie.png",
-    category: "Hoodie",
-    mainImage: "./images/Product/hodie.png",
-    descriptionShort: "We can produce a wide range of hoodies of various sizes, shapes.",
-    descriptionLong: "Kami dapat memproduksi berbagai hoodie dengan berbagai ukuran dan bentuk. Comfortable & Soft Hoodie yang dirancang untuk kenyamanan maksimal dalam penggunaan sehari-hari dan aktivitas santai.",
-    variantImages: [
-      "./images/Product/Hoodie/Picture16.png",
-      "./images/Product/Hoodie/Picture17.png",
-    ],
-    features: [
-      "Berbagai ukuran tersedia",
-      "Berbagai bentuk tersedia",
-      "Material lembut dan nyaman",
-      "Kenyamanan maksimal",
-      "Desain modern",
-      "Mudah dirawat"
-    ]
-  },
-  {
-    id: 10,
-    name: "Kids Wear",
-    image: "./images/Product/ll.png",
-    category: "Kids Wear",
-    mainImage: "./images/Product/ll.png",
-    descriptionShort: "We can produce various kinds of children's clothing with various types of shapes and sizes.",
-    descriptionLong: "Kami dapat memproduksi berbagai jenis pakaian anak-anak dengan berbagai jenis bentuk dan ukuran. Children's clothing with child-friendly materials yang aman, nyaman, dan tahan lama untuk anak-anak.",
-    variantImages: [
-      "./images/Product/kids/Picture18.png",
-      "./images/Product/kids/Picture19.png",
-    ],
-    features: [
-      "Berbagai jenis pakaian",
-      "Berbagai bentuk tersedia",
-      "Berbagai ukuran tersedia",
-      "Child-friendly materials",
-      "Aman untuk anak-anak",
-      "Nyaman dan tahan lama"
-    ]
-  }
-];
+const API_URL = 'http://localhost:5000/api';
 
 // ========================================
 // PRODUCT DETAIL MODAL - RESPONSIVE
 // ========================================
 const ProductDetailModal = ({ product, onClose }) => {
-  const [mainImage, setMainImage] = useState(product.mainImage);
+  const [mainImage, setMainImage] = useState(product.mainImage || product.image);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -236,6 +15,12 @@ const ProductDetailModal = ({ product, onClose }) => {
       document.body.style.overflow = 'unset';
     };
   }, []);
+
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return '';
+    if (imagePath.startsWith('http')) return imagePath;
+    return `${API_URL.replace('/api', '')}/${imagePath}`;
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-end lg:items-center justify-center p-0 lg:p-4 bg-black/50 backdrop-blur-sm overflow-y-auto lg:overflow-visible">
@@ -253,7 +38,7 @@ const ProductDetailModal = ({ product, onClose }) => {
             {/* Main Image */}
             <div className="relative rounded-lg lg:rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4]">
               <img
-                src={mainImage}
+                src={getImageUrl(mainImage)}
                 alt={product.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -264,7 +49,7 @@ const ProductDetailModal = ({ product, onClose }) => {
             
             {/* Variant Images */}
             <div className="grid grid-cols-4 gap-2">
-              {product.variantImages.slice(0, 4).map((img, idx) => (
+              {product.variantImages && product.variantImages.slice(0, 4).map((img, idx) => (
                 <div
                   key={idx}
                   onClick={() => setMainImage(img)}
@@ -273,7 +58,7 @@ const ProductDetailModal = ({ product, onClose }) => {
                   }`}
                 >
                   <img
-                    src={img}
+                    src={getImageUrl(img)}
                     alt={`variant-${idx}`}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -313,27 +98,29 @@ const ProductDetailModal = ({ product, onClose }) => {
             </p>
 
             {/* Features List */}
-            <div>
-              <h3 className="text-xs lg:text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Features & Specifications</h3>
-              <div className="grid grid-cols-2 gap-2 lg:gap-3">
-                {product.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded">
-                    <Zap className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
-                    <span className="text-xs lg:text-xs text-gray-700 font-medium">{feature}</span>
-                  </div>
-                ))}
+            {product.features && product.features.length > 0 && (
+              <div>
+                <h3 className="text-xs lg:text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Features & Specifications</h3>
+                <div className="grid grid-cols-2 gap-2 lg:gap-3">
+                  {product.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded">
+                      <Zap className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
+                      <span className="text-xs lg:text-xs text-gray-700 font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Right Side - Additional Info */}
           <div className="lg:col-span-1 space-y-3 lg:space-y-6 flex flex-col justify-between py-0 lg:py-2">
             {/* 4 Layers Protection - Period Panty */}
-            {product.layersProtection && (
+            {product.layersProtection && product.layersProtection.length > 0 && (
               <div className="p-3 lg:p-4 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
                 <h4 className="text-xs lg:text-sm font-bold mb-2 lg:mb-4 flex items-center gap-2" style={{color: '#FF6600'}}>
                   <Shield className="w-4 h-4 lg:w-5 lg:h-5" />
-                  4 LAYERS
+                  {product.layersProtection.length} LAYERS
                 </h4>
                 <ul className="space-y-2 lg:space-y-3">
                   {product.layersProtection.map((layer, idx) => (
@@ -399,6 +186,12 @@ const ProductCard = ({ product, onViewDetails }) => {
     setTimeout(() => setParticles([]), 800);
   };
 
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return '';
+    if (imagePath.startsWith('http')) return imagePath;
+    return `${API_URL.replace('/api', '')}/${imagePath}`;
+  };
+
   return (
     <div
       className="group cursor-pointer relative w-full h-full product-card-hover"
@@ -408,7 +201,7 @@ const ProductCard = ({ product, onViewDetails }) => {
       <div className="relative rounded-lg overflow-hidden bg-white hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
         <div className="relative w-full flex-1 overflow-hidden bg-gray-100">
           <img
-            src={product.image}
+            src={getImageUrl(product.image)}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             onError={(e) => {
@@ -453,10 +246,44 @@ const ProductCard = ({ product, onViewDetails }) => {
 // MAIN PRODUCT SECTION
 // ========================================
 export default function ProductSection() {
+  const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [loading, setLoading] = useState(true);
 
-  const categories = ["All", "Period Panty", "Ladies Underwear", "Ladies Bra", "Ladies Shapewear", "Sport Wear", "Man's Underwear", "Swimwear", "Innerware", "Hoodie", "Kids Wear"];
+  // FETCH PRODUCTS FROM BACKEND
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch(`${API_URL}/products`);
+      const data = await res.json();
+      
+      // Handle response format
+      let productsList = [];
+      if (Array.isArray(data)) {
+        productsList = data;
+      } else if (data.data && Array.isArray(data.data)) {
+        productsList = data.data;
+      } else if (data.products && Array.isArray(data.products)) {
+        productsList = data.products;
+      }
+
+      setProducts(productsList);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      setProducts([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // GET UNIQUE CATEGORIES
+  const categories = ["All"];
+  const uniqueCategories = [...new Set(products.map(p => p.category))];
+  categories.push(...uniqueCategories.sort());
 
   const filteredProducts = activeCategory === "All" 
     ? products 
@@ -496,6 +323,11 @@ export default function ProductSection() {
             }
           }
 
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+
           .product-card-hover {
             transition: all 0.3s ease;
           }
@@ -515,6 +347,10 @@ export default function ProductSection() {
             border-radius: 50%;
             background: #FF6600;
             animation: particle-float 0.8s ease-out forwards;
+          }
+
+          .spinner {
+            animation: spin 1s linear infinite;
           }
         `}
       </style>
@@ -543,84 +379,104 @@ export default function ProductSection() {
             </p>
           </div>
 
-          {/* CATEGORY FILTER */}
-          <div className="mb-8 md:mb-12 flex flex-wrap gap-2 md:gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
-                  activeCategory === cat
-                    ? 'text-white shadow-lg'
-                    : 'text-gray-700 border-2 border-gray-300 hover:border-[#FF6600] hover:text-[#FF6600]'
-                }`}
-                style={activeCategory === cat ? {backgroundColor: '#FF6600'} : {}}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* MAIN ROW - 5 PRODUCTS */}
-          {filteredProducts.length > 0 && (
-            <div className="mb-8 md:mb-16">
-              <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
-                {filteredProducts.slice(0, 5).map((product, idx) => {
-                  const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
-                  return (
-                    <div key={product.id} className={`w-1/5 ${heights[idx]}`}>
-                      <ProductCard 
-                        product={product}
-                        onViewDetails={setSelectedProduct}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Mobile Grid - 2x3 for first 5 products */}
-              <div className="md:hidden grid grid-cols-2 gap-2">
-                {filteredProducts.slice(0, 5).map((product) => (
-                  <div key={product.id} className="h-56">
-                    <ProductCard 
-                      product={product}
-                      onViewDetails={setSelectedProduct}
-                    />
-                  </div>
-                ))}
-              </div>
+          {/* Loading State */}
+          {loading ? (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '3rem', paddingBottom: '3rem' }}>
+              <Loader className="spinner" size={40} style={{ color: '#FF6600' }} />
             </div>
-          )}
+          ) : (
+            <>
+              {/* CATEGORY FILTER */}
+              {categories.length > 0 && (
+                <div className="mb-8 md:mb-12 flex flex-wrap gap-2 md:gap-3">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className={`px-3 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
+                        activeCategory === cat
+                          ? 'text-white shadow-lg'
+                          : 'text-gray-700 border-2 border-gray-300 hover:border-[#FF6600] hover:text-[#FF6600]'
+                      }`}
+                      style={activeCategory === cat ? {backgroundColor: '#FF6600'} : {}}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              )}
 
-          {/* SECONDARY ROW - 5 PRODUCTS */}
-          {filteredProducts.length > 5 && (
-            <div className="mb-8 md:mb-16">
-              <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
-                {filteredProducts.slice(5, 10).map((product, idx) => {
-                  const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
-                  return (
-                    <div key={product.id} className={`w-1/5 ${heights[idx]}`}>
-                      <ProductCard 
-                        product={product}
-                        onViewDetails={setSelectedProduct}
-                      />
+              {/* Empty State */}
+              {filteredProducts.length === 0 ? (
+                <div style={{ backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', padding: '3rem', textAlign: 'center', color: '#6b7280' }}>
+                  <p style={{ fontSize: '1.125rem' }}>No products found in this category</p>
+                </div>
+              ) : (
+                <>
+                  {/* MAIN ROW - 5 PRODUCTS */}
+                  {filteredProducts.length > 0 && (
+                    <div className="mb-8 md:mb-16">
+                      <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
+                        {filteredProducts.slice(0, 5).map((product, idx) => {
+                          const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
+                          return (
+                            <div key={product._id || product.id} className={`w-1/5 ${heights[idx]}`}>
+                              <ProductCard 
+                                product={product}
+                                onViewDetails={setSelectedProduct}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Mobile Grid - 2x3 for first 5 products */}
+                      <div className="md:hidden grid grid-cols-2 gap-2">
+                        {filteredProducts.slice(0, 5).map((product) => (
+                          <div key={product._id || product.id} className="h-56">
+                            <ProductCard 
+                              product={product}
+                              onViewDetails={setSelectedProduct}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  );
-                })}
-              </div>
+                  )}
 
-              {/* Mobile Grid - 2x3 for products 6-10 */}
-              <div className="md:hidden grid grid-cols-2 gap-2">
-                {filteredProducts.slice(5, 10).map((product) => (
-                  <div key={product.id} className="h-56">
-                    <ProductCard 
-                      product={product}
-                      onViewDetails={setSelectedProduct}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+                  {/* SECONDARY ROW - 5 PRODUCTS */}
+                  {filteredProducts.length > 5 && (
+                    <div className="mb-8 md:mb-16">
+                      <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
+                        {filteredProducts.slice(5, 10).map((product, idx) => {
+                          const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
+                          return (
+                            <div key={product._id || product.id} className={`w-1/5 ${heights[idx]}`}>
+                              <ProductCard 
+                                product={product}
+                                onViewDetails={setSelectedProduct}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Mobile Grid - 2x3 for products 6-10 */}
+                      <div className="md:hidden grid grid-cols-2 gap-2">
+                        {filteredProducts.slice(5, 10).map((product) => (
+                          <div key={product._id || product.id} className="h-56">
+                            <ProductCard 
+                              product={product}
+                              onViewDetails={setSelectedProduct}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
           )}
         </div>
       </section>
