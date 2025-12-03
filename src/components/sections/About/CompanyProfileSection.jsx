@@ -104,7 +104,7 @@ const AboutSection = () => {
                     </div>
                     <div className="flex-1 flex items-center pt-2">
                       <p className="about-body text-xs md:text-sm text-gray-700 leading-relaxed">
-                        To become a global company in the garment industry that always makes continuous improvement in quality, work safety and legality with an orientation towards long-term mutually beneficial relationships.
+                        To become a global leader in the garment industry by consistently improving quality, work safety, and compliance while building long-term, mutually beneficial partnerships.
                       </p>
                     </div>
                   </div>
@@ -122,15 +122,15 @@ const AboutSection = () => {
                     <div className="about-body text-gray-700 space-y-2 md:space-y-2.5 flex-1 flex flex-col justify-center pt-1">
                       <div className="flex items-start gap-2.5">
                         <span className="text-orange-500 flex-shrink-0 font-bold text-sm mt-0.5">◆</span>
-                        <span className="text-xs md:text-sm leading-snug">Quality environment & culture for excellent products</span>
+                        <span className="text-xs md:text-sm leading-snug"> Build a quality-driven environment and culture to deliver world-class products</span>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <span className="text-orange-500 flex-shrink-0 font-bold text-sm mt-0.5">◆</span>
-                        <span className="text-xs md:text-sm leading-snug">Automation & digitalization with Industry 4.0 technology</span>
+                        <span className="text-xs md:text-sm leading-snug"> Implement automation and digitalization through Industry 4.0 technologies</span>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <span className="text-orange-500 flex-shrink-0 font-bold text-sm mt-0.5">◆</span>
-                        <span className="text-xs md:text-sm leading-snug">Sustainable eco-friendly operations & community benefits</span>
+                        <span className="text-xs md:text-sm leading-snug">Operate sustainably with eco-friendly initiatives and community-driven programs</span>
                       </div>
                     </div>
                   </div>

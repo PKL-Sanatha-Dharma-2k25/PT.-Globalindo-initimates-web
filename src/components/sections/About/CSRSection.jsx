@@ -8,25 +8,34 @@ const CSRSection = () => {
     {
       id: 1,
       title: "Reforestation Program",
-      description: "PT. Globalindo Intimates supports reforestation in the Caper area through plant seed donations, reflecting the commitment to environmental sustainability and a greener future for the community.",
+      description: "Supporting reforestation efforts in Caper through seed donations to help restore natural ecosystems and promote environmental stewardship.",
+      details: [],
       image: "./images/csr/pohon.JPG"
     },
     {
       id: 2,
-      title: "Different Ability Empowerment",
-      description: "PT. Globalindo Intimates has successfully carried out the recruitment of disabled employees through special training programs. This initiative reflects the company's commitment to inclusivity, with disabled employees now representing 3% of the total workforce.",
+      title: "Different-Ability Empowerment",
+      description: "We actively recruit employees with disabilities through dedicated training programs. Today, differently-abled individuals represent 3% of our workforce—reflecting our commitment to inclusivity.",
+      details: [],
       image: "./images/csr/ability.jpg"
     },
     {
       id: 3,
-      title: "School & University Partner",
-      description: "PT. Globalindo Intimates provide opportunities for students and interns to gain valuable industry experience while developing a motivated and focused workforce, aligned with the company's commitment to quality and sustainability.",
+      title: "School & University Partnership",
+      description: "Providing students and interns with hands-on industry experience aligned with our values of quality, innovation, and sustainability.",
+      details: [],
       image: "./images/csr/school.jpg"
     },
     {
       id: 4,
       title: "Zero Waste, Caring Environment & Community Empowerment",
       description: "PT. Globalindo Intimates is committed to Zero Waste Management by recycling fabric scraps into useful crafts, transforming used cartons into egg trays, and turning domestic wastewater into useful products through innovative initiatives.",
+      details: [
+        "Fabric Scraps → Community Handicrafts: Leftover fabric donated to local communities for handcrafted products and household income support",
+        "Plastic Bottles → Sustainable Building Materials: Collected and converted into eco-friendly construction materials through recycling partners",
+        "Canteen Food Waste → Maggot Cultivation: Organic waste transformed into sustainable animal feed, reducing landfill impact",
+        "Used Cartons → Egg Trays: Leftover cartons recycled and molded into durable trays for local poultry farms"
+      ],
       image: "./images/csr/waste.jpg"
     }
   ];
@@ -127,10 +136,24 @@ const CSRSection = () => {
                     {/* Decorative Line */}
                     <div className="h-1 w-12 bg-gradient-to-r from-orange-600 to-transparent rounded-full mb-6"></div>
 
-                    {/* Description */}
+                    {/* Main Description */}
                     <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
                       {programs[currentSlide].description}
                     </p>
+
+                    {/* Details List */}
+                    {programs[currentSlide].details.length > 0 && (
+                      <div className="space-y-3 mb-6">
+                        {programs[currentSlide].details.map((detail, idx) => (
+                          <div key={idx} className="flex gap-3 items-start">
+                            <div className="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
+                            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                              {detail}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Bottom Section */}

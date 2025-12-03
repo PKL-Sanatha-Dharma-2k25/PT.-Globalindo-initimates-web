@@ -25,23 +25,21 @@ const TeamSection = () => {
       department: "Executive",
       img: "./images/team/teti.jpg",
       bio: "Driving operational excellence with 20+ years of industry experience in manufacturing and logistics",
-      detailBio: "Teti brings over two decades of expertise in operational management, having successfully led multiple manufacturing facilities across Asia. Known for implementing lean methodologies and optimizing supply chain networks, Teti is passionate about mentoring the next generation of operational leaders.",
+      detailBio: "Teti has led multiple manufacturing facilities across Asia, implementing lean methodologies and optimizing supply chain performance. She is passionate about developing future operational leaders and strengthening organizational capabilities.",
       email: "teti@globalindo.com",
       phone: "+62-8XX-XXXX",
-      linkedin: "https://linkedin.com",
       expertise: ["Supply Chain", "Lean Manufacturing", "Team Leadership", "Quality Management"]
     },
     {
       id: 2,
       name: "Suandi Lim",
-      role: "General Manager",
+      role: "Factory Manager",
       department: "Executive",
       img: "./images/team/suandi.jpg",
-      bio: "Strategic leader focused on growth, innovation, and sustainable business development",
-      detailBio: "Suandi is a visionary leader with a proven track record in scaling businesses and driving innovation. With expertise in market analysis and strategic planning, he has successfully navigated the company through multiple growth phases and market expansions.",
+      bio: "Strategic leader focused on growth, innovation, and sustainable business development.",
+      detailBio: "Suandi brings strong expertise in market analysis, business scaling, and strategic transformation. He has guided the company through multiple expansion phases while strengthening its global competitiveness.",
       email: "suandi@globalindo.com",
       phone: "+62-8XX-XXXX",
-      linkedin: "https://linkedin.com",
       expertise: ["Strategic Planning", "Business Growth", "Innovation", "Market Analysis"]
     },
     {
@@ -50,11 +48,10 @@ const TeamSection = () => {
       role: "Senior Manager PPIC",
       department: "Operations",
       img: "./images/team/rudy.jpg",
-      bio: "Planning and inventory control specialist with expertise in supply chain optimization",
-      detailBio: "Rudy specializes in production planning and inventory control systems. With advanced knowledge of demand forecasting and inventory optimization, he ensures smooth operations and minimizes waste across the production cycle.",
+      bio: "Planning and inventory control specialist with deep expertise in supply chain optimization.",
+      detailBio: "Rudy ensures seamless production flow through accurate demand forecasting, efficient inventory management, and waste-minimization initiatives.",
       email: "rudy@globalindo.com",
       phone: "+62-8XX-XXXX",
-      linkedin: "https://linkedin.com",
       expertise: ["Inventory Management", "Demand Forecasting", "PPIC Systems", "Cost Reduction"]
     },
     {
@@ -63,11 +60,10 @@ const TeamSection = () => {
       role: "IE Manager",
       department: "Operations",
       img: "./images/team/amila.jpg",
-      bio: "Industrial efficiency and process optimization expert driving operational excellence",
-      detailBio: "Amila leads process improvement initiatives and industrial engineering projects. With a focus on efficiency gains and cost optimization, she has successfully implemented multiple value-engineering projects resulting in significant operational improvements.",
+      bio: "Industrial efficiency and process-optimization expert.",
+      detailBio: "Amila leads major industrial engineering and process-improvement programs, successfully delivering efficiency gains, cost reductions, and value-engineering initiatives across various production lines.",
       email: "amila@globalindo.com",
       phone: "+62-8XX-XXXX",
-      linkedin: "https://linkedin.com",
       expertise: ["Process Optimization", "Industrial Engineering", "Value Engineering", "Efficiency Analysis"]
     },
     {
@@ -76,24 +72,22 @@ const TeamSection = () => {
       role: "Production Manager",
       department: "Production",
       img: "./images/team/dedi.jpg",
-      bio: "Production excellence and quality assurance leader ensuring highest standards",
-      detailBio: "Dedy oversees all production operations with a strong commitment to quality and efficiency. His expertise in Six Sigma and continuous improvement has elevated the company's production standards and customer satisfaction metrics.",
+      bio: "Leader in production excellence and quality assurance.",
+      detailBio: "With strong Six Sigma and continuous-improvement expertise, Dedy ensures that production operations consistently deliver outstanding quality, efficiency, and reliability.",
       email: "dedy@globalindo.com",
       phone: "+62-8XX-XXXX",
-      linkedin: "https://linkedin.com",
       expertise: ["Quality Assurance", "Six Sigma", "Production Management", "Continuous Improvement"]
     },
     {
       id: 6,
       name: "Sugiyarni",
-      role: "Senior Manager",
+      role: "Quality Assurance Senior Manager",
       department: "Operations",
       img: "./images/team/sugi1.png",
-      bio: "Operations specialist with expertise in process improvement and team management",
-      detailBio: "F.Sugi brings extensive experience in operations management and team development. Known for fostering collaborative work environments and driving process improvements through employee engagement and innovation.",
+      bio: "Quality specialist with extensive experience in QC systems and high-performance team development.",
+      detailBio: "Sugi fosters collaborative environments and drives quality innovation through effective employee engagement and robust QC strategies.",
       email: "fsugi@globalindo.com",
       phone: "+62-8XX-XXXX",
-      linkedin: "https://linkedin.com",
       expertise: ["Team Management", "Process Improvement", "Operations Strategy", "Change Management"]
     }
   ];

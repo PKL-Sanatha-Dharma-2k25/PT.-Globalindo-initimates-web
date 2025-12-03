@@ -65,7 +65,7 @@ const CSRHero = ({ videoUrl = "./images/BgHero/csrBg.mp4" }) => {
           <p 
             className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
           >
-            Our commitment to environmental sustainability and community empowerment through responsible business practices
+            Our commitment to environmental care, social empowerment, and responsible business practices.
           </p>
 
           {/* CTA Button */}

@@ -76,7 +76,7 @@ const TeamHero = ({ videoUrl = "./images/BgHero/teamBg.mp4", onBack }) => {
           <p 
             className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
           >
-            Experienced professionals dedicated to driving organizational excellence and sustainable growth through collaborative leadership
+            Experienced professionals dedicated to driving organizational growth, operational efficiency, and sustainable development through collaborative leadership.
           </p>
 
           {/* CTA Button */}

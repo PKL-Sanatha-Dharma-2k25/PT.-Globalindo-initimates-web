@@ -27,7 +27,7 @@ const AboutHero = () => {
       <section 
         className="relative min-h-screen flex items-center overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('./images/BgHero/about.png')"
+          backgroundImage: "url('/images/BgHero/about.png')"
         }}
       >
         {/* Overlay untuk kontras teks */}
@@ -48,13 +48,13 @@ const AboutHero = () => {
             
             {/* Title */}
             <h1 className="about-heading text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed tracking-tight">
-              Know <br />
+              About Our Company <br />
               <span className="text-orange-400 font-light">PT. Globalindo Intimates</span>
             </h1>
             
             {/* Description */}
             <p className="about-body text-sm md:text-base text-blue-100/70 mb-10 leading-relaxed max-w-xl font-light">
-              A trusted leader in intimate apparel manufacturing, committed to quality, innovation, and sustainable growth
+              A trusted apparel manufacturer delivering quality, innovation, and sustainable growth for global markets.
             </p>
             
             {/* CTA Button */}

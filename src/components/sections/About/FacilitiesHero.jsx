@@ -76,7 +76,7 @@ const FacilitiesHero = ({ videoUrl = "./images/BgHero/facilites.mp4", onBack }) 
           <p 
             className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
           >
-            State-of-the-art equipment and modern facilities designed for excellence in every production stage
+            Equipped with modern machinery and advanced technologies to deliver excellence across diverse garment categories.
           </p>
 
           {/* CTA Button */}
