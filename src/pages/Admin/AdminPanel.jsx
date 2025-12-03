@@ -41,6 +41,39 @@ export default function AdminPanel({ onLogout }) {
 
   const getToken = () => localStorage.getItem('adminToken');
 
+  // Mapping path ke tab
+  const tabMap = {
+    '/admin': 'dashboard',
+    '/admin/dashboard': 'dashboard',
+    '/admin/products': 'products',
+    '/admin/inquiries': 'inquiries',
+    '/admin/news': 'news'
+  };
+
+  // Detect URL path saat load dan saat ada perubahan
+  useEffect(() => {
+    const path = window.location.pathname;
+    console.log('🔍 Admin path:', path);
+
+    // Normalize path: hapus trailing slash
+    const normalizedPath = path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+    
+    // Get tab dari path
+    const tab = tabMap[normalizedPath] || 'dashboard';
+    setActiveTab(tab);
+
+    // Listen untuk perubahan URL (back/forward button)
+    const handlePopState = () => {
+      const newPath = window.location.pathname;
+      const newNormalizedPath = newPath.endsWith('/') && newPath !== '/' ? newPath.slice(0, -1) : newPath;
+      const newTab = tabMap[newNormalizedPath] || 'dashboard';
+      setActiveTab(newTab);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   // Fetch semua data saat component mount
   useEffect(() => {
     fetchAllData();
@@ -52,6 +85,13 @@ export default function AdminPanel({ onLogout }) {
     if (activeTab === 'inquiries') fetchInquiries();
     if (activeTab === 'news') fetchNews();
   }, [activeTab]);
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    // Update URL
+    const newUrl = tabId === 'dashboard' ? '/admin' : `/admin/${tabId}`;
+    window.history.pushState({}, '', newUrl);
+  };
 
   // Fetch all data untuk dashboard
   const fetchAllData = async () => {
@@ -299,7 +339,7 @@ export default function AdminPanel({ onLogout }) {
           {menuItems.map(item => (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => handleTabChange(item.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                 activeTab === item.id
                   ? 'bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/50'

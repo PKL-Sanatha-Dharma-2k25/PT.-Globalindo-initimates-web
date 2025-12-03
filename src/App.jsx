@@ -23,23 +23,76 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState("landing");
   const [adminToken, setAdminToken] = useState(localStorage.getItem('adminToken'));
 
-  // Detect URL path saat load
-  useEffect(() => {
-    const path = window.location.pathname;
-    console.log('🔍 Current path:', path); // DEBUG
-    
-    if (path === "/admin") {
+  // Mapping path ke page
+  const pathMap = {
+    "/": "landing",
+    "/about": "about",
+    "/company-profile": "company-profile",
+    "/facilities": "facilities",
+    "/csr": "csr",
+    "/market": "market",
+    "/products": "products",
+    "/team": "team",
+    "/contact": "contact",
+    "/certification": "certification",
+    "/news": "news",
+  };
+
+  // Function untuk detect dan set page berdasarkan path
+  const handlePathChange = (path) => {
+    console.log('🔍 Current path:', path);
+
+    // Check admin routes
+    if (path === "/company-profile/admin") {
       const token = localStorage.getItem('adminToken');
-      console.log('🔐 Token found:', !!token); // DEBUG
+      console.log('🔐 Token found:', !!token);
       
       if (token) {
         setCurrentPage("admin");
       } else {
-        // PENTING: Update URL ke /admin-login
         window.history.pushState({}, "", "/admin-login");
         setCurrentPage("admin-login");
       }
+      return;
     }
+
+    if (path === "/admin-login") {
+      setCurrentPage("admin-login");
+      return;
+    }
+
+    if (path === "/admin") {
+      const token = localStorage.getItem('adminToken');
+      if (token) {
+        setCurrentPage("admin");
+      } else {
+        window.history.pushState({}, "", "/admin-login");
+        setCurrentPage("admin-login");
+      }
+      return;
+    }
+
+    // Check regular routes
+    const page = pathMap[path];
+    if (page) {
+      setCurrentPage(page);
+    } else {
+      setCurrentPage("landing");
+    }
+  };
+
+  // Detect URL path saat load dan saat ada perubahan
+  useEffect(() => {
+    const path = window.location.pathname;
+    handlePathChange(path);
+
+    // Listen untuk perubahan URL (back/forward button)
+    const handlePopState = () => {
+      handlePathChange(window.location.pathname);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   const handleNavigateTo = (page) => {
@@ -50,19 +103,19 @@ const App = () => {
   };
 
   const handleLoginSuccess = (token) => {
-    console.log('✅ Login success, token:', token); // DEBUG
+    console.log('✅ Login success, token:', token);
     setAdminToken(token);
     setCurrentPage("admin");
     window.history.pushState({}, "", "/admin");
   };
 
   const handleLogout = () => {
-    console.log('🚪 Logout'); // DEBUG
+    console.log('🚪 Logout');
     localStorage.removeItem('adminToken');
     localStorage.removeItem('adminUser');
     setAdminToken(null);
-    setCurrentPage("landing");
-    window.history.pushState({}, "", "/");
+    setCurrentPage("admin-login");
+    window.history.pushState({}, "", "/admin-login");
   };
 
   return (
@@ -77,7 +130,6 @@ const App = () => {
         {currentPage === "admin" && adminToken ? (
           <AdminPanel onLogout={handleLogout} />
         ) : currentPage === "admin" && !adminToken ? (
-          // FIXED: Jika akses /admin tapi no token, redirect ke login
           (() => {
             console.log('⚠️ No token for admin page, redirecting...');
             window.history.pushState({}, "", "/admin-login");

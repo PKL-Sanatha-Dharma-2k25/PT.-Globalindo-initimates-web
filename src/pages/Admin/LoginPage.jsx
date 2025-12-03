@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Lock, AlertCircle } from 'lucide-react';
+import { Lock, AlertCircle, ArrowLeft } from 'lucide-react';
 
 const API_URL = 'http://localhost:5000/api';
 
-export default function LoginPage({ onLoginSuccess }) {
+export default function LoginPage({ onLoginSuccess, onBack }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -45,7 +45,18 @@ export default function LoginPage({ onLoginSuccess }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FF6600] to-[#0D1B66] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#FF6600] to-[#0D1B66] flex items-center justify-center p-4 relative">
+      {/* Back Button */}
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="absolute top-8 left-8 flex items-center gap-2 text-white hover:text-orange-200 transition"
+        >
+          <ArrowLeft size={24} />
+          <span className="font-medium">Back</span>
+        </button>
+      )}
+
       <div className="w-full max-w-md">
         <div className="bg-white rounded-lg shadow-2xl p-8">
           <div className="text-center mb-8">
@@ -65,7 +76,7 @@ export default function LoginPage({ onLoginSuccess }) {
             </div>
           )}
 
-          <div className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Username
@@ -77,6 +88,7 @@ export default function LoginPage({ onLoginSuccess }) {
                 placeholder="Enter username"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6600] focus:ring-2 focus:ring-[#FF6600]/20"
                 disabled={loading}
+                required
               />
             </div>
 
@@ -91,17 +103,18 @@ export default function LoginPage({ onLoginSuccess }) {
                 placeholder="Enter password"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6600] focus:ring-2 focus:ring-[#FF6600]/20"
                 disabled={loading}
+                required
               />
             </div>
 
             <button
-              onClick={handleSubmit}
+              type="submit"
               disabled={loading}
-              className="w-full mt-6 bg-[#FF6600] text-white font-semibold py-3 rounded-lg hover:bg-[#E55A00] disabled:bg-gray-400"
+              className="w-full mt-6 bg-[#FF6600] text-white font-semibold py-3 rounded-lg hover:bg-[#E55A00] disabled:bg-gray-400 transition"
             >
               {loading ? 'Logging in...' : 'Login'}
             </button>
-          </div>
+          </form>
 
           <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
             <p className="text-xs text-blue-600">
