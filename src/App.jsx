@@ -20,7 +20,34 @@ import CertificationPage from "./pages/Explore/CertificationPage";
 import NewsPage from "./pages/News/NewsPage";
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState("landing");
+  // Initialize currentPage dari URL path, bukan dari "landing" default
+  const getInitialPage = () => {
+    const path = window.location.pathname;
+    const normalizedPath = path !== "/" && path.endsWith("/") ? path.slice(0, -1) : path;
+    
+    const pathMap = {
+      "/": "landing",
+      "/about": "about",
+      "/company-profile": "company-profile",
+      "/facilities": "facilities",
+      "/csr": "csr",
+      "/market": "market",
+      "/products": "products",
+      "/team": "team",
+      "/contact": "contact",
+      "/certification": "certification",
+      "/news": "news",
+    };
+
+    if (normalizedPath === "/admin-login" || normalizedPath === "/admin" || normalizedPath === "/company-profile/admin") {
+      const token = localStorage.getItem('adminToken');
+      return token ? "admin" : "admin-login";
+    }
+
+    return pathMap[normalizedPath] || "landing";
+  };
+
+  const [currentPage, setCurrentPage] = useState(getInitialPage());
   const [adminToken, setAdminToken] = useState(localStorage.getItem('adminToken'));
 
   // Mapping path ke page
@@ -38,12 +65,21 @@ const App = () => {
     "/news": "news",
   };
 
+  // Function untuk normalize path (remove trailing slash)
+  const normalizePath = (path) => {
+    if (path !== "/" && path.endsWith("/")) {
+      return path.slice(0, -1);
+    }
+    return path;
+  };
+
   // Function untuk detect dan set page berdasarkan path
   const handlePathChange = (path) => {
-    console.log('🔍 Current path:', path);
+    const normalizedPath = normalizePath(path);
+    console.log('🔍 Current path:', normalizedPath);
 
     // Check admin routes
-    if (path === "/company-profile/admin") {
+    if (normalizedPath === "/company-profile/admin" || normalizedPath === "/admin") {
       const token = localStorage.getItem('adminToken');
       console.log('🔐 Token found:', !!token);
       
@@ -56,24 +92,13 @@ const App = () => {
       return;
     }
 
-    if (path === "/admin-login") {
+    if (normalizedPath === "/admin-login") {
       setCurrentPage("admin-login");
       return;
     }
 
-    if (path === "/admin") {
-      const token = localStorage.getItem('adminToken');
-      if (token) {
-        setCurrentPage("admin");
-      } else {
-        window.history.pushState({}, "", "/admin-login");
-        setCurrentPage("admin-login");
-      }
-      return;
-    }
-
     // Check regular routes
-    const page = pathMap[path];
+    const page = pathMap[normalizedPath];
     if (page) {
       setCurrentPage(page);
     } else {
@@ -98,7 +123,8 @@ const App = () => {
   const handleNavigateTo = (page) => {
     setCurrentPage(page);
     // Update URL
-    window.history.pushState({}, "", page === "landing" ? "/" : `/${page}`);
+    const newPath = page === "landing" ? "/" : `/${page}`;
+    window.history.pushState({}, "", newPath);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -141,9 +167,7 @@ const App = () => {
         {/* Regular Pages */}
         {currentPage !== "admin" && currentPage !== "admin-login" && (
           <>
-            {currentPage !== "admin" && (
-              <Navigation currentPage={currentPage} onNavigateTo={handleNavigateTo} />
-            )}
+            <Navigation currentPage={currentPage} onNavigateTo={handleNavigateTo} />
 
             {currentPage === "landing" && (
               <>
