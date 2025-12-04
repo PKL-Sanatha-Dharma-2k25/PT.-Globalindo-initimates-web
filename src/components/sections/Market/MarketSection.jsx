@@ -318,7 +318,7 @@ export default function MarketSection() {
           
           {/* Subtitle - lebih besar & elegant */}
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl font-light leading-relaxed">
-            Delivering premium intimate apparel to leading brands across the globe
+            Delivering a diverse range of apparel—not only intimates but multiple garment categories—to leading global brands.
           </p>
         </div>
 

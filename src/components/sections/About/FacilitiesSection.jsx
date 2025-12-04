@@ -33,8 +33,8 @@ const FacilitiesSection = () => {
       category: 'cutting',
       fullDescription: 'Fabric and tile cutting machines are controlled by a computer system, allowing them to operate automatically and quickly while ensuring precise and consistent results.',
       specs: [
-        { label: 'Precision', value: '±0.1mm' },
-        { label: 'Speed', value: '80-100 cuts/hour' },
+        { label: 'Precision', value: '±0.1 mm' },
+        { label: 'Speed', value: '80–100 cuts/hour' },
         { label: 'Capacity', value: '±50,000 pcs/day' },
         { label: 'Efficiency', value: '99.8%' }
       ]
@@ -42,16 +42,16 @@ const FacilitiesSection = () => {
     {
       id: 2,
       title: 'Automatic Positioning Laser Cutting Machine',
-      description:'High-precision laser system ideal for lace, multi-pattern fabrics, engraving, and flexible production needs.',
+      description: 'High-precision laser system ideal for lace, multi-pattern fabrics, engraving, and flexible production needs.',
       image: './images/facilities/laser.jpg',
       layout: 'right',
       category: 'cutting',
       fullDescription: 'This machine is suitable for acrylic cutting, garment fabric processing, plate engraving, and several other applications, offering flexibility and efficiency in different production needs.',
       specs: [
-        { label: 'Max Size', value: '3000x1500mm' },
+        { label: 'Max Size', value: '3000 mm × 1500 mm' },
         { label: 'Resolution', value: '1200 DPI' },
         { label: 'Materials', value: 'Various laces and fabrics' },
-        { label: 'Production', value: '±5,000 pcs/hour' }
+        { label: 'Capacity', value: '±5,000 pcs/hour' }
       ]
     },
     {
@@ -63,15 +63,15 @@ const FacilitiesSection = () => {
       category: 'processing',
       fullDescription: 'A loosening, shrinking, and forming fabric machine restores fabric shape and dimensions, enhances appearance and stability, saves time and costs, and supports quality control, playing an important role in optimizing fabric quality and production processes.',
       specs: [
-        { label: 'Temp Range', value: '40-120°C' },
-        { label: 'Width', value: '2.5 meters' },
-        { label: 'Output', value: '500 m/hr' },
+        { label: 'Temperature Range', value: '40–120°C' },
+        { label: 'Width', value: '2.5 m' },
+        { label: 'Output', value: '500 m/hour' },
         { label: 'Energy Grade', value: 'A' }
       ]
     },
     {
       id: 4,
-      title: 'Automatic Collar turning & pressing Machine',
+      title: 'Automatic Collar Turning & Pressing Machine',
       description: 'Ensures consistent quality and high efficiency in collar production.',
       image: './images/facilities/pres.png',
       layout: 'right',
@@ -81,7 +81,7 @@ const FacilitiesSection = () => {
         { label: 'Speed', value: '180 pcs/hour' },
         { label: 'Labor Reduction', value: '70%' },
         { label: 'Quality Rate', value: '99.5%' },
-        { label: 'Accuracy', value: '±0.5mm' }
+        { label: 'Accuracy', value: '±0.5 mm' }
       ]
     },
     {
@@ -93,22 +93,22 @@ const FacilitiesSection = () => {
       category: 'processing',
       fullDescription: 'The use of thermoplastic or hot melt adhesive films has started to revolutionize the way of garment construction and has become the next generation of cut and sew.',
       specs: [
-        { label: 'Bond Strength', value: '5 kg/cm²'},
-        { label: 'Durability', value: ' Minimum 25 washes' },
-        { label: 'Speed', value: '500 pcs/hr' },
+        { label: 'Bond Strength', value: 'Up to 5 kg/cm²' },
+        { label: 'Durability', value: 'Minimum 25 washes' },
+        { label: 'Speed', value: '500 pcs/hour' },
         { label: 'Comfort Score', value: '9.5/10' }
       ]
     },
     {
       id: 6,
-      title: 'Real Time Monitoring Sewing Data',
+      title: 'Real-Time Monitoring of Sewing Data',
       description: 'Digital sewing-line monitoring that tracks material needs, productivity, and defect detection in real time.',
       image: './images/facilities/gpr.jpg',
       layout: 'right',
       category: 'monitoring',
       fullDescription: 'Sewing line monitor is useful for identifying sewing material needs, tracking line productivity, and detecting reject products from quality control to improve overall efficiency.',
       specs: [
-        { label: 'Coverage', value: '3,000+ Operations' },
+        { label: 'Coverage', value: '3,000+ operations' },
         { label: 'Latency', value: '<1 second' },
         { label: 'System Uptime', value: '99.9%' },
         { label: 'Data Points', value: '50+' }
@@ -123,8 +123,8 @@ const FacilitiesSection = () => {
       category: 'software',
       fullDescription: 'Machine problems can be handled quickly, thereby reducing wasted time during the production process, while also being useful in collecting important production data.',
       specs: [
-        { label: 'Users', value: '150+ Mechanics' },
-        { label: 'Response Time', value: '< 5 minutes' },
+        { label: 'Users', value: '150+ mechanics' },
+        { label: 'Response Time', value: '<5 minutes' },
         { label: 'Downtime Reduction', value: '45%' },
         { label: 'Accuracy', value: '99.5%' }
       ]
@@ -138,7 +138,7 @@ const FacilitiesSection = () => {
       category: 'robot',
       fullDescription: 'Robot is controlled through apps and runs automatically to the designated sewing line to deliver materials needed for the sewing line and transport the finished product.',
       specs: [
-        { label: 'Unit Count', value: '5 units' },
+        { label: 'Units', value: '5' },
         { label: 'Capacity', value: '500 kg/unit' },
         { label: 'Speed', value: '1.5 m/s' },
         { label: 'Efficiency Gain', value: '+60%' }

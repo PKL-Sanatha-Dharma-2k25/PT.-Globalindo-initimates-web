@@ -1,8 +1,8 @@
 import React from 'react';
-import { Mail, Phone, ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
+import { Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
+const ContactHero = ({ bgImage = "./images/BgHero/bgC.jpg" }) => {
   const scrollToSection = () => {
     const contactSection = document.getElementById('contact-form');
     if (contactSection) {
@@ -12,18 +12,6 @@ const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
-      
-      {/* Back Button - Top Left */}
-      {onBack && (
-        <button
-          onClick={onBack}
-          className="absolute top-8 left-6 md:left-12 lg:left-20 z-20 flex items-center gap-2 px-4 py-2.5 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-white font-light text-sm transition-all duration-300 group hover:bg-orange-600/90 hover:border-orange-600"
-          title="Kembali ke halaman utama"
-        >
-          <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Kembali</span>
-        </button>
-      )}
 
       {/* Background Image */}
       <div 
@@ -35,27 +23,22 @@ const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
-          {/* Subtitle */}
-          <div className="mb-8">
-            <span 
-              className="text-xs md:text-sm font-medium uppercase tracking-[0.15em] drop-shadow-lg inline-block transition-all duration-300"
-              style={{ color: designTokens.colors.primary.orange }}
-            >
+          {/* Badge dengan Animasi */}
+          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2.5 rounded-md bg-orange-500/15 border border-orange-400/30 backdrop-blur-sm shadow-lg hover:shadow-orange-500/20 transition-all duration-300 group">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500 shadow-lg shadow-orange-500/50" />
+            </span>
+            <span className="text-xs md:text-sm font-medium text-orange-300 uppercase tracking-wide">
               Get In Touch
             </span>
           </div>
 
-          {/* Accent Line */}
-          <div 
-            className="w-16 h-0.5 mb-8 rounded-full transition-all duration-300"
-            style={{ backgroundColor: designTokens.colors.primary.orange }}
-          ></div>
-          
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed drop-shadow-lg tracking-tight">
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed tracking-tight">
             Let's <br />
             <span 
               style={{ color: designTokens.colors.primary.orange }}
@@ -66,9 +49,7 @@ const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
           </h1>
 
           {/* Description */}
-          <p 
-            className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
-          >
+          <p className="text-sm md:text-base text-white/60 font-light max-w-xl mb-10 leading-relaxed">
             We're here to answer your questions and discuss how we can help bring your vision to life
           </p>
 
@@ -85,9 +66,9 @@ const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
             ></div>
             
             {/* Button Content */}
-            <span className="flex items-center gap-2 relative z-10">
+            <span className="flex items-center gap-2 relative z-10 text-sm md:text-base">
               <Phone className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              <span className="text-sm md:text-base">Contact Us</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </button>
@@ -100,8 +81,8 @@ const ContactHero = ({ onBack, bgImage = "./images/BgHero/bgC.jpg" }) => {
           onClick={scrollToSection}
           className="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors duration-300 group"
         >
-          <span className="text-xs font-light uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-4 h-4 group-hover:animate-bounce" />
+          <span className="text-xs font-light uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scroll</span>
+          <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
       </div>
     </section>

@@ -21,14 +21,14 @@ const TeamSection = () => {
     {
       id: 1,
       name: "Teti Yani Hartono",
-      role: "Chief Operation Officer",
+      role: "Chief Operating Officer",
       department: "Executive",
       img: "./images/team/teti.jpg",
-      bio: "Driving operational excellence with 20+ years of industry experience in manufacturing and logistics",
+      bio: "Driving operational excellence with 20+ years of experience in manufacturing and logistics",
       detailBio: "Teti has led multiple manufacturing facilities across Asia, implementing lean methodologies and optimizing supply chain performance. She is passionate about developing future operational leaders and strengthening organizational capabilities.",
       email: "teti@globalindo.com",
       phone: "+62-8XX-XXXX",
-      expertise: ["Supply Chain", "Lean Manufacturing", "Team Leadership", "Quality Management"]
+      expertise: ["Operational Excellence", "Lean Manufacturing", "Supply Chain", "Team Development"]
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ const TeamSection = () => {
       role: "Factory Manager",
       department: "Executive",
       img: "./images/team/suandi.jpg",
-      bio: "Strategic leader focused on growth, innovation, and sustainable business development.",
+      bio: "Strategic leader focused on growth, innovation, and sustainable business development",
       detailBio: "Suandi brings strong expertise in market analysis, business scaling, and strategic transformation. He has guided the company through multiple expansion phases while strengthening its global competitiveness.",
       email: "suandi@globalindo.com",
       phone: "+62-8XX-XXXX",
@@ -46,9 +46,9 @@ const TeamSection = () => {
       id: 3,
       name: "Rudy Tjandra",
       role: "Senior Manager PPIC",
-      department: "Operations",
+      department: "Executive",
       img: "./images/team/rudy.jpg",
-      bio: "Planning and inventory control specialist with deep expertise in supply chain optimization.",
+      bio: "Planning and inventory control specialist with deep expertise in supply chain optimization",
       detailBio: "Rudy ensures seamless production flow through accurate demand forecasting, efficient inventory management, and waste-minimization initiatives.",
       email: "rudy@globalindo.com",
       phone: "+62-8XX-XXXX",
@@ -58,9 +58,9 @@ const TeamSection = () => {
       id: 4,
       name: "Amila",
       role: "IE Manager",
-      department: "Operations",
+      department: "Executive",
       img: "./images/team/amila.jpg",
-      bio: "Industrial efficiency and process-optimization expert.",
+      bio: "Industrial efficiency and process-optimization expert",
       detailBio: "Amila leads major industrial engineering and process-improvement programs, successfully delivering efficiency gains, cost reductions, and value-engineering initiatives across various production lines.",
       email: "amila@globalindo.com",
       phone: "+62-8XX-XXXX",
@@ -70,9 +70,9 @@ const TeamSection = () => {
       id: 5,
       name: "Dedy Mirady",
       role: "Production Manager",
-      department: "Production",
+      department: "Executive",
       img: "./images/team/dedi.jpg",
-      bio: "Leader in production excellence and quality assurance.",
+      bio: "Leader in production excellence and quality assurance",
       detailBio: "With strong Six Sigma and continuous-improvement expertise, Dedy ensures that production operations consistently deliver outstanding quality, efficiency, and reliability.",
       email: "dedy@globalindo.com",
       phone: "+62-8XX-XXXX",
@@ -82,9 +82,9 @@ const TeamSection = () => {
       id: 6,
       name: "Sugiyarni",
       role: "Quality Assurance Senior Manager",
-      department: "Operations",
+      department: "Executive",
       img: "./images/team/sugi1.png",
-      bio: "Quality specialist with extensive experience in QC systems and high-performance team development.",
+      bio: "Quality specialist with extensive experience in QC systems and high-performance team development",
       detailBio: "Sugi fosters collaborative environments and drives quality innovation through effective employee engagement and robust QC strategies.",
       email: "fsugi@globalindo.com",
       phone: "+62-8XX-XXXX",
@@ -134,8 +134,8 @@ const TeamSection = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-gray-900">Meet Our </span>
-              <span className="text-orange-600">Leadership Team</span>
+              <span className="text-gray-900">Meet the Minds  </span>
+              <span className="text-orange-600">Behind the Excellence</span>
             </h1>
 
             <div className="flex items-center gap-4 mb-6">
@@ -144,7 +144,7 @@ const TeamSection = () => {
             </div>
             
             <p className="text-lg text-gray-600 max-w-2xl">
-              Exceptional professionals dedicated to excellence and innovation
+              Experienced professionals dedicated to driving organizational growth, operational efficiency, and sustainable development through collaborative leadership.
             </p>
           </div>
 

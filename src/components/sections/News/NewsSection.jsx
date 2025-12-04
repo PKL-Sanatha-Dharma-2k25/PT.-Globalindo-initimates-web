@@ -9,7 +9,7 @@ export default function NewsPage() {
   const [loading, setLoading] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterType, setFilterType] = useState('all');
+ 
 
   // Fetch news from database only
   useEffect(() => {
