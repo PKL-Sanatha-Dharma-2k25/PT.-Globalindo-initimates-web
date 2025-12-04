@@ -89,12 +89,12 @@ const Footer = ({ onNavigateTo }) => {
                 <h3 className="text-base md:text-lg font-medium bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   PT. Globalindo Intimates
                 </h3>
-                <p className="text-xs" style={{ color: colors.neutral.gray[400] }}>Excellence in Every Stitch</p>
+                <p className="text-xs" style={{ color: colors.neutral.gray[400] }}>Quality In Every Single Stitch</p>
               </div>
             </div>
 
             <p className="text-xs md:text-sm leading-relaxed max-w-md" style={{ color: colors.neutral.gray[400] }}>
-              Leading manufacturer of premium intimate apparel, committed to quality, innovation, and sustainable practices.
+             Achieving Global Quality with Technology Empowering The Surrounding Society
             </p>
 
             {/* Social Media */}
