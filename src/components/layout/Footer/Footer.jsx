@@ -61,6 +61,33 @@ const Footer = ({ onNavigateTo }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Handler untuk Quick Links - dengan fallback navigation
+  const handleQuickLinkClick = (page) => {
+    console.log('📍 Navigating to:', page);
+    
+    // Attempt 1: Gunakan props onNavigateTo jika tersedia
+    if (onNavigateTo) {
+      onNavigateTo(page);
+      setTimeout(() => scrollToTop(), 100);
+    } 
+    // Attempt 2: Fallback ke window.history untuk direct navigation
+    else {
+      const pageMap = {
+        'company-profile': '/company-profile',
+        'products': '/products',
+        'team': '/team',
+        'facilities': '/facilities',
+        'contact': '/contact',
+      };
+      
+      const path = pageMap[page] || `/${page}`;
+      window.history.pushState({}, "", path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      setTimeout(() => scrollToTop(), 100);
+      console.log('✅ Navigated via fallback:', path);
+    }
+  };
+
   return (
     <footer className="relative overflow-hidden" style={{ backgroundColor: colors.neutral.gray[900] }}>
       {/* Decorative Top Line */}
@@ -128,13 +155,23 @@ const Footer = ({ onNavigateTo }) => {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button 
-                    onClick={() => onNavigateTo && onNavigateTo(link.page)}
-                    className={`flex items-center gap-2 group text-xs md:text-sm ${transitions.base}`}
-                    style={{ color: colors.neutral.gray[400], background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                    onClick={() => handleQuickLinkClick(link.page)}
+                    className={`flex items-center gap-2 group text-xs md:text-sm ${transitions.base} hover:pl-1`}
+                    style={{ 
+                      color: colors.neutral.gray[400], 
+                      background: 'none', 
+                      border: 'none', 
+                      cursor: 'pointer', 
+                      padding: 0,
+                      textAlign: 'left'
+                    }}
                     onMouseEnter={(e) => e.currentTarget.style.color = colors.primary.orange}
                     onMouseLeave={(e) => e.currentTarget.style.color = colors.neutral.gray[400]}
                   >
-                    <span className="w-0 group-hover:w-1.5 h-0.5 transition-all duration-300" style={{ backgroundColor: colors.primary.orange }}></span>
+                    <span 
+                      className="w-0 group-hover:w-1.5 h-0.5 transition-all duration-300 flex-shrink-0" 
+                      style={{ backgroundColor: colors.primary.orange }}
+                    ></span>
                     {link.label}
                   </button>
                 </li>

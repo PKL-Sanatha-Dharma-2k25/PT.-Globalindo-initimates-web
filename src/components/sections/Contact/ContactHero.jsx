@@ -4,10 +4,15 @@ import designTokens from '../../../constants/designTokens';
 
 const ContactHero = ({ bgImage = "./images/BgHero/bgC.jpg" }) => {
   const scrollToSection = () => {
-    const contactSection = document.getElementById('contact-form');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Tunggu DOM ready
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact-form');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn('Element dengan id contact-form tidak ditemukan');
+      }
+    }, 100);
   };
 
   return (

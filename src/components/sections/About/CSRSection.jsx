@@ -30,7 +30,7 @@ const CSRSection = () => {
       title: "School & University Partnership",
       description: "Providing students and interns with hands-on industry experience aligned with our values of quality, innovation, and sustainability.",
       details: [],
-      image: "./images/csr/school.jpg",
+      image: "./images/csr/magang.jpg",
       icon: GraduationCap,
       color: "purple",
       stats: { label: "Students Trained", value: "500+" }
@@ -45,7 +45,7 @@ const CSRSection = () => {
         "Canteen Food Waste → Maggot Cultivation: Organic waste is donated to maggot cultivation farms for sustainable animal feed.",
         "Used Cartons → Egg Trays: All leftover cartons are recycled and molded into durable egg trays for local poultry farms."
       ],
-      image: "./images/csr/waste.jpg",
+      image: "./images/csr/csr.png",
       icon: Trash2,
       color: "orange",
       stats: { label: "Waste Diverted", value: "500T+" }

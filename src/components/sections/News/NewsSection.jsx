@@ -229,9 +229,9 @@ export default function NewsPage() {
     );
   }
 
-  // List view
+  // List view - PENTING: TAMBAHKAN id="news-section" DI SINI
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 pt-20 pb-12">
+    <div id="news-section" className="min-h-screen bg-gradient-to-b from-white to-gray-50 pt-20 pb-12">
       <style>
         {`
           h1, h2, h3, h4, h5, h6 {

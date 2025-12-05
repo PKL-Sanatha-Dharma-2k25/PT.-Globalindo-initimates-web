@@ -287,7 +287,7 @@ const AboutSection = () => {
                           </div>
                           <div className="flex-1 min-w-0">
                             <span className="text-xs text-gray-500 block font-medium">Factory Area</span>
-                            <p className="text-sm font-bold text-gray-800">23,876 m²</p>
+                            <p className="text-sm font-bold text-gray-800">11,035 m²</p>
                           </div>
                         </div>
                       </div>
