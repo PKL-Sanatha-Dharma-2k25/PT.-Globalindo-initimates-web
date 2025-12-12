@@ -125,14 +125,14 @@ const products = [
   {
     id: 1,
     name: "Period Panty",
-    image: "/images/Product/Picture1.png",
+    image: "./images/Product/Picture1.png",
     category: "intimates",
     description: "Premium period panty with advanced leak-proof technology. Made from soft, breathable fabric that provides maximum comfort and protection during your cycle.",
     features: ["Leak-proof protection", "Ultra-soft fabric", "Breathable material", "Easy to wash"],
     additionalImages: [
-      "/images/Product/Picture1.png",
-      "/images/Product/Picture1-2.png",
-      "/images/Product/Picture1-3.png"
+      "./images/Product/Picture1.png",
+      "./images/Product/Picture1-2.png",
+      "./images/Product/Picture1-3.png"
     ],
     badge: "Bestseller",
     color: "blue"
@@ -140,14 +140,14 @@ const products = [
   {
     id: 2,
     name: "Ladies Underwear",
-    image: "/images/Product/Picture4.png",
+    image: "./images/Product/Picture4.png",
     category: "intimates",
     description: "Comfortable ladies underwear crafted from premium materials. Designed to provide all-day comfort with excellent breathability and perfect fit.",
     features: ["Soft material", "Breathable design", "Perfect fit", "Long-lasting quality"],
     additionalImages: [
-      "/images/Product/Picture4.png",
-      "/images/Product/Picture4-2.png",
-      "/images/Product/Picture4-3.png"
+      "./images/Product/Picture4.png",
+      "./images/Product/Picture4-2.png",
+      "./images/Product/Picture4-3.png"
     ],
     badge: "Bestseller",
     color: "orange"
@@ -155,14 +155,14 @@ const products = [
   {
     id: 3,
     name: "Ladies Bra",
-    image: "/images/Product/Picture2.png",
+    image: "./images/Product/Picture2.png",
     category: "intimates",
     description: "Premium ladies bra with superior support and comfort. Features adjustable straps and wire-free design for maximum comfort throughout the day.",
     features: ["Wire-free comfort", "Adjustable straps", "Breathable fabric", "Superior support"],
     additionalImages: [
-      "/images/Product/Picture2.png",
-      "/images/Product/Picture2-2.png",
-      "/images/Product/Picture2-3.png"
+      "./images/Product/Picture2.png",
+      "./images/Product/Picture2-2.png",
+      "./images/Product/Picture2-3.png"
     ],
     badge: "Premium",
     color: "blue"
@@ -170,14 +170,14 @@ const products = [
   {
     id: 4,
     name: "Ladies Apeweo",
-    image: "/images/Product/Picture3.png",
+    image: "./images/Product/Picture3.png",
     category: "apeweo",
     description: "Elegant ladies apeweo with modern design. Perfect for special occasions and daily wear with superior comfort and style.",
     features: ["Modern design", "Premium quality", "Comfortable fit", "Elegant style"],
     additionalImages: [
-      "/images/Product/Picture3.png",
-      "/images/Product/Picture3-2.png",
-      "/images/Product/Picture3-3.png"
+      "./images/Product/Picture3.png",
+      "./images/Product/Picture3-2.png",
+      "./images/Product/Picture3-3.png"
     ],
     badge: "Premium",
     color: "orange"
@@ -185,14 +185,14 @@ const products = [
   {
     id: 5,
     name: "Mans Underwear",
-    image: "/images/Product/Picture5.png",
+    image: "./images/Product/Picture5.png",
     category: "mens",
     description: "High-quality men's underwear designed for maximum comfort and durability. Features elastic waistband and breathable fabric for all-day wear.",
     features: ["Elastic waistband", "Breathable fabric", "Comfortable fit", "Durable construction"],
     additionalImages: [
-      "/images/Product/Picture5.png",
-      "/images/Product/Picture5-2.png",
-      "/images/Product/Picture5-3.png"
+      "./images/Product/Picture5.png",
+      "./images/Product/Picture5-2.png",
+      "./images/Product/Picture5-3.png"
     ],
     badge: "Quality",
     color: "blue"

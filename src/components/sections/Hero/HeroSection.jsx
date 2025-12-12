@@ -9,9 +9,9 @@ const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
   const backgrounds = [
-    '/images/BgHero/bg.jpg',
-    '/images/BgHero/Picture1.png',
-    '/images/BgHero/Picture2.png',
+    './images/BgHero/bg.jpg',
+    './images/BgHero/Picture1.png',
+    './images/BgHero/Picture2.png',
   ];
 
   // Background slideshow
@@ -156,49 +156,26 @@ const HeroSection = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500 shadow-lg shadow-orange-500/50" />
                 </span>
-                <span className="text-xs md:text-sm font-semibold tracking-wide text-white/90 group-hover:text-white transition-colors">
+                <span className="text-sm md:text-lg lg:text-xl font-semibold tracking-wide text-white/90 group-hover:text-white transition-colors">
                   {t('hero.welcome')}
                 </span>
               </div>
 
               {/* MAIN HEADING - Improved */}
               <h1 className={`hero-heading mb-6 ${designTokens.animations.basic.slideUp} leading-tight text-3xl md:text-4xl lg:text-5xl`} style={{animationFillMode: 'both'}}>
-                <span className={`block ${designTokens.presets.hero.title} tracking-tight mb-3 pb-1`}>
-                  {t('hero.titleMain')}
-                </span>
-                <span className={`block tracking-tight ${designTokens.gradients.text.orange} ${designTokens.animations.hero.gradient} pb-2`}>
-                  {t('hero.titleHighlight')}
+                <span className={`${designTokens.presets.hero.title} tracking-tight pb-1 text-white`}>
+                  {t('hero.titleMain')} {t('hero.titleHighlight')}
                 </span>
               </h1>
 
               {/* SUBTITLE - Enhanced */}
               <div className={`hero-body mb-6 ${designTokens.animations.basic.slideUp} ${designTokens.spacing.stack.xs}`} 
                    style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
-                <p className={`text-sm md:text-base ${designTokens.presets.hero.subtitle} leading-relaxed mb-2`}>
-                  {t('hero.subtitle1').split('Technology').map((part, i, arr) => (
-                    <span key={i}>
-                      {part}
-                      {i < arr.length - 1 && (
-                        <span className={`${designTokens.presets.hero.highlight}`}>
-                          Technology
-                          <span className={designTokens.presets.hero.highlightUnderline} />
-                        </span>
-                      )}
-                    </span>
-                  ))}
+                <p className={`text-sm md:text-base text-white leading-relaxed`}>
+                  {t('hero.subtitle1')}
                 </p>
-                <p className={`text-sm md:text-base ${designTokens.presets.hero.subtitle} leading-relaxed`}>
-                  {t('hero.subtitle2').split('Surrounding').map((part, i, arr) => (
-                    <span key={i}>
-                      {part}
-                      {i < arr.length - 1 && (
-                        <span className={`${designTokens.presets.hero.highlight}`}>
-                          Surrounding
-                          <span className={designTokens.presets.hero.highlightUnderline} />
-                        </span>
-                      )}
-                    </span>
-                  ))}
+                <p className={`text-sm md:text-base text-white leading-relaxed`}>
+                  {t('hero.subtitle2')}
                 </p>
               </div>
 

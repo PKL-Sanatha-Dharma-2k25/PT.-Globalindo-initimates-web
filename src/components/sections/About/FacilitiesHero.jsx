@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) => {
+const FacilitiesHero = ({ videoUrl = "./images/BgHero/facilites.mp4", onBack }) => {
   const scrollToSection = () => {
     const facilitiesSection = document.getElementById('facilities');
     if (facilitiesSection) {
@@ -45,24 +45,19 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) =
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
-          {/* Subtitle */}
-          <div className="mb-8">
-            <span 
-              className="text-xs md:text-sm font-medium uppercase tracking-[0.15em] drop-shadow-lg inline-block transition-all duration-300"
-              style={{ color: designTokens.colors.primary.orange }}
-            >
+          {/* Badge dengan Animasi */}
+          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2.5 rounded-md bg-orange-500/15 border border-orange-400/30 backdrop-blur-sm shadow-lg hover:shadow-orange-500/20 transition-all duration-300 group">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500 shadow-lg shadow-orange-500/50" />
+            </span>
+            <span className="text-xs md:text-sm font-medium text-orange-300 uppercase tracking-wide">
               Our Facilities
             </span>
           </div>
 
-          {/* Accent Line */}
-          <div 
-            className="w-16 h-0.5 mb-8 rounded-full transition-all duration-300"
-            style={{ backgroundColor: designTokens.colors.primary.orange }}
-          ></div>
-          
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed drop-shadow-lg tracking-tight">
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed tracking-tight">
             State-of-the-Art <br />
             <span 
               style={{ color: designTokens.colors.primary.orange }}
@@ -73,10 +68,8 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) =
           </h1>
 
           {/* Description */}
-          <p 
-            className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
-          >
-            State-of-the-art equipment and modern facilities designed for excellence in every production stage
+          <p className="text-sm md:text-base text-white/60 font-light max-w-xl mb-10 leading-relaxed">
+            Equipped with modern machinery and advanced technologies to deliver excellence across diverse garment categories.
           </p>
 
           {/* CTA Button */}
@@ -92,8 +85,8 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) =
             ></div>
             
             {/* Button Content */}
-            <span className="flex items-center gap-2 relative z-10">
-              <span className="text-sm md:text-base">Explore Facilities</span>
+            <span className="flex items-center gap-2 relative z-10 text-sm md:text-base">
+              <span>Explore Facilities</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </button>
@@ -106,8 +99,8 @@ const FacilitiesHero = ({ videoUrl = "/images/BgHero/facilites.mp4", onBack }) =
           onClick={scrollToSection}
           className="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors duration-300 group"
         >
-          <span className="text-xs font-light uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-4 h-4 group-hover:animate-bounce" />
+          <span className="text-xs font-light uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scroll</span>
+          <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
       </div>
     </section>

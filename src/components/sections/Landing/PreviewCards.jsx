@@ -10,13 +10,13 @@ const CompanyOverview = ({ onNavigateTo }) => {
   const products = [
     {
       id: 1,
-      images: ["/images/Product/out1.jpg", "/images/Product/out2.jpg"],
+      images: ["./images/Product/out1.jpg", "./images/Product/out2.jpg"],
       title: "Outerwear",
       description: "Bra & shapewear, sportswear, swimwear, activewear, and performance garments"
     },
     {
       id: 2,
-      images: ["/images/Product/u1.jpg", "/images/Product/u2.JPG"],
+      images: ["./images/Product/u1.jpg", "./images/Product/u2.JPG"],
       title: "Underwear",
       description: "Women's and men's underwear, period panty, plus size collections, briefs, boxers"
     }
@@ -495,9 +495,6 @@ const CompanyOverview = ({ onNavigateTo }) => {
             <button onClick={() => onNavigateTo('contact')} className="btn-primary px-6 py-2.5 text-white font-medium text-sm rounded-lg inline-flex items-center justify-center gap-2">
               Contact Us
               <ArrowRight className="w-4 h-4" />
-            </button>
-            <button onClick={() => onNavigateTo('catalog')} className="btn-secondary px-6 py-2.5 font-medium text-sm rounded-lg transition-all">
-              Download Catalog
             </button>
           </div>
         </div>

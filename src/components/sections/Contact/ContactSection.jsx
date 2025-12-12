@@ -58,6 +58,7 @@ const ContactSection = () => {
   });
   const [focusedField, setFocusedField] = useState(null);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -66,16 +67,48 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.firstName && formData.lastName && formData.email && formData.message) {
-      console.log('Form submitted:', formData);
-      setSubmitStatus('success');
-      setFormData({ firstName: '', lastName: '', email: '', message: '' });
-      setTimeout(() => setSubmitStatus(''), 3000);
-    } else {
+    
+    // Validasi
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(''), 3000);
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      // Ganti URL sesuai dengan backend Anda
+      const response = await fetch('http://localhost:5000/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          message: formData.message
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setFormData({ firstName: '', lastName: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus(''), 3000);
+      } else {
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus(''), 3000);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(''), 3000);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -231,7 +264,7 @@ const ContactSection = () => {
 
             {/* ===== CONTACT FORM (3 columns) ===== */}
             <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className={`bg-white rounded-2xl p-8 md:p-10 ${shadows.lift} border border-gray-100`}>
+              <div className={`bg-white rounded-2xl p-8 md:p-10 ${shadows.lift} border border-gray-100`}>
                 <h3 className={`${typography.h2} mb-8`} style={{ color: colors.primary.blue }}>
                   Send us a Message
                 </h3>
@@ -264,7 +297,8 @@ const ContactSection = () => {
                         onFocus={() => setFocusedField('firstName')}
                         onBlur={() => setFocusedField(null)}
                         placeholder=""
-                        className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white ${transitions.base}`}
+                        disabled={isLoading}
+                        className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white ${transitions.base} disabled:opacity-50`}
                         style={{
                           borderColor: focusedField === 'firstName' ? colors.primary.orange : colors.neutral.gray[200],
                           boxShadow: focusedField === 'firstName' ? `0 0 0 3px rgba(249, 115, 22, 0.1)` : 'none'
@@ -285,7 +319,8 @@ const ContactSection = () => {
                         onFocus={() => setFocusedField('lastName')}
                         onBlur={() => setFocusedField(null)}
                         placeholder=""
-                        className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white ${transitions.base}`}
+                        disabled={isLoading}
+                        className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white ${transitions.base} disabled:opacity-50`}
                         style={{
                           borderColor: focusedField === 'lastName' ? colors.primary.orange : colors.neutral.gray[200],
                           boxShadow: focusedField === 'lastName' ? `0 0 0 3px rgba(249, 115, 22, 0.1)` : 'none'
@@ -307,7 +342,8 @@ const ContactSection = () => {
                       onFocus={() => setFocusedField('email')}
                       onBlur={() => setFocusedField(null)}
                       placeholder=""
-                      className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white ${transitions.base}`}
+                      disabled={isLoading}
+                      className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white ${transitions.base} disabled:opacity-50`}
                       style={{
                         borderColor: focusedField === 'email' ? colors.primary.orange : colors.neutral.gray[200],
                         boxShadow: focusedField === 'email' ? `0 0 0 3px rgba(249, 115, 22, 0.1)` : 'none'
@@ -328,7 +364,8 @@ const ContactSection = () => {
                       onBlur={() => setFocusedField(null)}
                       placeholder="Tell us about your project or inquiry..."
                       rows="4"
-                      className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white resize-none ${transitions.base}`}
+                      disabled={isLoading}
+                      className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:bg-white resize-none ${transitions.base} disabled:opacity-50`}
                       style={{
                         borderColor: focusedField === 'message' ? colors.primary.orange : colors.neutral.gray[200],
                         boxShadow: focusedField === 'message' ? `0 0 0 3px rgba(249, 115, 22, 0.1)` : 'none'
@@ -338,20 +375,21 @@ const ContactSection = () => {
 
                   {/* Submit Button */}
                   <button
-                    type="submit"
-                    className={`group relative w-full text-white font-bold py-4 md:py-5 rounded-lg overflow-hidden ${transitions.base} transform hover:-translate-y-1 active:translate-y-0`}
+                    onClick={handleSubmit}
+                    disabled={isLoading}
+                    className={`group relative w-full text-white font-bold py-4 md:py-5 rounded-lg overflow-hidden ${transitions.base} transform hover:-translate-y-1 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0`}
                     style={{ backgroundColor: colors.primary.blue }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
                     <div className="relative flex items-center justify-center gap-3">
-                      <span>Send Message</span>
+                      <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
                       <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </div>
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

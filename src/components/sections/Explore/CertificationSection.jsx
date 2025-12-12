@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, X, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const CertificationSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,8 +7,8 @@ const CertificationSection = () => {
   const [activeTab, setActiveTab] = useState('certificates');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const CERT_FOLDER = '/images/Sertif/';
-  const EVENT_FOLDER = '/images/Event/';
+  const CERT_FOLDER = './images/Sertif/';
+  const EVENT_FOLDER = './images/Event/';
 
   const certifications = [
     { title: 'BPJS Ketenagakerjaan', image: `${CERT_FOLDER}bpjsk.jpg` },
@@ -220,7 +220,7 @@ const CertificationSection = () => {
 
         {/* Photos Tab */}
         {activeTab === 'photos' && (
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
+          <div className="relative bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
             {/* Background accent */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-50 to-transparent rounded-full opacity-40 -z-10"></div>
             
@@ -240,25 +240,16 @@ const CertificationSection = () => {
                   />
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
-                    <div className="flex justify-center items-center h-full">
-                      <div className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full transition-all duration-300 transform group-hover:scale-125 shadow-xl">
-                        <Play size={28} fill="currentColor" />
-                      </div>
-                    </div>
-                    
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                     <div className="space-y-2">
-                      <h3 className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg">
+                      <h3 className="text-white font-bold text-lg drop-shadow-lg">
                         {photo.title}
                       </h3>
-                      <p className="text-orange-300 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-orange-300 text-sm font-semibold">
                         {photo.date}
                       </p>
                     </div>
                   </div>
-
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-orange-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               ))}
             </div>

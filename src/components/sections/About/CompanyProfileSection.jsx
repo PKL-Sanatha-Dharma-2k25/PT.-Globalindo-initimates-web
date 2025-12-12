@@ -66,7 +66,7 @@ const AboutSection = () => {
               
               {/* Subtitle */}
               <p className="about-body text-lg text-gray-600 max-w-2xl font-light">
-                A trusted leader in intimate apparel manufacturing with commitment to quality, innovation, and sustainability
+                 A trusted apparel manufacturer delivering quality, innovation, and sustainable growth for global markets.
               </p>
             </div>
 
@@ -81,7 +81,7 @@ const AboutSection = () => {
                 {/* Image Section */}
                 <div className="relative group overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-gray-900 w-full h-72 md:h-80">
                   <img 
-                    src="/images/about.jpg" 
+                    src="./images/about.jpg" 
                     alt="PT. Globalindo Factory"
                     className="w-full h-full object-cover rounded-xl md:rounded-2xl group-hover:scale-105 transition-transform duration-300"
                   />
@@ -104,7 +104,7 @@ const AboutSection = () => {
                     </div>
                     <div className="flex-1 flex items-center pt-2">
                       <p className="about-body text-xs md:text-sm text-gray-700 leading-relaxed">
-                        To become a global company in the garment industry that always makes continuous improvement in quality, work safety and legality with an orientation towards long-term mutually beneficial relationships.
+                        To become a global leader in the garment industry by consistently improving quality, work safety, and compliance while building long-term, mutually beneficial partnerships.
                       </p>
                     </div>
                   </div>
@@ -122,15 +122,15 @@ const AboutSection = () => {
                     <div className="about-body text-gray-700 space-y-2 md:space-y-2.5 flex-1 flex flex-col justify-center pt-1">
                       <div className="flex items-start gap-2.5">
                         <span className="text-orange-500 flex-shrink-0 font-bold text-sm mt-0.5">◆</span>
-                        <span className="text-xs md:text-sm leading-snug">Quality environment & culture for excellent products</span>
+                        <span className="text-xs md:text-sm leading-snug text-gray-700">Build a quality-driven environment and culture to deliver world-class products</span>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <span className="text-orange-500 flex-shrink-0 font-bold text-sm mt-0.5">◆</span>
-                        <span className="text-xs md:text-sm leading-snug">Automation & digitalization with Industry 4.0 technology</span>
+                        <span className="text-xs md:text-sm leading-snug text-gray-700">Implement automation and digitalization through Industry 4.0 technologies</span>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <span className="text-orange-500 flex-shrink-0 font-bold text-sm mt-0.5">◆</span>
-                        <span className="text-xs md:text-sm leading-snug">Sustainable eco-friendly operations & community benefits</span>
+                        <span className="text-xs md:text-sm leading-snug text-gray-700">Operate sustainably with eco-friendly initiatives and community-driven programs</span>
                       </div>
                     </div>
                   </div>
@@ -149,11 +149,20 @@ const AboutSection = () => {
                     Who We Are
                   </h3>
                   <div className="space-y-2.5">
-                    <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
-                      <span className="text-orange-500 font-bold">PT. Globalindo Intimates</span> produces women's and men's underwear, reusable pads, t-shirts, camisoles, swimwear, hoodies, kids wear, and hospital uniforms with focus on safety, quality, and inclusivity.
+                    <p className="text-xs md:text-sm leading-relaxed">
+                      <span className="text-orange-600 font-semibold">PT. Globalindo Intimates</span>
+                      <span className="text-gray-700"> is a versatile apparel manufacturer producing a wide range of products including women's and men's underwear, reusable pads, T-shirts, camisoles, hoodies, kids' wear, swimwear, hospital uniforms, and other garment categories.</span>
                     </p>
-                    <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
-                      Since 2018, we've upgraded machines with Industry 4.0 technology and in 2019 were recognized by Indonesian Ministry of Industry as a <span className="font-semibold text-blue-900">Lighthouse Industry 4.0 project</span>.
+                    <p className="text-xs md:text-sm leading-relaxed">
+                      <span className="text-gray-700">With </span>
+                      <span className="text-blue-600 font-semibold">quality, safety, and inclusivity</span>
+                      <span className="text-gray-700"> at our core, we continuously expand our capabilities to meet evolving global demands across multiple apparel segments.</span>
+                    </p>
+                    <p className="text-xs md:text-sm leading-relaxed">
+                      <span className="text-gray-700">Since </span>
+                      <span className="text-orange-600 font-semibold">2018, we have modernized our operations with Industry 4.0 technologies</span>
+                      <span className="text-gray-700">, and in 2019 we were proudly recognized by the Indonesian Ministry of Industry as an </span>
+                      <span className="text-blue-600 font-semibold">Industry 4.0 Lighthouse.</span>
                     </p>
                   </div>
                 </div>

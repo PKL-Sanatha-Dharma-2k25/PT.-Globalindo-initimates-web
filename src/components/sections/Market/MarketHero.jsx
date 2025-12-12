@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Globe, ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 
 // Simulasi designTokens
 const designTokens = {
@@ -10,7 +10,7 @@ const designTokens = {
   }
 };
 
-const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
+const MarketHero = ({ videoUrl = "./images/BgHero/Market.mp4" }) => {
   const scrollToSection = () => {
     const marketSection = document.getElementById('market');
     if (marketSection) {
@@ -38,43 +38,34 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full flex flex-col justify-center px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
           
-          {/* Subtitle */}
-          <div className="mb-8">
-            <span 
-              className="text-xs md:text-sm font-medium uppercase tracking-[0.15em] drop-shadow-lg inline-flex items-center gap-2 transition-all duration-300"
-              style={{ color: designTokens.colors.primary.orange }}
-            >
-              <Globe className="w-3.5 h-3.5" />
+          {/* Badge dengan Animasi */}
+          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2.5 rounded-md bg-orange-500/15 border border-orange-400/30 backdrop-blur-sm shadow-lg hover:shadow-orange-500/20 transition-all duration-300 group">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500 shadow-lg shadow-orange-500/50" />
+            </span>
+            <span className="text-xs md:text-sm font-medium text-orange-300 uppercase tracking-wide">
               Global Markets
             </span>
           </div>
 
-          {/* Accent Line */}
-          <div 
-            className="w-16 h-0.5 mb-8 rounded-full transition-all duration-300"
-            style={{ backgroundColor: designTokens.colors.primary.orange }}
-          ></div>
-          
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed drop-shadow-lg tracking-tight">
-            Think Global,
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-relaxed tracking-tight">
+            Think Global, <br />
             <span 
               style={{ color: designTokens.colors.primary.orange }}
               className="font-light"
             >
-              <br />
               Trade Local
             </span>
           </h1>
 
           {/* Description */}
-          <p 
-            className="text-sm md:text-base text-white/60 drop-shadow-lg font-light max-w-xl transition-all duration-300 mb-10 leading-relaxed"
-          >
-            Connecting markets across 50+ countries with world-class quality and reliability
+          <p className="text-sm md:text-base text-white/60 font-light max-w-xl mb-10 leading-relaxed">
+            Serving customers in 50+ countries with consistent quality, reliability, and trusted partnerships.
           </p>
 
           {/* CTA Button */}
@@ -90,9 +81,8 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
             ></div>
             
             {/* Button Content */}
-            <span className="flex items-center gap-2 relative z-10">
-              <TrendingUp className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />
-              <span className="text-sm md:text-base">View Market Data</span>
+            <span className="flex items-center gap-2 relative z-10 text-sm md:text-base">
+              <span>View Market Data</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </button>
@@ -105,8 +95,8 @@ const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
           onClick={scrollToSection}
           className="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors duration-300 group"
         >
-          <span className="text-xs font-light uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-4 h-4 group-hover:animate-bounce" />
+          <span className="text-xs font-light uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scroll</span>
+          <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
       </div>
     </section>
