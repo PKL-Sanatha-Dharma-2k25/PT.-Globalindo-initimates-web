@@ -7,8 +7,8 @@ const CertificationSection = () => {
   const [activeTab, setActiveTab] = useState('certificates');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const CERT_FOLDER = './images/Sertif/';
-  const EVENT_FOLDER = './images/Event/';
+  const CERT_FOLDER = '/images/Sertif/';
+  const EVENT_FOLDER = '/images/Event/';
 
   const certifications = [
     { title: 'BPJS Ketenagakerjaan', image: `${CERT_FOLDER}bpjsk.jpg` },

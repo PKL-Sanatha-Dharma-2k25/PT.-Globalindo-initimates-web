@@ -10,7 +10,7 @@ const designTokens = {
   }
 };
 
-const MarketHero = ({ videoUrl = "./images/BgHero/Market.mp4" }) => {
+const MarketHero = ({ videoUrl = "/images/BgHero/Market.mp4" }) => {
   const scrollToSection = () => {
     const marketSection = document.getElementById('market');
     if (marketSection) {

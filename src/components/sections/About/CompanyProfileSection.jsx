@@ -81,7 +81,7 @@ const AboutSection = () => {
                 {/* Image Section */}
                 <div className="relative group overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-gray-900 w-full h-72 md:h-80">
                   <img 
-                    src="./images/about.jpg" 
+                    src="/images/about.jpg" 
                     alt="PT. Globalindo Factory"
                     className="w-full h-full object-cover rounded-xl md:rounded-2xl group-hover:scale-105 transition-transform duration-300"
                   />

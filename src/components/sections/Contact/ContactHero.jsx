@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const ContactHero = ({ bgImage = "./images/BgHero/bgC.jpg" }) => {
+const ContactHero = ({ bgImage = "/images/BgHero/bgC.jpg" }) => {
   const scrollToSection = () => {
     // Tunggu DOM ready
     setTimeout(() => {
