@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, X, Calendar } from 'lucide-react';
 
-const CertificationSection = () => {
+export default function CertificationSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [activeTab, setActiveTab] = useState('certificates');
@@ -22,10 +22,9 @@ const CertificationSection = () => {
   ];
 
   const photoEvents = [
-    { title: 'BPJS Ketenagakerjaan Ceremony', date: '2024', image: `${EVENT_FOLDER}event1.jpg`, size: 'small' },
-    { title: 'ISO Certification Award Reception', date: '2024', image: `${EVENT_FOLDER}event3.jpg`, size: 'large' },
-    { title: 'Industry Excellence Forum', date: '2024', image: `${EVENT_FOLDER}workshop.jpg`, size: 'small' },
-    { title: 'Award Celebration', date: '2024', image: `${EVENT_FOLDER}event2.jpg`, size: 'tall' },
+    { title: '', date: '2024', image: `${EVENT_FOLDER}event1.jpg` },
+    { title: '', date: '2024', image: `${EVENT_FOLDER}event3.jpg` },
+    { title: '', date: '2024', image: `${EVENT_FOLDER}event2.jpg` },
   ];
 
   const itemsPerView = 5;
@@ -59,32 +58,6 @@ const CertificationSection = () => {
   };
 
   const visibleCerts = getVisibleCerts();
-
-  const getGridClass = (size) => {
-    switch(size) {
-      case 'large':
-        return 'lg:col-span-2 lg:row-span-2';
-      case 'tall':
-        return 'lg:col-span-1 lg:row-span-2';
-      case 'small':
-        return 'lg:col-span-1';
-      default:
-        return 'lg:col-span-1';
-    }
-  };
-
-  const getAspectClass = (size) => {
-    switch(size) {
-      case 'large':
-        return 'aspect-square';
-      case 'tall':
-        return 'aspect-[3/4]';
-      case 'small':
-        return 'aspect-video';
-      default:
-        return 'aspect-video';
-    }
-  };
 
   return (
     <section id="certifications" className="py-24 md:py-40 bg-gradient-to-b from-slate-50 via-white to-slate-50">
@@ -218,20 +191,18 @@ const CertificationSection = () => {
           </div>
         )}
 
-        {/* Photos Tab */}
+        {/* Photos Tab - New Clean Design */}
         {activeTab === 'photos' && (
-          <div className="relative bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
+          <div className="relative">
             {/* Background accent */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-50 to-transparent rounded-full opacity-40 -z-10"></div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-max">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {photoEvents.map((photo, idx) => (
                 <div
                   key={idx}
                   onClick={() => setSelectedPhoto(photo)}
-                  className={`group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 ${
-                    getAspectClass(photo.size)
-                  } ${getGridClass(photo.size)}`}
+                  className="group relative overflow-hidden rounded-2xl cursor-pointer h-80 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                 >
                   <img
                     src={photo.image}
@@ -239,15 +210,15 @@ const CertificationSection = () => {
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <div className="space-y-2">
-                      <h3 className="text-white font-bold text-lg drop-shadow-lg">
+                  {/* Gradient Overlay - Bottom to Top */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Content - Always visible at bottom, slides up on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="space-y-3">
+                      <h3 className="text-white font-bold text-lg drop-shadow-lg leading-tight">
                         {photo.title}
                       </h3>
-                      <p className="text-orange-300 text-sm font-semibold">
-                        {photo.date}
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -282,13 +253,10 @@ const CertificationSection = () => {
             
             <div className="mt-8 bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100">
               <h3 className="text-blue-950 font-bold text-2xl">{selectedPhoto.title}</h3>
-              <p className="text-orange-600 font-semibold text-sm mt-3">{selectedPhoto.date}</p>
             </div>
           </div>
         </div>
       )}
     </section>
   );
-};
-
-export default CertificationSection;
+}
