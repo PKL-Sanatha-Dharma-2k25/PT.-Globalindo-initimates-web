@@ -18,7 +18,7 @@ import ContactPage from "./pages/Contact/ContactPage";
 import CertificationPage from "./pages/Explore/CertificationPage";
 import NewsPage from "./pages/News/NewsPage";
 
-const BASE = "/company-profile"; // PREFIX UTAMA
+const BASE = import.meta.env.VITE_BASE_URL || '/company-profile'; 
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("landing");
