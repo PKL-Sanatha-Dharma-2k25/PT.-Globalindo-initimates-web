@@ -10,13 +10,13 @@ const CompanyOverview = ({ onNavigateTo }) => {
   const products = [
     {
       id: 1,
-      images: ["/images/Product/out1.jpg", "/images/Product/out2.jpg"],
+      images: [import.meta.env.VITE_BASE_URL + "/images/Product/out1.jpg", import.meta.env.VITE_BASE_URL + "/images/Product/out2.jpg"],
       title: "Outerwear",
       description: "Bra & shapewear, sportswear, swimwear, activewear, and performance garments"
     },
     {
       id: 2,
-      images: ["/images/Product/u1.jpg", "/images/Product/u2.JPG"],
+      images: [import.meta.env.VITE_BASE_URL + "/images/Product/u1.jpg", import.meta.env.VITE_BASE_URL + "/images/Product/u2.JPG"],
       title: "Underwear",
       description: "Women's and men's underwear, period panty, plus size collections, briefs, boxers"
     }

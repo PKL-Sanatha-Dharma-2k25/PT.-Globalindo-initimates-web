@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const ContactHero = ({ bgImage = "/images/BgHero/bgC.jpg" }) => {
+const ContactHero = ({ bgImage = import.meta.env.VITE_BASE_URL + "/images/BgHero/bgC.jpg" }) => {
   const scrollToSection = () => {
     // Tunggu DOM ready
     setTimeout(() => {
@@ -21,7 +21,7 @@ const ContactHero = ({ bgImage = "/images/BgHero/bgC.jpg" }) => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgImage})` }}
+        style={{ backgroundImage: `url(${import.meta.env.VITE_BASE_URL + bgImage})` }}
       ></div>
 
       {/* Dark Overlay */}

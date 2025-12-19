@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const CSRHero = ({ videoUrl = "/images/BgHero/csrBg.mp4" }) => {
+const CSRHero = ({ videoUrl = import.meta.env.VITE_BASE_URL + "/images/BgHero/csrBg.mp4" }) => {
   const scrollToSection = () => {
     const csrSection = document.getElementById('csr');
     if (csrSection) {

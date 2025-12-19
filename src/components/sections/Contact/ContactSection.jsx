@@ -271,7 +271,7 @@ const ContactSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
                   <div className={`${presets.cardHeader.iconOrange}`}>
                     <img 
-                      src="/images/icon.PNG" 
+                      src={import.meta.env.VITE_BASE_URL  + "/images/icon.PNG"} 
                       alt="Instagram"
                       className="w-6 h-6"
                     />

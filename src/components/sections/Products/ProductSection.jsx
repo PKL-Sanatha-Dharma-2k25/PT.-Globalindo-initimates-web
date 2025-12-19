@@ -8,16 +8,16 @@ const products = [
   {
     id: 1,
     name: "Period Panty",
-    image: "/images/Product/panty/p2.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/panty/p2.png",
     category: "Period Panty",
-    mainImage: "/images/Product/panty/p2.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/panty/p2.png",
     descriptionShort:
       "Designed with 4-layer protection including a soft cotton lining, super absorbent and breathable padding, leak-proof barrier, and cotton outer layer.",
     descriptionLong:
       "We produce various types of women's underwear, including period panties available in multiple designs, colors, and sizes. Engineered with advanced 4-layer protection technology to provide maximum comfort, protection, and confidence during menstruation.",
     variantImages: [
-      "/images/Product/panty/p1.png",
-      "/images/Product/panty/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/panty/p1.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/panty/p3.png",
     ],
     features: [
       "Soft cotton lining",
@@ -38,16 +38,16 @@ const products = [
   {
     id: 2,
     name: "Ladies Underwear",
-    image: "/images/Product/underweare/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/underweare/p1.png",
     category: "Ladies Underwear",
-    mainImage: "/images/Product/underweare/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/underweare/p1.png",
     descriptionShort:
       "Women's underwear produced in various shapes and sizes with premium quality materials.",
     descriptionLong:
       "We manufacture ladies underwear in a wide range of shapes, sizes, and styles using high-quality materials. Designed to provide comfort, durability, and a perfect fit for everyday wear.",
     variantImages: [
-      "/images/Product/underweare/p2.png",
-      "/images/Product/underweare/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/underweare/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/underweare/p3.png",
     ],
     features: [
       "Available in various shapes",
@@ -62,16 +62,16 @@ const products = [
   {
     id: 3,
     name: "Ladies Bra",
-    image: "/images/Product/bra/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/bra/p1.png",
     category: "Ladies Bra",
-    mainImage: "/images/Product/bra/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/bra/p1.png",
     descriptionShort:
       "A wide selection of bras available in various sizes and styles, from wire-free to seamless designs.",
     descriptionLong:
       "Our ladies bra collection is designed to provide optimal comfort and support throughout the day. Available in various shapes, sizes, and constructions, including wire-free and seamless options.",
     variantImages: [
-      "/images/Product/bra/p2.png",
-      "/images/Product/bra/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/bra/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/bra/p3.png",
     ],
     features: [
       "Wire-free options",
@@ -86,16 +86,16 @@ const products = [
   {
     id: 4,
     name: "Hospital Uniform",
-    image: "/images/Product/hospital/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
     category: "Hospital Uniform",
-    mainImage: "/images/Product/hospital/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
     descriptionShort:
       "Professional hospital uniforms designed for comfort, durability, and ease of movement in medical environments.",
     descriptionLong:
       "We manufacture high-quality hospital uniforms for doctors, nurses, and healthcare professionals. Designed with breathable and durable fabrics, our uniforms provide comfort, hygiene, and flexibility for long working hours while maintaining a clean and professional appearance.",
     variantImages: [
-      "/images/Product/hospital/p2.png",
-      "/images/Product/hospital/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p3.png",
     ],
     features: [
       "Breathable and durable fabric",
@@ -110,16 +110,16 @@ const products = [
   {
     id: 5,
     name: "Sport Wear",
-    image: "/images/Product/spoorrt/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/spoorrt/p1.png",
     category: "Sport Wear",
-    mainImage: "/images/Product/spoorrt/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/spoorrt/p1.png",
     descriptionShort:
       "High-performance sportswear produced with advanced techniques for sport bras, leggings, jackets, and pants.",
     descriptionLong:
       "We specialize in producing sportswear using complex and advanced manufacturing techniques. Our collection includes sport bras, leggings, jackets, and sport pants designed for flexibility, breathability, and optimal performance.",
     variantImages: [
-      "/images/Product/spoorrt/p2.png",
-      "/images/Product/spoorrt/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/spoorrt/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/spoorrt/p3.png",
     ],
     features: [
       "Advanced sport bra construction",
@@ -134,18 +134,18 @@ const products = [
   {
     id: 6,
     name: "Man's Underwear",
-    image: "/images/Product/mu/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
     category: "Man's Underwear",
-    mainImage: "/images/Product/mu/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
     descriptionShort:
       "Men's underwear available in various sizes and shapes with high-quality materials for maximum comfort.",
     descriptionLong:
       "Our men's underwear is designed to provide comfort, durability, and a modern look. Manufactured in various sizes and styles using premium materials to ensure a perfect fit and long-lasting wear.",
     variantImages: [
-      "/images/Product/mu/p1.png",
-      "/images/Product/mu/p2.png",
-      "/images/Product/mu/p3.png",
-      "/images/Product/mu/p4.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p4.png",
     ],
     features: [
       "Available in all sizes",
@@ -160,16 +160,16 @@ const products = [
   {
     id: 7,
     name: "Swimwear",
-    image: "/images/Product/swim/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/swim/p1.png",
     category: "Swimwear",
-    mainImage: "/images/Product/swim/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/swim/p1.png",
     descriptionShort:
       "Swimwear produced in various sizes, shapes, colors, and age ranges, including special-function designs.",
     descriptionLong:
       "We produce a wide range of swimwear suitable for all ages and body types. Our swimwear is designed for comfort, durability, and water resistance, including special-function options such as period swimwear.",
     variantImages: [
-      "/images/Product/swim/p2.png",
-      "/images/Product/swim/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/swim/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/swim/p3.png",
     ],
     features: [
       "Available in various sizes",
@@ -184,16 +184,16 @@ const products = [
   {
     id: 8,
     name: "Innerwear (T-Shirt)",
-    image: "/images/Product/Innerware/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/Innerware/p1.png",
     category: "Innerware",
-    mainImage: "/images/Product/Innerware/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/Innerware/p1.png",
     descriptionShort:
       "T-shirts available in various sizes and shapes with multiple functional uses.",
     descriptionLong:
       "Our innerwear T-shirts are made from high-quality materials designed for everyday comfort. Available in various sizes, shapes, and functional designs suitable for daily activities.",
     variantImages: [
-      "/images/Product/Innerware/p2.png",
-      "/images/Product/Innerware/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/Innerware/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/Innerware/p3.png",
     ],
     features: [
       "Available in various sizes",
@@ -208,16 +208,16 @@ const products = [
   {
     id: 9,
     name: "Jackets & Hoodies",
-    image: "/images/Product/Hoodie/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/Hoodie/p1.png",
     category: "Jackets & Hoodies",
-    mainImage: "/images/Product/Hoodie/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/Hoodie/p1.png",
     descriptionShort:
       "A versatile collection of jackets and hoodies available in various sizes and styles.",
     descriptionLong:
       "Our jackets and hoodies are crafted using soft, durable, and comfortable materials, making them ideal for daily wear and casual activities. Designed with modern aesthetics and practical construction, they are available in various sizes, shapes, and styles to suit different needs.",
     variantImages: [
-      "/images/Product/Hoodie/p2.png",
-      "/images/Product/Hoodie/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/Hoodie/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/Hoodie/p3.png",
     ],
     features: [
       "Available in multiple sizes",
@@ -232,16 +232,16 @@ const products = [
   {
     id: 10,
     name: "Kids Wear",
-    image: "/images/Product/kids/p1.png",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/kids/p1.png",
     category: "Kids Wear",
-    mainImage: "/images/Product/kids/p1.png",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/kids/p1.png",
     descriptionShort:
       "Children's clothing produced in various shapes and sizes.",
     descriptionLong:
       "We manufacture children's clothing using child-friendly materials that are safe, comfortable, and durable. Designed in various styles and sizes suitable for everyday activities.",
     variantImages: [
-      "/images/Product/kids/p2.png",
-      "/images/Product/kids/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/kids/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/kids/p3.png",
     ],
     features: [
       "Various clothing types",
