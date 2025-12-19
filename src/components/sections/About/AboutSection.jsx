@@ -25,7 +25,7 @@ const AboutSection = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url(${import.meta.env.VITE_BASE_URL + bgImage})`,
+            backgroundImage: `url(${bgImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

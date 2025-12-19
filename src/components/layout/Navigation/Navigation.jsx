@@ -70,7 +70,7 @@ const Navigation = ({ currentPage, onNavigateTo }) => {
             {/* Logo Only */}
             <img
               onClick={handleLogoClick}
-              src={import.meta.env.VITE_BASE_URL + "/images/logo/gi.png"}
+              src="/images/logo/gi.png"
               alt="PT. Globalindo Intimates"
               className="h-6 md:h-8 w-auto object-contain cursor-pointer transition-all duration-300 hover:opacity-80"
             />
