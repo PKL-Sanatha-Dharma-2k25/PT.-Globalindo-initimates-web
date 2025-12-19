@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronDown, ChevronLeft, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const TeamHero = ({ videoUrl = "/images/BgHero/teamBg.mp4", onBack }) => {
+const TeamHero = ({ videoUrl = import.meta.env.VITE_BASE_URL + "/images/BgHero/teamBg.mp4", onBack }) => {
   const scrollToSection = () => {
     const teamSection = document.getElementById('team');
     if (teamSection) {

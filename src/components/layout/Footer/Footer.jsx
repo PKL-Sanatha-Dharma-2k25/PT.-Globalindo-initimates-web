@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="space-y-5">
             <div className="flex items-center gap-3">
               <img 
-                src="/images/logo/icon.PNG"
+                src={import.meta.env.VITE_BASE_URL  + "/images/logo/icon.PNG}"}
                 alt="Globalindo Intimates Logo"
                 className="w-12 h-12 object-cover rounded-lg flex-shrink-0"
               />
