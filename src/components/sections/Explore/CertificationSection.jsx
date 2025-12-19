@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, X, Calendar } from 'lucide-react';
 
+// ========================================
+// GET IMAGE FOLDERS WITH VITE_BASE_URL
+// ========================================
+const getImageFolders = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  return {
+    CERT_FOLDER: `${baseUrl}/images/Sertif/`,
+    EVENT_FOLDER: `${baseUrl}/images/Event/`,
+  };
+};
+
 export default function CertificationSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [activeTab, setActiveTab] = useState('certificates');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const CERT_FOLDER = '/images/Sertif/';
-  const EVENT_FOLDER = '/images/Event/';
+  const { CERT_FOLDER, EVENT_FOLDER } = getImageFolders();
 
   const certifications = [
     { title: 'BPJS Ketenagakerjaan', image: `${CERT_FOLDER}bpjsk.jpg` },
@@ -155,6 +165,10 @@ export default function CertificationSection() {
                           src={cert.image}
                           alt={cert.title}
                           className="h-full w-auto object-contain filter drop-shadow-sm"
+                          onError={(e) => {
+                            console.warn(`Failed to load certification image: ${cert.image}`);
+                            e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23e5e7eb' width='300' height='300'/%3E%3C/svg%3E";
+                          }}
                         />
                       </div>
                     </div>
@@ -208,6 +222,10 @@ export default function CertificationSection() {
                     src={photo.image}
                     alt={photo.title}
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    onError={(e) => {
+                      console.warn(`Failed to load event image: ${photo.image}`);
+                      e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 320'%3E%3Crect fill='%23e5e7eb' width='400' height='320'/%3E%3C/svg%3E";
+                    }}
                   />
                   
                   {/* Gradient Overlay - Bottom to Top */}
@@ -249,6 +267,9 @@ export default function CertificationSection() {
               src={selectedPhoto.image}
               alt={selectedPhoto.title}
               className="w-full h-auto rounded-2xl shadow-2xl"
+              onError={() => {
+                console.warn(`Failed to load modal image: ${selectedPhoto.image}`);
+              }}
             />
             
             <div className="mt-8 bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100">

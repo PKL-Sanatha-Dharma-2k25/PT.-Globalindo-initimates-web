@@ -2,6 +2,16 @@ import React from 'react';
 import { Award, ChevronDown, ArrowRight } from 'lucide-react';
 
 const AboutHero = () => {
+  // ========================================
+  // GET ABOUT BACKGROUND WITH VITE_BASE_URL
+  // ========================================
+  const getAboutBackground = () => {
+    const baseUrl = import.meta.env.VITE_BASE_URL || '';
+    return `${baseUrl}/images/BgHero/about.png`;
+  };
+
+  const backgroundImage = getAboutBackground();
+
   const handleExploreClick = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -27,11 +37,15 @@ const AboutHero = () => {
       <section 
         className="relative min-h-screen flex items-center overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/images/BgHero/about.png')"
+          backgroundImage: `url('${backgroundImage}')`
+        }}
+        onError={() => {
+          console.warn(`Failed to load about background: ${backgroundImage}`);
         }}
       >
         {/* Overlay untuk kontras teks */}
         <div className="absolute inset-0 bg-black/40 z-0"></div>
+        
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-700 rounded-full blur-3xl opacity-20 -translate-y-1/2 z-10"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600 rounded-full blur-3xl opacity-20 translate-y-1/2 z-10"></div>

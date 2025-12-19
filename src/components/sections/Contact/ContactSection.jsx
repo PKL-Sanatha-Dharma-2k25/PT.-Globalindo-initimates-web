@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { CheckCircle, AlertCircle } from 'lucide-react';
 
 // ========================================
+// GET ICON WITH VITE_BASE_URL
+// ========================================
+const getInstagramIcon = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  return `${baseUrl}/images/icon.PNG`;
+};
+
+// ========================================
 // DESIGN TOKENS - Imported
 // ========================================
 const designTokens = {
@@ -85,6 +93,8 @@ const ContactSection = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+
+  const instagramIcon = getInstagramIcon();
 
   const handleChange = (e) => {
     setFormData({
@@ -271,9 +281,13 @@ const ContactSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
                   <div className={`${presets.cardHeader.iconOrange}`}>
                     <img 
-                      src={import.meta.env.VITE_BASE_URL  + "/images/icon.PNG"} 
+                      src={instagramIcon}
                       alt="Instagram"
                       className="w-6 h-6"
+                      onError={(e) => {
+                        console.warn(`Failed to load Instagram icon: ${instagramIcon}`);
+                        e.target.style.display = 'none';
+                      }}
                     />
                   </div>
                 </div>

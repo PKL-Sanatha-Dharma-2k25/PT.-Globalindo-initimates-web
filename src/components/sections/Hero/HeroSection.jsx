@@ -2,17 +2,25 @@ import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import designTokens from '@/constants/designTokens';
 
+// ========================================
+// HERO BACKGROUNDS WITH VITE_BASE_URL
+// ========================================
+const getHeroBackgrounds = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  return [
+    `${baseUrl}/images/BgHero/bg.jpg`,
+    `${baseUrl}/images/BgHero/Picture1.png`,
+    `${baseUrl}/images/BgHero/Picture2.png`,
+  ];
+};
+
 const HeroSection = () => {
   const { t } = useLanguage();
   const [currentBg, setCurrentBg] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
   
-  const backgrounds = [
-    '/images/BgHero/bg.jpg',
-    '/images/BgHero/Picture1.png',
-    '/images/BgHero/Picture2.png',
-  ];
+  const backgrounds = getHeroBackgrounds();
 
   // Background slideshow
   useEffect(() => {
@@ -21,7 +29,7 @@ const HeroSection = () => {
       setCurrentBg((prev) => (prev + 1) % backgrounds.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   // Mouse parallax effect
   useEffect(() => {
@@ -67,6 +75,9 @@ const HeroSection = () => {
                 zIndex: currentBg === index ? 1 : 0,
                 transform: `scale(${currentBg === index ? 1.05 : 1})`,
                 transition: 'opacity 1.5s ease-in-out, transform 8s ease-in-out'
+              }}
+              onError={() => {
+                console.warn(`Failed to load background image: ${bg}`);
               }}
             />
           ))}

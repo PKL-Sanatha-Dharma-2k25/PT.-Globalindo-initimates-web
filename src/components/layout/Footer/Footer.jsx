@@ -25,8 +25,17 @@ const designTokens = {
 
 const { colors, transitions } = designTokens;
 
+// ========================================
+// GET LOGO WITH VITE_BASE_URL
+// ========================================
+const getLogoPath = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  return `${baseUrl}/images/logo/icon.PNG`;
+};
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const logoPath = getLogoPath();
 
   const socialLinks = [
     {
@@ -68,9 +77,13 @@ const Footer = () => {
           <div className="space-y-5">
             <div className="flex items-center gap-3">
               <img 
-                src={import.meta.env.VITE_BASE_URL  + "/images/logo/icon.PNG}"}
+                src={logoPath}
                 alt="Globalindo Intimates Logo"
                 className="w-12 h-12 object-cover rounded-lg flex-shrink-0"
+                onError={(e) => {
+                  console.warn(`Failed to load footer logo: ${logoPath}`);
+                  e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%23e5e7eb' width='48' height='48'/%3E%3C/svg%3E";
+                }}
               />
               <div>
                 <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">

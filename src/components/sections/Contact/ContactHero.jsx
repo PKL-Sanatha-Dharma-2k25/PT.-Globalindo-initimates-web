@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import designTokens from '../../../constants/designTokens';
 
-const ContactHero = ({ bgImage = import.meta.env.VITE_BASE_URL + "/images/BgHero/bgC.jpg" }) => {
+// ========================================
+// GET CONTACT BACKGROUND WITH VITE_BASE_URL
+// ========================================
+const getContactBackground = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  return `${baseUrl}/images/BgHero/bgC.jpg`;
+};
+
+const ContactHero = () => {
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  const backgroundImage = getContactBackground();
+
+  useEffect(() => {
+    // Pre-load background image
+    const img = new Image();
+    img.onload = () => setBackgroundLoaded(true);
+    img.onerror = () => {
+      console.warn(`Failed to load background image: ${backgroundImage}`);
+      setBackgroundLoaded(true); // Still show section even if image fails
+    };
+    img.src = backgroundImage;
+  }, [backgroundImage]);
+
   const scrollToSection = () => {
     // Tunggu DOM ready
     setTimeout(() => {
@@ -16,16 +38,31 @@ const ContactHero = ({ bgImage = import.meta.env.VITE_BASE_URL + "/images/BgHero
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-black">
 
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${import.meta.env.VITE_BASE_URL + bgImage})` }}
-      ></div>
+      {/* Background Image - dengan fallback */}
+      {backgroundLoaded && (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: `url('${backgroundImage}')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover'
+          }}
+        />
+      )}
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+      {/* Fallback Gradient Background */}
+      {!backgroundLoaded && (
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-900 via-blue-900 to-black" />
+      )}
+
+      {/* Dark Overlay - untuk kontras teks */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-black/50 z-5"></div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/20 to-transparent rounded-full blur-3xl -translate-y-1/2 z-0"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl translate-y-1/2 z-0"></div>
 
       {/* Content Container */}
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
@@ -54,14 +91,14 @@ const ContactHero = ({ bgImage = import.meta.env.VITE_BASE_URL + "/images/BgHero
           </h1>
 
           {/* Description */}
-          <p className="text-sm md:text-base text-white/60 font-light max-w-xl mb-10 leading-relaxed">
+          <p className="text-sm md:text-base text-white/70 font-light max-w-xl mb-10 leading-relaxed">
             We're here to answer your questions and discuss how we can help bring your vision to life
           </p>
 
           {/* CTA Button */}
           <button 
             onClick={scrollToSection}
-            className="group relative px-8 md:px-10 py-3 md:py-3.5 bg-transparent border-2 text-white font-light rounded-md transition-all duration-300 overflow-hidden flex items-center gap-2"
+            className="group relative px-8 md:px-10 py-3 md:py-3.5 bg-transparent border-2 text-white font-light rounded-md transition-all duration-300 overflow-hidden flex items-center gap-2 hover:shadow-lg hover:shadow-orange-500/30"
             style={{ borderColor: designTokens.colors.primary.orange }}
           >
             {/* Animated Background */}
