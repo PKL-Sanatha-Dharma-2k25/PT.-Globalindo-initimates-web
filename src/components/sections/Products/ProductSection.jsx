@@ -82,30 +82,33 @@ const products = [
       "Optimal support and comfort",
     ],
   },
-
   {
     id: 4,
-    name: "Hospital Uniform",
-    image: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
-    category: "Hospital Uniform",
-    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
+    name: "Man's Underwear",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
+    category: "Man's Underwear",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
     descriptionShort:
-      "Professional hospital uniforms designed for comfort, durability, and ease of movement in medical environments.",
+      "Men's underwear available in various sizes and shapes with high-quality materials for maximum comfort.",
     descriptionLong:
-      "We manufacture high-quality hospital uniforms for doctors, nurses, and healthcare professionals. Designed with breathable and durable fabrics, our uniforms provide comfort, hygiene, and flexibility for long working hours while maintaining a clean and professional appearance.",
+      "Our men's underwear is designed to provide comfort, durability, and a modern look. Manufactured in various sizes and styles using premium materials to ensure a perfect fit and long-lasting wear.",
     variantImages: [
-      import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p2.png",
-      import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p3.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p4.png",
     ],
     features: [
-      "Breathable and durable fabric",
-      "Comfortable for long working hours",
-      "Professional and clean appearance",
-      "Flexible and easy to move",
-      "Available in various sizes and colors",
-      "Suitable for medical professionals",
+      "Available in all sizes",
+      "Various underwear shapes",
+      "High-quality materials",
+      "Comfort-focused design",
+      "Premium fabric selection",
+      "Modern style",
     ],
   },
+
+ 
 
   {
     id: 5,
@@ -130,30 +133,27 @@ const products = [
       "Flexible and comfortable fit",
     ],
   },
-
-  {
+ {
     id: 6,
-    name: "Man's Underwear",
-    image: import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
-    category: "Man's Underwear",
-    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
+    name: "Hospital Uniform",
+    image: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
+    category: "Hospital Uniform",
+    mainImage: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
     descriptionShort:
-      "Men's underwear available in various sizes and shapes with high-quality materials for maximum comfort.",
+      "Professional hospital uniforms designed for comfort, durability, and ease of movement in medical environments.",
     descriptionLong:
-      "Our men's underwear is designed to provide comfort, durability, and a modern look. Manufactured in various sizes and styles using premium materials to ensure a perfect fit and long-lasting wear.",
+      "We manufacture high-quality hospital uniforms for doctors, nurses, and healthcare professionals. Designed with breathable and durable fabrics, our uniforms provide comfort, hygiene, and flexibility for long working hours while maintaining a clean and professional appearance.",
     variantImages: [
-      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p1.png",
-      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p2.png",
-      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p3.png",
-      import.meta.env.VITE_BASE_URL + "/images/Product/mu/p4.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p2.png",
+      import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p3.png",
     ],
     features: [
-      "Available in all sizes",
-      "Various underwear shapes",
-      "High-quality materials",
-      "Comfort-focused design",
-      "Premium fabric selection",
-      "Modern style",
+      "Breathable and durable fabric",
+      "Comfortable for long working hours",
+      "Professional and clean appearance",
+      "Flexible and easy to move",
+      "Available in various sizes and colors",
+      "Suitable for medical professionals",
     ],
   },
 

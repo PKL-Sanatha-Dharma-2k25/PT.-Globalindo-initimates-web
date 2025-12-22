@@ -7,7 +7,7 @@ import designTokens from '@/constants/designTokens';
 // ========================================
 const getNewsBackground = () => {
   const baseUrl = import.meta.env.VITE_BASE_URL || '';
-  return `${baseUrl}/images/BgHero/newsbg.jpg`;
+  return `${baseUrl}/images/BgHero/newsbg.png`;
 };
 
 const NewsHero = () => {

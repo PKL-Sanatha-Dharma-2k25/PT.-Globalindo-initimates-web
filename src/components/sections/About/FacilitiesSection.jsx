@@ -1,6 +1,23 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+// ========================================
+// GET FACILITIES IMAGES WITH VITE_BASE_URL
+// ========================================
+const getFacilitiesImages = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  return {
+    autocutter: `${baseUrl}/images/facilities/autocutter.jpg`,
+    claseer: `${baseUrl}/images/facilities/claseer.JPG`,
+    spreading: `${baseUrl}/images/facilities/spreading.JPG`,
+    pres: `${baseUrl}/images/facilities/pres.png`,
+    sewfree: `${baseUrl}/images/facilities/sewfree.png`,
+    gpr: `${baseUrl}/images/facilities/gpr.JPG`,
+    gooapp: `${baseUrl}/images/facilities/gooapp.JPG`,
+    agv: `${baseUrl}/images/facilities/agv.jpg`,
+  };
+};
+
 const FacilitiesSection = () => {
   const designTokens = {
     colors: {
@@ -23,12 +40,14 @@ const FacilitiesSection = () => {
 
   const sectionRef = React.useRef(null);
 
+  const images = getFacilitiesImages();
+
   const facilities = [
     {
       id: 1,
       title: 'Automatic Cutting Machine',
       description: 'Computer-controlled cutting technology that ensures precision, consistency, and high-speed operation.',
-      image: '/images/facilities/autocutter.jpg',
+      image: images.autocutter,
       layout: 'left',
       category: 'cutting',
       fullDescription: 'Fabric and tile cutting machines are controlled by a computer system, allowing them to operate automatically and quickly while ensuring precise and consistent results.',
@@ -43,7 +62,7 @@ const FacilitiesSection = () => {
       id: 2,
       title: 'Automatic Positioning Laser Cutting Machine',
       description: 'High-precision laser system ideal for lace, multi-pattern fabrics, engraving, and flexible production needs.',
-      image: '/images/facilities/claseer.JPG',
+      image: images.claseer,
       layout: 'right',
       category: 'cutting',
       fullDescription: 'This machine is suitable for acrylic cutting, garment fabric processing, plate engraving, and several other applications, offering flexibility and efficiency in different production needs.',
@@ -58,7 +77,7 @@ const FacilitiesSection = () => {
       id: 3,
       title: 'Fabric Shrinking Machine',
       description: 'Stabilizes fabric dimensions and supports consistent quality across all product categories.',
-      image: '/images/facilities/spreading.JPG',
+      image: images.spreading,
       layout: 'left',
       category: 'processing',
       fullDescription: 'A loosening, shrinking, and forming fabric machine restores fabric shape and dimensions, enhances appearance and stability, saves time and costs, and supports quality control, playing an important role in optimizing fabric quality and production processes.',
@@ -73,7 +92,7 @@ const FacilitiesSection = () => {
       id: 4,
       title: 'Automatic Collar Turning & Pressing Machine',
       description: 'Ensures consistent quality and high efficiency in collar production.',
-      image: '/images/facilities/pres.png',
+      image: images.pres,
       layout: 'right',
       category: 'finishing',
       fullDescription: 'The automatic collar turning and pressing process improves efficiency and ensures consistent quality in collar production. It saves time while covering steps from collar preparation to shaping, inspection, and garment attachment.',
@@ -88,7 +107,7 @@ const FacilitiesSection = () => {
       id: 5,
       title: 'Sewfree Machine',
       description: 'Next-generation garment construction using thermoplastic or hot-melt adhesive films.',
-      image: '/images/facilities/sewfree.png',
+      image: images.sewfree,
       layout: 'left',
       category: 'processing',
       fullDescription: 'The use of thermoplastic or hot melt adhesive films has started to revolutionize the way of garment construction and has become the next generation of cut and sew.',
@@ -103,7 +122,7 @@ const FacilitiesSection = () => {
       id: 6,
       title: 'Real-Time Monitoring of Sewing Data',
       description: 'Digital sewing-line monitoring that tracks material needs, productivity, and defect detection in real time.',
-      image: '/images/facilities/gpr.JPG',
+      image: images.gpr,
       layout: 'right',
       category: 'monitoring',
       fullDescription: 'Sewing line monitor is useful for identifying sewing material needs, tracking line productivity, and detecting reject products from quality control to improve overall efficiency.',
@@ -118,7 +137,7 @@ const FacilitiesSection = () => {
       id: 7,
       title: 'Go Mechanic App',
       description: 'In-house maintenance management system for repairs, preventive maintenance, spare parts, and mechanic performance tracking.',
-      image: '/images/facilities/gooapp.JPG',
+      image: images.gooapp,
       layout: 'left',
       category: 'software',
       fullDescription: 'Machine problems can be handled quickly, thereby reducing wasted time during the production process, while also being useful in collecting important production data.',
@@ -133,7 +152,7 @@ const FacilitiesSection = () => {
       id: 8,
       title: 'AGV Follower Robot',
       description: 'Automated Guided Vehicles improving material flow and operational efficiency.',
-      image: '/images/facilities/agv.jpg',
+      image: images.agv,
       layout: 'right',
       category: 'robot',
       fullDescription: 'Robot is controlled through apps and runs automatically to the designated sewing line to deliver materials needed for the sewing line and transport the finished product.',
@@ -240,7 +259,15 @@ const FacilitiesSection = () => {
                   {/* Image */}
                   <div className="w-full md:w-1/2">
                     <div className="relative overflow-hidden rounded-lg shadow-lg">
-                      <img src={facility.image} alt={facility.title} className="w-full h-80 object-cover" />
+                      <img 
+                        src={facility.image} 
+                        alt={facility.title} 
+                        className="w-full h-80 object-cover"
+                        onError={(e) => {
+                          console.warn(`Failed to load facility image: ${facility.image}`);
+                          e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 320'%3E%3Crect fill='%23e5e7eb' width='800' height='320'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23999'%3EImage not found%3C/text%3E%3C/svg%3E";
+                        }}
+                      />
                       <div className="absolute top-4 left-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                         {facility.category}
                       </div>

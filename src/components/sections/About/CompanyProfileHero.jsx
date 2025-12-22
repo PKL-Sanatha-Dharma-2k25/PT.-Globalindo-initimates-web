@@ -7,7 +7,7 @@ const AboutHero = () => {
   // ========================================
   const getAboutBackground = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL || '';
-    return `${baseUrl}/images/BgHero/about.png`;
+    return `${baseUrl}/images/BgHero/Picture1.png`;
   };
 
   const backgroundImage = getAboutBackground();
