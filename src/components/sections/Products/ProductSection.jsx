@@ -34,7 +34,6 @@ const products = [
       "Cotton outer layer",
     ],
   },
-
   {
     id: 2,
     name: "Ladies Underwear",
@@ -58,7 +57,6 @@ const products = [
       "Wide range of colors",
     ],
   },
-
   {
     id: 3,
     name: "Ladies Bra",
@@ -107,9 +105,6 @@ const products = [
       "Modern style",
     ],
   },
-
- 
-
   {
     id: 5,
     name: "Sport Wear",
@@ -133,7 +128,7 @@ const products = [
       "Flexible and comfortable fit",
     ],
   },
- {
+  {
     id: 6,
     name: "Hospital Uniform",
     image: import.meta.env.VITE_BASE_URL + "/images/Product/hospital/p1.png",
@@ -156,7 +151,6 @@ const products = [
       "Suitable for medical professionals",
     ],
   },
-
   {
     id: 7,
     name: "Swimwear",
@@ -180,7 +174,6 @@ const products = [
       "Water-resistant technology",
     ],
   },
-
   {
     id: 8,
     name: "Innerwear (T-Shirt)",
@@ -204,7 +197,6 @@ const products = [
       "Modern design",
     ],
   },
-
   {
     id: 9,
     name: "Jackets & Hoodies",
@@ -228,7 +220,6 @@ const products = [
       "Easy to maintain",
     ],
   },
-
   {
     id: 10,
     name: "Kids Wear",
@@ -262,7 +253,6 @@ const ProductDetailModal = ({ product, onClose }) => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // Combine main image + variant images
   const allImages = [product.mainImage, ...product.variantImages];
 
   useEffect(() => {
@@ -298,19 +288,17 @@ const ProductDetailModal = ({ product, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/50 backdrop-blur-sm overflow-y-auto">
-      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-4xl my-4">
+    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-0 sm:p-3 bg-black/50 backdrop-blur-sm overflow-y-auto">
+      <div className="relative bg-white rounded-none sm:rounded-xl shadow-2xl w-full max-w-4xl min-h-screen sm:min-h-0 sm:my-4">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-20 p-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-all"
+          className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 p-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-all"
         >
           <X className="w-5 h-5 text-gray-700" />
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-5 lg:p-6">
-          {/* Left - Images Carousel */}
-          <div className="lg:col-span-1 space-y-3">
-            {/* Main Image with Carousel Controls */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-5 lg:p-6 pb-6">
+          <div className="lg:col-span-1 space-y-2 sm:space-y-3">
             <div 
               className="relative rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4] group"
               onTouchStart={handleTouchStart}
@@ -325,35 +313,32 @@ const ProductDetailModal = ({ product, onClose }) => {
                 }}
               />
 
-              {/* Navigation Arrows */}
               <button
                 onClick={handlePrevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 sm:p-2 bg-white/80 hover:bg-white rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-800" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800" />
               </button>
               <button
                 onClick={handleNextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 sm:p-2 bg-white/80 hover:bg-white rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
               >
-                <ChevronRight className="w-5 h-5 text-gray-800" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800" />
               </button>
 
-              {/* Image Counter */}
               <div className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-xs font-semibold">
                 {currentImageIdx + 1} / {allImages.length}
               </div>
             </div>
 
-            {/* Thumbnail Strip - Scrollable */}
             <div className="relative">
               <div className="overflow-x-auto scrollbar-hide">
-                <div className="flex gap-2 pb-2">
+                <div className="flex gap-1.5 sm:gap-2 pb-2">
                   {allImages.map((img, idx) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIdx(idx)}
-                      className={`flex-shrink-0 rounded-md overflow-hidden transition-all border-2 w-16 h-20 ${
+                      className={`flex-shrink-0 rounded-md overflow-hidden transition-all border-2 w-12 h-16 sm:w-16 sm:h-20 ${
                         currentImageIdx === idx 
                           ? 'border-[#FF6600] shadow-lg ring-2 ring-[#FF6600]/30' 
                           : 'border-gray-300 hover:border-gray-400 opacity-70 hover:opacity-100'
@@ -374,18 +359,17 @@ const ProductDetailModal = ({ product, onClose }) => {
             </div>
           </div>
 
-          {/* Middle - Description & Features */}
-          <div className="lg:col-span-1 space-y-4 py-1">
+          <div className="lg:col-span-1 space-y-3 sm:space-y-4 py-1">
             <div>
-              <h1 className="text-2xl md:text-3xl font-black text-[#FF6600]">{product.name}</h1>
-              <div className="h-1 w-20 bg-gradient-to-r from-[#FF6600] to-[#0D1B66] rounded-full mt-2"></div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-[#FF6600]">{product.name}</h1>
+              <div className="h-1 w-16 sm:w-20 bg-gradient-to-r from-[#FF6600] to-[#0D1B66] rounded-full mt-2"></div>
             </div>
 
-            <span className="text-xs font-bold text-white px-3 py-1 rounded-full inline-block" style={{backgroundColor: '#0D1B66'}}>
+            <span className="text-xs font-bold text-white px-2.5 sm:px-3 py-1 rounded-full inline-block" style={{backgroundColor: '#0D1B66'}}>
               {product.category}
             </span>
 
-            <div className="bg-orange-50 p-3 rounded-lg border-l-4 border-[#FF6600]">
+            <div className="bg-orange-50 p-2.5 sm:p-3 rounded-lg border-l-4 border-[#FF6600]">
               <p className="text-xs text-gray-700 leading-relaxed font-semibold">
                 {product.descriptionShort}
               </p>
@@ -397,7 +381,7 @@ const ProductDetailModal = ({ product, onClose }) => {
 
             <div>
               <h3 className="text-xs font-bold text-gray-900 mb-2 uppercase tracking-wider">Features</h3>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {product.features.slice(0, 6).map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded text-xs">
                     <Zap className="w-3 h-3 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
@@ -408,15 +392,14 @@ const ProductDetailModal = ({ product, onClose }) => {
             </div>
           </div>
 
-          {/* Right - Additional Info */}
-          <div className="lg:col-span-1 space-y-3 flex flex-col justify-between py-1">
+          <div className="lg:col-span-1 space-y-2.5 sm:space-y-3 flex flex-col justify-between py-1">
             {product.layersProtection && (
-              <div className="p-3 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
+              <div className="p-2.5 sm:p-3 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
                 <h4 className="text-xs font-bold mb-2 flex items-center gap-2" style={{color: '#FF6600'}}>
                   <Shield className="w-4 h-4" />
                   4 LAYERS
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5 sm:space-y-2">
                   {product.layersProtection.map((layer, idx) => (
                     <li key={idx} className="text-xs text-gray-700">
                       <span className="text-[#FF6600] font-bold">L{idx + 1}:</span> {layer}
@@ -426,7 +409,7 @@ const ProductDetailModal = ({ product, onClose }) => {
               </div>
             )}
 
-            <div className="p-3 rounded-lg border-l-4" style={{backgroundColor: '#0D1B6615', borderColor: '#0D1B66'}}>
+            <div className="p-2.5 sm:p-3 rounded-lg border-l-4" style={{backgroundColor: '#0D1B6615', borderColor: '#0D1B66'}}>
               <h4 className="text-xs font-bold mb-1 flex items-center gap-2" style={{color: '#0D1B66'}}>
                 <Shield className="w-4 h-4" />
                 PREMIUM QUALITY
@@ -619,7 +602,8 @@ export default function ProductSection() {
             </div>
             
             <p className="text-sm md:text-base text-gray-600 max-w-2xl">
-              Engineered for real life. Our collections combine superior comfort with contemporary design, backed by rigorous quality testing.</p>
+              Engineered for real life. Our collections combine superior comfort with contemporary design, backed by rigorous quality testing.
+            </p>
           </div>
 
           <div className="mb-12 flex flex-wrap gap-3">
@@ -639,8 +623,21 @@ export default function ProductSection() {
             ))}
           </div>
 
+          {/* MOBILE & TABLET: Grid Layout 2-3 kolom */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-3 md:gap-4 mb-8">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="h-64 sm:h-72">
+                <ProductCard 
+                  product={product}
+                  onViewDetails={setSelectedProduct}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* DESKTOP: Varying Heights Layout - Baris 1 */}
           {filteredProducts.length > 0 && (
-            <div className="mb-16">
+            <div className="hidden lg:block mb-16">
               <div className="flex items-start justify-center gap-3 md:gap-4">
                 {filteredProducts.slice(0, 5).map((product, idx) => {
                   const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
@@ -657,8 +654,9 @@ export default function ProductSection() {
             </div>
           )}
 
+          {/* DESKTOP: Varying Heights Layout - Baris 2 */}
           {filteredProducts.length > 5 && (
-            <div className="mb-16">
+            <div className="hidden lg:block mb-16">
               <div className="flex items-start justify-center gap-3 md:gap-4">
                 {filteredProducts.slice(5, 10).map((product, idx) => {
                   const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
