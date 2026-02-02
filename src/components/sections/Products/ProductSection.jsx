@@ -1,13 +1,269 @@
 import React, { useState, useEffect } from "react";
-import { X, Package, Shield, Zap, Loader } from "lucide-react";
-
-const API_URL = 'http://localhost:5000/api';
+import { X, Package, Shield, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ========================================
-// PRODUCT DETAIL MODAL - RESPONSIVE
+// PRODUCT DATA
+// ========================================
+const products = [
+  {
+    id: 1,
+    name: "Period Panty",
+    image: "/images/Product/panty/p2.png",
+    category: "Period Panty",
+    mainImage: "/images/Product/panty/p2.png",
+    descriptionShort:
+      "Designed with 4-layer protection including a soft cotton lining, super absorbent and breathable padding, leak-proof barrier, and cotton outer layer.",
+    descriptionLong:
+      "We produce various types of women's underwear, including period panties available in multiple designs, colors, and sizes. Engineered with advanced 4-layer protection technology to provide maximum comfort, protection, and confidence during menstruation.",
+    variantImages: [
+      "/images/Product/panty/p1.png",
+      "/images/Product/panty/p3.png",
+    ],
+    features: [
+      "Soft cotton lining",
+      "Super absorbent padding",
+      "Leak-proof barrier",
+      "Cotton outer layer",
+      "Available in various colors",
+      "Available in multiple sizes",
+    ],
+    layersProtection: [
+      "Soft cotton lining",
+      "Super absorbent & breathable padding layer",
+      "Leak-proof barrier",
+      "Cotton outer layer",
+    ],
+  },
+
+  {
+    id: 2,
+    name: "Ladies Underwear",
+    image: "/images/Product/underweare/p1.png",
+    category: "Ladies Underwear",
+    mainImage: "/images/Product/underweare/p1.png",
+    descriptionShort:
+      "Women's underwear produced in various shapes and sizes with premium quality materials.",
+    descriptionLong:
+      "We manufacture ladies underwear in a wide range of shapes, sizes, and styles using high-quality materials. Designed to provide comfort, durability, and a perfect fit for everyday wear.",
+    variantImages: [
+      "/images/Product/underweare/p2.png",
+      "/images/Product/underweare/p3.png",
+    ],
+    features: [
+      "Available in various shapes",
+      "Available in all sizes",
+      "Premium quality materials",
+      "Multiple design options",
+      "Functional and comfortable",
+      "Wide range of colors",
+    ],
+  },
+
+  {
+    id: 3,
+    name: "Ladies Bra",
+    image: "/images/Product/bra/p1.png",
+    category: "Ladies Bra",
+    mainImage: "/images/Product/bra/p1.png",
+    descriptionShort:
+      "A wide selection of bras available in various sizes and styles, from wire-free to seamless designs.",
+    descriptionLong:
+      "Our ladies bra collection is designed to provide optimal comfort and support throughout the day. Available in various shapes, sizes, and constructions, including wire-free and seamless options.",
+    variantImages: [
+      "/images/Product/bra/p2.png",
+      "/images/Product/bra/p3.png",
+    ],
+    features: [
+      "Wire-free options",
+      "Seamless design",
+      "Wide range of sizes",
+      "Various bra shapes",
+      "Premium quality fabric",
+      "Optimal support and comfort",
+    ],
+  },
+
+  {
+    id: 4,
+    name: "Hospital Uniform",
+    image: "/images/Product/hospital/p1.png",
+    category: "Hospital Uniform",
+    mainImage: "/images/Product/hospital/p1.png",
+    descriptionShort:
+      "Professional hospital uniforms designed for comfort, durability, and ease of movement in medical environments.",
+    descriptionLong:
+      "We manufacture high-quality hospital uniforms for doctors, nurses, and healthcare professionals. Designed with breathable and durable fabrics, our uniforms provide comfort, hygiene, and flexibility for long working hours while maintaining a clean and professional appearance.",
+    variantImages: [
+      "/images/Product/hospital/p2.png",
+      "/images/Product/hospital/p3.png",
+    ],
+    features: [
+      "Breathable and durable fabric",
+      "Comfortable for long working hours",
+      "Professional and clean appearance",
+      "Flexible and easy to move",
+      "Available in various sizes and colors",
+      "Suitable for medical professionals",
+    ],
+  },
+
+  {
+    id: 5,
+    name: "Sport Wear",
+    image: "/images/Product/spoorrt/p1.png",
+    category: "Sport Wear",
+    mainImage: "/images/Product/spoorrt/p1.png",
+    descriptionShort:
+      "High-performance sportswear produced with advanced techniques for sport bras, leggings, jackets, and pants.",
+    descriptionLong:
+      "We specialize in producing sportswear using complex and advanced manufacturing techniques. Our collection includes sport bras, leggings, jackets, and sport pants designed for flexibility, breathability, and optimal performance.",
+    variantImages: [
+      "/images/Product/spoorrt/p2.png",
+      "/images/Product/spoorrt/p3.png",
+    ],
+    features: [
+      "Advanced sport bra construction",
+      "Complex leggings design",
+      "Sport jackets available",
+      "Sport pants available",
+      "Moisture-wicking fabric",
+      "Flexible and comfortable fit",
+    ],
+  },
+
+  {
+    id: 6,
+    name: "Man's Underwear",
+    image: "/images/Product/mu/p1.png",
+    category: "Man's Underwear",
+    mainImage: "/images/Product/mu/p1.png",
+    descriptionShort:
+      "Men's underwear available in various sizes and shapes with high-quality materials for maximum comfort.",
+    descriptionLong:
+      "Our men's underwear is designed to provide comfort, durability, and a modern look. Manufactured in various sizes and styles using premium materials to ensure a perfect fit and long-lasting wear.",
+    variantImages: [
+      "/images/Product/mu/p1.png",
+      "/images/Product/mu/p2.png",
+      "/images/Product/mu/p3.png",
+      "/images/Product/mu/p4.png",
+    ],
+    features: [
+      "Available in all sizes",
+      "Various underwear shapes",
+      "High-quality materials",
+      "Comfort-focused design",
+      "Premium fabric selection",
+      "Modern style",
+    ],
+  },
+
+  {
+    id: 7,
+    name: "Swimwear",
+    image: "/images/Product/swim/p1.png",
+    category: "Swimwear",
+    mainImage: "/images/Product/swim/p1.png",
+    descriptionShort:
+      "Swimwear produced in various sizes, shapes, colors, and age ranges, including special-function designs.",
+    descriptionLong:
+      "We produce a wide range of swimwear suitable for all ages and body types. Our swimwear is designed for comfort, durability, and water resistance, including special-function options such as period swimwear.",
+    variantImages: [
+      "/images/Product/swim/p2.png",
+      "/images/Product/swim/p3.png",
+    ],
+    features: [
+      "Available in various sizes",
+      "Multiple shapes and styles",
+      "Wide range of colors",
+      "Suitable for all ages",
+      "Special-function swimwear",
+      "Water-resistant technology",
+    ],
+  },
+
+  {
+    id: 8,
+    name: "Innerwear (T-Shirt)",
+    image: "/images/Product/Innerware/p1.png",
+    category: "Innerware",
+    mainImage: "/images/Product/Innerware/p1.png",
+    descriptionShort:
+      "T-shirts available in various sizes and shapes with multiple functional uses.",
+    descriptionLong:
+      "Our innerwear T-shirts are made from high-quality materials designed for everyday comfort. Available in various sizes, shapes, and functional designs suitable for daily activities.",
+    variantImages: [
+      "/images/Product/Innerware/p2.png",
+      "/images/Product/Innerware/p3.png",
+    ],
+    features: [
+      "Available in various sizes",
+      "Different shape options",
+      "Multiple functional uses",
+      "Comfortable for daily wear",
+      "High-quality materials",
+      "Modern design",
+    ],
+  },
+
+  {
+    id: 9,
+    name: "Jackets & Hoodies",
+    image: "/images/Product/Hoodie/p1.png",
+    category: "Jackets & Hoodies",
+    mainImage: "/images/Product/Hoodie/p1.png",
+    descriptionShort:
+      "A versatile collection of jackets and hoodies available in various sizes and styles.",
+    descriptionLong:
+      "Our jackets and hoodies are crafted using soft, durable, and comfortable materials, making them ideal for daily wear and casual activities. Designed with modern aesthetics and practical construction, they are available in various sizes, shapes, and styles to suit different needs.",
+    variantImages: [
+      "/images/Product/Hoodie/p2.png",
+      "/images/Product/Hoodie/p3.png",
+    ],
+    features: [
+      "Available in multiple sizes",
+      "Various jacket and hoodie styles",
+      "Soft and comfortable fabric",
+      "Designed for daily wear",
+      "Modern and casual design",
+      "Easy to maintain",
+    ],
+  },
+
+  {
+    id: 10,
+    name: "Kids Wear",
+    image: "/images/Product/kids/p1.png",
+    category: "Kids Wear",
+    mainImage: "/images/Product/kids/p1.png",
+    descriptionShort:
+      "Children's clothing produced in various shapes and sizes.",
+    descriptionLong:
+      "We manufacture children's clothing using child-friendly materials that are safe, comfortable, and durable. Designed in various styles and sizes suitable for everyday activities.",
+    variantImages: [
+      "/images/Product/kids/p2.png",
+      "/images/Product/kids/p3.png",
+    ],
+    features: [
+      "Various clothing types",
+      "Available in different shapes",
+      "Wide range of sizes",
+      "Child-friendly materials",
+      "Safe for children",
+      "Comfortable and durable",
+    ],
+  },
+];
+
+// ========================================
+// PRODUCT DETAIL MODAL - WITH CAROUSEL
 // ========================================
 const ProductDetailModal = ({ product, onClose }) => {
-  const [mainImage, setMainImage] = useState(product.mainImage || product.image);
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Combine main image + variant images
+  const allImages = [product.mainImage, ...product.variantImages];
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -16,129 +272,163 @@ const ProductDetailModal = ({ product, onClose }) => {
     };
   }, []);
 
-  const getImageUrl = (imagePath) => {
-    if (!imagePath) return '';
-    if (imagePath.startsWith('http')) return imagePath;
-    return `${API_URL.replace('/api', '')}/${imagePath}`;
+  const handlePrevImage = () => {
+    setCurrentImageIdx((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIdx((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    if (touchStart - touchEnd > 50) {
+      handleNextImage();
+    } else if (touchEnd - touchStart > 50) {
+      handlePrevImage();
+    }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end lg:items-center justify-center p-0 lg:p-4 bg-black/50 backdrop-blur-sm overflow-y-auto lg:overflow-visible">
-      <div className="relative bg-white rounded-t-3xl lg:rounded-2xl shadow-2xl w-full lg:max-w-6xl max-h-[95vh] lg:max-h-none overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/50 backdrop-blur-sm overflow-y-auto">
+      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-4xl my-4">
         <button
           onClick={onClose}
-          className="sticky lg:absolute top-4 right-4 z-20 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all float-right"
+          className="absolute top-3 right-3 z-20 p-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-all"
         >
-          <X className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
+          <X className="w-5 h-5 text-gray-700" />
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 p-4 lg:p-8">
-          {/* Left Side - Images */}
-          <div className="lg:col-span-1 space-y-3 lg:space-y-4">
-            {/* Main Image */}
-            <div className="relative rounded-lg lg:rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-5 lg:p-6">
+          {/* Left - Images Carousel */}
+          <div className="lg:col-span-1 space-y-3">
+            {/* Main Image with Carousel Controls */}
+            <div 
+              className="relative rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4] group"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <img
-                src={getImageUrl(mainImage)}
-                alt={product.name}
-                className="w-full h-full object-cover"
+                src={allImages[currentImageIdx]}
+                alt={`${product.name}-${currentImageIdx}`}
+                className="w-full h-full object-cover transition-opacity duration-300"
                 onError={(e) => {
-                  e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23e5e7eb' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%23999' text-anchor='middle' dy='.3em'%3EImage not found%3C/text%3E%3C/svg%3E";
+                  e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23e5e7eb' width='300' height='400'/%3E%3C/svg%3E";
                 }}
               />
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={handlePrevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-800" />
+              </button>
+              <button
+                onClick={handleNextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-800" />
+              </button>
+
+              {/* Image Counter */}
+              <div className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-xs font-semibold">
+                {currentImageIdx + 1} / {allImages.length}
+              </div>
             </div>
-            
-            {/* Variant Images */}
-            <div className="grid grid-cols-4 gap-2">
-              {product.variantImages && product.variantImages.slice(0, 4).map((img, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setMainImage(img)}
-                  className={`rounded-lg overflow-hidden cursor-pointer transition-all border-2 aspect-[1/1.2] ${
-                    mainImage === img ? 'border-[#FF6600] shadow-lg' : 'border-gray-300 hover:border-gray-400'
-                  }`}
-                >
-                  <img
-                    src={getImageUrl(img)}
-                    alt={`variant-${idx}`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 100'%3E%3Crect fill='%23e5e7eb' width='80' height='100'/%3E%3C/svg%3E";
-                    }}
-                  />
+
+            {/* Thumbnail Strip - Scrollable */}
+            <div className="relative">
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex gap-2 pb-2">
+                  {allImages.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIdx(idx)}
+                      className={`flex-shrink-0 rounded-md overflow-hidden transition-all border-2 w-16 h-20 ${
+                        currentImageIdx === idx 
+                          ? 'border-[#FF6600] shadow-lg ring-2 ring-[#FF6600]/30' 
+                          : 'border-gray-300 hover:border-gray-400 opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      <img
+                        src={img}
+                        alt={`thumbnail-${idx}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 100'%3E%3Crect fill='%23e5e7eb' width='80' height='100'/%3E%3C/svg%3E";
+                        }}
+                      />
+                    </button>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 
           {/* Middle - Description & Features */}
-          <div className="lg:col-span-1 space-y-3 lg:space-y-6 py-0 lg:py-2">
-            {/* Title */}
+          <div className="lg:col-span-1 space-y-4 py-1">
             <div>
-              <h1 className="text-xl lg:text-4xl font-black text-[#FF6600] mb-1">{product.name}</h1>
-              <div className="h-1 w-24 bg-gradient-to-r from-[#FF6600] to-[#0D1B66] rounded-full mt-3"></div>
+              <h1 className="text-2xl md:text-3xl font-black text-[#FF6600]">{product.name}</h1>
+              <div className="h-1 w-20 bg-gradient-to-r from-[#FF6600] to-[#0D1B66] rounded-full mt-2"></div>
             </div>
 
-            {/* Category */}
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-white px-4 py-2 rounded-full" style={{backgroundColor: '#0D1B66'}}>
-                {product.category}
-              </span>
-            </div>
+            <span className="text-xs font-bold text-white px-3 py-1 rounded-full inline-block" style={{backgroundColor: '#0D1B66'}}>
+              {product.category}
+            </span>
 
-            {/* Description Short */}
-            <div className="bg-orange-50 p-3 lg:p-4 rounded-lg border-l-4 border-[#FF6600]">
-              <p className="text-xs lg:text-sm text-gray-700 leading-relaxed font-semibold">
+            <div className="bg-orange-50 p-3 rounded-lg border-l-4 border-[#FF6600]">
+              <p className="text-xs text-gray-700 leading-relaxed font-semibold">
                 {product.descriptionShort}
               </p>
             </div>
 
-            {/* Description Long */}
-            <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">
+            <p className="text-xs text-gray-600 leading-relaxed">
               {product.descriptionLong}
             </p>
 
-            {/* Features List */}
-            {product.features && product.features.length > 0 && (
-              <div>
-                <h3 className="text-xs lg:text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Features & Specifications</h3>
-                <div className="grid grid-cols-2 gap-2 lg:gap-3">
-                  {product.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded">
-                      <Zap className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
-                      <span className="text-xs lg:text-xs text-gray-700 font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+            <div>
+              <h3 className="text-xs font-bold text-gray-900 mb-2 uppercase tracking-wider">Features</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {product.features.slice(0, 6).map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded text-xs">
+                    <Zap className="w-3 h-3 flex-shrink-0 mt-0.5" style={{color: '#FF6600'}} />
+                    <span className="text-gray-700 font-medium">{feature}</span>
+                  </div>
+                ))}
               </div>
-            )}
+            </div>
           </div>
 
-          {/* Right Side - Additional Info */}
-          <div className="lg:col-span-1 space-y-3 lg:space-y-6 flex flex-col justify-between py-0 lg:py-2">
-            {/* 4 Layers Protection - Period Panty */}
-            {product.layersProtection && product.layersProtection.length > 0 && (
-              <div className="p-3 lg:p-4 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
-                <h4 className="text-xs lg:text-sm font-bold mb-2 lg:mb-4 flex items-center gap-2" style={{color: '#FF6600'}}>
-                  <Shield className="w-4 h-4 lg:w-5 lg:h-5" />
-                  {product.layersProtection.length} LAYERS
+          {/* Right - Additional Info */}
+          <div className="lg:col-span-1 space-y-3 flex flex-col justify-between py-1">
+            {product.layersProtection && (
+              <div className="p-3 rounded-lg border-2" style={{backgroundColor: '#FF660015', borderColor: '#FF6600'}}>
+                <h4 className="text-xs font-bold mb-2 flex items-center gap-2" style={{color: '#FF6600'}}>
+                  <Shield className="w-4 h-4" />
+                  4 LAYERS
                 </h4>
-                <ul className="space-y-2 lg:space-y-3">
+                <ul className="space-y-2">
                   {product.layersProtection.map((layer, idx) => (
                     <li key={idx} className="text-xs text-gray-700">
-                      <div className="flex gap-2">
-                        <span className="text-[#FF6600] font-bold min-w-fit">L{idx + 1}:</span>
-                        <span className="font-medium">{layer}</span>
-                      </div>
+                      <span className="text-[#FF6600] font-bold">L{idx + 1}:</span> {layer}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
 
-            {/* Quality Info */}
-            <div className="p-3 lg:p-4 rounded-lg border-l-4" style={{backgroundColor: '#0D1B6615', borderColor: '#0D1B66'}}>
-              <h4 className="text-xs lg:text-sm font-bold mb-2 flex items-center gap-2" style={{color: '#0D1B66'}}>
-                <Shield className="w-4 h-4 lg:w-5 lg:h-5" />
+            <div className="p-3 rounded-lg border-l-4" style={{backgroundColor: '#0D1B6615', borderColor: '#0D1B66'}}>
+              <h4 className="text-xs font-bold mb-1 flex items-center gap-2" style={{color: '#0D1B66'}}>
+                <Shield className="w-4 h-4" />
                 PREMIUM QUALITY
               </h4>
               <p className="text-xs text-gray-700 leading-relaxed">
@@ -146,14 +436,23 @@ const ProductDetailModal = ({ product, onClose }) => {
               </p>
             </div>
 
-            {/* Guarantee Badge */}
-            <div className="p-3 rounded-lg border-2 border-dashed" style={{borderColor: '#0D1B66', backgroundColor: '#0D1B6608'}}>
+            <div className="p-2 rounded-lg border-2 border-dashed text-center" style={{borderColor: '#0D1B66', backgroundColor: '#0D1B6608'}}>
               <p className="text-xs font-bold" style={{color: '#0D1B66'}}>✓ Quality Guaranteed</p>
-              <p className="text-xs text-gray-600 mt-1">Customer satisfaction is our priority</p>
+              <p className="text-xs text-gray-600 mt-0.5">Customer satisfaction priority</p>
             </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };
@@ -166,7 +465,6 @@ const ProductCard = ({ product, onViewDetails }) => {
 
   const handleHover = () => {
     const newParticles = [];
-
     for (let i = 0; i < 8; i++) {
       const angle = (i / 8) * Math.PI * 2;
       const velocity = 80 + Math.random() * 40;
@@ -180,16 +478,8 @@ const ProductCard = ({ product, onViewDetails }) => {
         delay: i * 0.05,
       });
     }
-
     setParticles(newParticles);
-
     setTimeout(() => setParticles([]), 800);
-  };
-
-  const getImageUrl = (imagePath) => {
-    if (!imagePath) return '';
-    if (imagePath.startsWith('http')) return imagePath;
-    return `${API_URL.replace('/api', '')}/${imagePath}`;
   };
 
   return (
@@ -201,15 +491,14 @@ const ProductCard = ({ product, onViewDetails }) => {
       <div className="relative rounded-lg overflow-hidden bg-white hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
         <div className="relative w-full flex-1 overflow-hidden bg-gray-100">
           <img
-            src={getImageUrl(product.image)}
+            src={product.image}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             onError={(e) => {
-              e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23e5e7eb' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%23999' text-anchor='middle' dy='.3em'%3EImage not found%3C/text%3E%3C/svg%3E";
+              e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23e5e7eb' width='300' height='400'/%3E%3C/svg%3E";
             }}
           />
 
-          {/* Particles */}
           {particles.map((particle) => (
             <div
               key={particle.id}
@@ -231,9 +520,8 @@ const ProductCard = ({ product, onViewDetails }) => {
           ))}
         </div>
 
-        {/* Category Label at Bottom */}
         <div className="p-2 text-center bg-white">
-          <p className="text-xs md:text-sm font-bold text-white bg-[#FF6600] px-3 py-1.5 rounded-full inline-block">
+          <p className="text-xs md:text-sm font-bold text-white bg-[#FF6600] px-3 py-1 rounded-full inline-block">
             {product.category}
           </p>
         </div>
@@ -246,44 +534,10 @@ const ProductCard = ({ product, onViewDetails }) => {
 // MAIN PRODUCT SECTION
 // ========================================
 export default function ProductSection() {
-  const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
-  const [loading, setLoading] = useState(true);
 
-  // FETCH PRODUCTS FROM BACKEND
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    try {
-      const res = await fetch(`${API_URL}/products`);
-      const data = await res.json();
-      
-      // Handle response format
-      let productsList = [];
-      if (Array.isArray(data)) {
-        productsList = data;
-      } else if (data.data && Array.isArray(data.data)) {
-        productsList = data.data;
-      } else if (data.products && Array.isArray(data.products)) {
-        productsList = data.products;
-      }
-
-      setProducts(productsList);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      setProducts([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // GET UNIQUE CATEGORIES
-  const categories = ["All"];
-  const uniqueCategories = [...new Set(products.map(p => p.category))];
-  categories.push(...uniqueCategories.sort());
+  const categories = ["All", "Period Panty", "Ladies Underwear", "Ladies Bra", "Sport Wear", "Man's Underwear", "Swimwear", "Innerware", "Jackets & Hoodies", "Kids Wear"];
 
   const filteredProducts = activeCategory === "All" 
     ? products 
@@ -323,11 +577,6 @@ export default function ProductSection() {
             }
           }
 
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-
           .product-card-hover {
             transition: all 0.3s ease;
           }
@@ -348,16 +597,11 @@ export default function ProductSection() {
             background: #FF6600;
             animation: particle-float 0.8s ease-out forwards;
           }
-
-          .spinner {
-            animation: spin 1s linear infinite;
-          }
         `}
       </style>
       <section id="products" className="relative py-12 md:py-20 bg-white overflow-hidden">
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Header */}
-          <div className="text-left mb-8 md:mb-16">
+          <div className="text-left mb-16">
             <div className="flex items-center gap-3 mb-2">
               <p className="text-xs font-bold uppercase tracking-widest" style={{color: '#FF6600'}}>
                 Discover Our
@@ -365,123 +609,74 @@ export default function ProductSection() {
               <div className="h-1 w-12 bg-gradient-to-r from-[#FF6600] to-transparent rounded-full"></div>
             </div>
             
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-             Style Meets <span style={{color: '#FF6600'}}>Comfort</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Style Meets <span style={{color: '#FF6600'}}>Comfort</span>
             </h2>
 
-            <div className="flex items-center gap-4 mb-4 md:mb-6">
+            <div className="flex items-center gap-4 mb-6">
               <div className="h-1 w-20 bg-gradient-to-r from-[#FF6600] via-[#0D1B66] to-transparent rounded-full"></div>
               <div className="h-1 w-20 bg-gradient-to-r from-[#0D1B66] to-transparent rounded-full"></div>
             </div>
             
             <p className="text-sm md:text-base text-gray-600 max-w-2xl">
-              Engineered for real life. Our collections combine superior comfort with contemporary design, backed by rigorous quality testing.
-            </p>
+              Engineered for real life. Our collections combine superior comfort with contemporary design, backed by rigorous quality testing.</p>
           </div>
 
-          {/* Loading State */}
-          {loading ? (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '3rem', paddingBottom: '3rem' }}>
-              <Loader className="spinner" size={40} style={{ color: '#FF6600' }} />
+          <div className="mb-12 flex flex-wrap gap-3">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 md:px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeCategory === cat
+                    ? 'text-white shadow-lg'
+                    : 'text-gray-700 border-2 border-gray-300 hover:border-[#FF6600] hover:text-[#FF6600]'
+                }`}
+                style={activeCategory === cat ? {backgroundColor: '#FF6600'} : {}}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {filteredProducts.length > 0 && (
+            <div className="mb-16">
+              <div className="flex items-start justify-center gap-3 md:gap-4">
+                {filteredProducts.slice(0, 5).map((product, idx) => {
+                  const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
+                  return (
+                    <div key={product.id} className={`w-1/5 ${heights[idx]}`}>
+                      <ProductCard 
+                        product={product}
+                        onViewDetails={setSelectedProduct}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          ) : (
-            <>
-              {/* CATEGORY FILTER */}
-              {categories.length > 0 && (
-                <div className="mb-8 md:mb-12 flex flex-wrap gap-2 md:gap-3">
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => setActiveCategory(cat)}
-                      className={`px-3 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
-                        activeCategory === cat
-                          ? 'text-white shadow-lg'
-                          : 'text-gray-700 border-2 border-gray-300 hover:border-[#FF6600] hover:text-[#FF6600]'
-                      }`}
-                      style={activeCategory === cat ? {backgroundColor: '#FF6600'} : {}}
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
-              )}
+          )}
 
-              {/* Empty State */}
-              {filteredProducts.length === 0 ? (
-                <div style={{ backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', padding: '3rem', textAlign: 'center', color: '#6b7280' }}>
-                  <p style={{ fontSize: '1.125rem' }}>No products found in this category</p>
-                </div>
-              ) : (
-                <>
-                  {/* MAIN ROW - 5 PRODUCTS */}
-                  {filteredProducts.length > 0 && (
-                    <div className="mb-8 md:mb-16">
-                      <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
-                        {filteredProducts.slice(0, 5).map((product, idx) => {
-                          const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
-                          return (
-                            <div key={product._id || product.id} className={`w-1/5 ${heights[idx]}`}>
-                              <ProductCard 
-                                product={product}
-                                onViewDetails={setSelectedProduct}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* Mobile Grid - 2x3 for first 5 products */}
-                      <div className="md:hidden grid grid-cols-2 gap-2">
-                        {filteredProducts.slice(0, 5).map((product) => (
-                          <div key={product._id || product.id} className="h-56">
-                            <ProductCard 
-                              product={product}
-                              onViewDetails={setSelectedProduct}
-                            />
-                          </div>
-                        ))}
-                      </div>
+          {filteredProducts.length > 5 && (
+            <div className="mb-16">
+              <div className="flex items-start justify-center gap-3 md:gap-4">
+                {filteredProducts.slice(5, 10).map((product, idx) => {
+                  const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
+                  return (
+                    <div key={product.id} className={`w-1/5 ${heights[idx]}`}>
+                      <ProductCard 
+                        product={product}
+                        onViewDetails={setSelectedProduct}
+                      />
                     </div>
-                  )}
-
-                  {/* SECONDARY ROW - 5 PRODUCTS */}
-                  {filteredProducts.length > 5 && (
-                    <div className="mb-8 md:mb-16">
-                      <div className="hidden md:flex items-start justify-center gap-3 md:gap-4">
-                        {filteredProducts.slice(5, 10).map((product, idx) => {
-                          const heights = ['h-72 md:h-80', 'h-80 md:h-96', 'h-96 md:h-[420px]', 'h-80 md:h-96', 'h-72 md:h-80'];
-                          return (
-                            <div key={product._id || product.id} className={`w-1/5 ${heights[idx]}`}>
-                              <ProductCard 
-                                product={product}
-                                onViewDetails={setSelectedProduct}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* Mobile Grid - 2x3 for products 6-10 */}
-                      <div className="md:hidden grid grid-cols-2 gap-2">
-                        {filteredProducts.slice(5, 10).map((product) => (
-                          <div key={product._id || product.id} className="h-56">
-                            <ProductCard 
-                              product={product}
-                              onViewDetails={setSelectedProduct}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-            </>
+                  );
+                })}
+              </div>
+            </div>
           )}
         </div>
       </section>
 
-      {/* Product Detail Modal */}
       {selectedProduct && (
         <ProductDetailModal 
           product={selectedProduct} 

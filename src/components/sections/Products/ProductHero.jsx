@@ -10,7 +10,7 @@ const designTokens = {
   }
 };
 
-const ProductHero = ({ videoUrl = "./images/BgHero/produk.mp4" }) => {
+const ProductHero = ({ videoUrl = "/images/BgHero/produk.mp4" }) => {
   const scrollToSection = () => {
     const productSection = document.getElementById('products');
     if (productSection) {

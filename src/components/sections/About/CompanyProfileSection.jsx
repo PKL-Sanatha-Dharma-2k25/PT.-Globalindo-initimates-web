@@ -81,7 +81,7 @@ const AboutSection = () => {
                 {/* Image Section */}
                 <div className="relative group overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-gray-900 w-full h-72 md:h-80">
                   <img 
-                    src="./images/about.jpg" 
+                    src="/images/about.jpg" 
                     alt="PT. Globalindo Factory"
                     className="w-full h-full object-cover rounded-xl md:rounded-2xl group-hover:scale-105 transition-transform duration-300"
                   />
@@ -287,7 +287,7 @@ const AboutSection = () => {
                           </div>
                           <div className="flex-1 min-w-0">
                             <span className="text-xs text-gray-500 block font-medium">Factory Area</span>
-                            <p className="text-sm font-bold text-gray-800">23,876 m²</p>
+                            <p className="text-sm font-bold text-gray-800">11,035 m²</p>
                           </div>
                         </div>
                       </div>

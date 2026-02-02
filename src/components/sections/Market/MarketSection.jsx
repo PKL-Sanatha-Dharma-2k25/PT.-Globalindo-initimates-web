@@ -54,7 +54,7 @@ const factory1Customers = [
 
 const factory2Customers = [
   "Marubeni", "Kurabo", "Ambra", "Dame",
-  "Mother care", "Ohne", "FBB", "etc"
+  "Ohne", "FBB", "etc"
 ];
 
 const PieChart = ({ data, title, customers, index }) => {

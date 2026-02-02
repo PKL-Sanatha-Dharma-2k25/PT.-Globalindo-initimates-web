@@ -4,10 +4,15 @@ import designTokens from '@/constants/designTokens';
 
 const NewsHero = () => {
   const scrollToSection = () => {
-    const newsSection = document.getElementById('news-section');
-    if (newsSection) {
-      newsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Tunggu sedikit untuk memastikan DOM sudah ready
+    setTimeout(() => {
+      const newsSection = document.getElementById('news-section');
+      if (newsSection) {
+        newsSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn('Element dengan id news-section tidak ditemukan');
+      }
+    }, 100);
   };
 
   return (
@@ -32,7 +37,7 @@ const NewsHero = () => {
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url('./images/BgHero/newsbg.jpg')`,
+            backgroundImage: `url('/images/BgHero/newsbg.jpg')`,
             backgroundPosition: 'center',
             backgroundSize: 'cover'
           }}
